@@ -1,0 +1,249 @@
+
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 20px;
+}
+
+.container,
+.container-1 {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 2px 2px 4px gray ;
+  border-radius: 8px;
+  text-align: center;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 32px;
+  color: #333;
+}
+
+.BTN {
+  padding: 10px 15px;
+  margin: 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 16px;
+}
+
+.BTN:hover {
+  background-color: #0056b3;
+}
+
+.details {
+  margin-top: 20px;
+  text-align: left;
+}
+
+#para {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #444;
+}
+
+ol {
+  text-align: left;
+  margin-top: 15px;
+}
+
+li {
+  padding: 5px 0;
+  color: #555;
+  
+}
+/* Add this to your App.css */
+
+.container_input {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 25px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#form input[type="text"],
+#form input[type="date"],
+#form select,
+#form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#form textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+#form input[type="radio"] {
+  margin-right: 6px;
+  margin-left: 10px;
+}
+
+#form button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100px;
+  align-self: flex-start;
+  transition: background-color 0.2s ease;
+}
+
+#form button:hover {
+  background-color: #0056b3;
+}
+
+table {
+  width: 100%;
+  margin-top: 25px;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+table, th, td {
+  border: 1px solid #ccc;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background-color: #f5f5f5;
+}
+
+tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.container_watch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  padding: 20px;
+}
+
+
+.display_panel {
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 20px 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+  backdrop-filter: blur(5px);
+}
+
+
+.btns {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+.BTN {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #2a5298;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+
+.BTN:hover {
+  transform: translateY(-2px);
+  background-color: #e0e0e0;
+}
+
+
+.BTN:active {
+  transform: scale(0.96);
+}
+
+#laps{
+  color: #e0e0e0;
+  text-shadow: #333;
+}
+.laps-section {
+  margin-top: 20px;
+  background-color: rgba(255,255,255,0.1);
+  padding: 15px 25px;
+  border-radius: 10px;
+  width: fit-content;
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.laps-section h3 {
+  margin-bottom: 10px;
+}
+
+.laps-section ol {
+  list-style-position: inside;
+}
+
+.laps-section li {
+  margin: 5px 0;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 600px) {
+  .display_panel {
+    font-size: 2.2rem;
+    padding: 16px 24px;
+  }
+
+  .BTN {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
