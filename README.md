@@ -62,25 +62,25 @@ Then execute npx webpack this command will bundle the code present inside src/in
 By default after executing the above command , bundled will be written inside dist/main.js file.
 To customise webpack we can create a webpack.config.js file in our root directory where you will have to export an object like below one.
 {
-    "entry": "./src/index.js",
+    entry: "./src/index.js",
     "output": {
-        "filename": "bundle.js",
-        "path": "path.resolve(__dirname, 'public')"
+        filename: "bundle.js",
+        path: "path.resolve(__dirname, 'public')"
     },
     "devServer": {
-        "static": {
-            "directory": "path.resolve(__dirname, 'public')"
+        static: {
+            directory: "path.resolve(__dirname, 'public')"
         },
-        "port": 3000,
+        port: 3000,
     },
-    "mode": "development",
-    "module": {
-        "rules": [
+    mode: "development",
+    module: {
+        rules: [
             {
-                "test":"/\.js$/",
-                "exclude": "/node_modules/",
-                "use": {
-                    "loader": "babel-loader"
+                test:/\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader"
                 }
             }
         ]
@@ -106,9 +106,9 @@ create a .babelrc file inside your root directory with the below code.
 }
 Inside your webpack.config.js under the rules property add below code so that whereever it finds jsx code while bundling that we be coverted by babel-loader.
     {
-        "test":"/\.(js|jsx)$/",
-        "exclude": "/node_modules/",
-        "use": {
-            "loader": "babel-loader"
+        test:/\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+            loader: "babel-loader"
         }
     }
