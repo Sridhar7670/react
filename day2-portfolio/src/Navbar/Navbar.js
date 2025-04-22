@@ -34,11 +34,11 @@ export const Header = () => {
 
         {/* Desktop Navigation */}
         <div className="nav-links">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/skills">Skills</NavLink>
-          <NavLink to="/projects">Projects</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/" onClick={() => document.getElementById('home').scrollIntoView({ behavior: 'smooth' })}>Home</NavLink>
+          <NavLink to="/about" onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}>About</NavLink>
+          <NavLink to="/skills" onClick={() => document.getElementById('skills').scrollIntoView({ behavior: 'smooth' })}>Skills</NavLink>
+          <NavLink to="/projects" onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}>Projects</NavLink>
+          <NavLink to="/contact"onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>Contact</NavLink>
         </div>
 
         {/* Mobile menu button */}
@@ -51,11 +51,12 @@ export const Header = () => {
       {/* Mobile Navigation */}
       <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
         <div className="mobile-nav-links">
-          <MobileNavLink to="/" onClick={toggleMenu}>Home</MobileNavLink>
-          <MobileNavLink to="/about" onClick={toggleMenu}>About</MobileNavLink>
-          <MobileNavLink to="/skills" onClick={toggleMenu}>Skills</MobileNavLink>
-          <MobileNavLink to="/projects" onClick={toggleMenu}>Projects</MobileNavLink>
-          <MobileNavLink to="/contact" onClick={toggleMenu}>Contact</MobileNavLink>
+          <MobileNavLink to="/"  onClick={() => {toggleMenu(); document.getElementById('home').scrollIntoView({ behavior: 'smooth' }); }}>Home</MobileNavLink>
+          <MobileNavLink to="/about"  onClick={() => {toggleMenu(); document.getElementById('about').scrollIntoView({ behavior: 'smooth' }); }}>About</MobileNavLink>
+          <MobileNavLink to="/skills"  onClick={() => {toggleMenu(); document.getElementById('skills').scrollIntoView({ behavior: 'smooth' }); }}>Skills</MobileNavLink>
+          <MobileNavLink to="/projects"  onClick={() => {toggleMenu(); document.getElementById('projects').scrollIntoView({ behavior: 'smooth' }); }}>Projects</MobileNavLink>
+          <MobileNavLink to="/contact"  onClick={() => {toggleMenu(); document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); }}>Contact</MobileNavLink>
+
         </div>
       </div>
     </header>
@@ -63,8 +64,8 @@ export const Header = () => {
 };
 
 // Reusable NavLink component for desktop
-const NavLink = ({ to, children }) => (
-  <Link to={to} className="nav-link">
+const NavLink = ({ to, children ,onClick }) => (
+  <Link to={to} className="nav-link" onClick={onClick}>
     {children}
   </Link>
 );

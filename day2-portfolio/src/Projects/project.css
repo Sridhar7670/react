@@ -1,0 +1,155 @@
+/* Base Styles */
+.projects-section {
+  padding: 5rem 2rem;
+  background-color: #f8fafc;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #1e293b;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: #4f46e5;
+}
+
+/* Tile Grid Layout */
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Project Tile Styles */
+.project-tile {
+  position: relative;
+  height: 300px;
+  margin:0;
+  perspective: 1000px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-tile:hover {
+  transform: translateY(-5px);
+}
+
+.tile-front,
+.tile-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.tile-front {
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
+  z-index: 2;
+}
+
+.tile-back {
+  background: #4f46e5;
+  color: white;
+  padding: 1.5rem;
+  transform: rotateY(180deg);
+  z-index: 1;
+  top: -50px;
+}
+
+.project-tile:hover .tile-front {
+  transform: rotateY(180deg);
+}
+
+.project-tile:hover .tile-back {
+  transform: rotateY(0deg);
+}
+
+/* Tile Content Styles */
+.tile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1.5rem;
+}
+
+.tech-tag {
+  background: rgba(79, 70, 229, 0.9);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-description {
+  margin:1.5rem 1.5rem 1.5rem 0;
+  line-height: 1.6;
+  line-break: auto;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0px;
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.project-link:hover {
+  background: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tile-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-tile {
+    height: 250px;
+  }
+}

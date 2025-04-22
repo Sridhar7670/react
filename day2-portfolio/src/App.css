@@ -3,4 +3,6 @@
     margin: 0;
     width: 100%;
     height: auto;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    
 }

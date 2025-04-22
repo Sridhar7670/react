@@ -1,4 +1,4 @@
-/* Base Button Styles */
+
 .btn {
     display: inline-block;
     font-weight: 500;
@@ -7,24 +7,27 @@
     vertical-align: middle;
     user-select: none;
     border: 1px solid transparent;
-    border-radius: 4px;
     transition: all 0.3s ease;
     cursor: pointer;
   }
   
   /* Button Variants */
   .btn-primary {
-    background-color: #4f46e5;
+    background-color: #4f46e5 ;
     color: white;
+    box-shadow: 2px 2px 4px rgb(76, 110, 76);
   }
   
   .btn-primary:hover {
-    background-color: #4338ca;
+    background-color: #4338ca !important;
+    border-radius: 8px;
+    transition: linear 0.3s;
   }
   
   .btn-secondary {
     background-color: #e5e7eb;
     color: #1f2937;
+    border-radius: 8px;
   }
   
   .btn-secondary:hover {
@@ -44,17 +47,17 @@
   
   /* Button Sizes */
   .btn-small {
-    padding: 6px 12px;
+    padding: 6px 12px !important;
     font-size: 12px;
   }
   
   .btn-medium {
-    padding: 10px 20px;
+    padding: 10px 20px !important;
     font-size: 14px;
   }
   
   .btn-large {
-    padding: 14px 28px;
+    padding: 14px 28px !important;
     font-size: 16px;
   }
   
