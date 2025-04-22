@@ -36,7 +36,7 @@ const ContactForm = () => {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
-          message: formData.message,
+          message: formData.message, 
         }),
       });
 
@@ -160,8 +160,7 @@ const ContactForm = () => {
               required
             ></textarea>
           </div>
-
-          <button type="submit" className="btn"> Submit </button>
+          <button disabled={isSubmitting} className="btn">{isSubmitting ? "Sending..." : "Submit"}</button>
         </form>
       </div>
     </div>
