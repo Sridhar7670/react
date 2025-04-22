@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5a490fe4.css",
+    "main.js": "/static/js/main.f92e0a5f.js",
+    "static/media/my_image.jpg": "/static/media/my_image.e7bbb06002164be8f4bb.jpg",
+    "static/media/tic_tac_toe.jpg": "/static/media/tic_tac_toe.9c547b86ff45c47fe3c5.jpg",
+    "static/media/employee_managment_system.png": "/static/media/employee_managment_system.4e2889cad3760425bd01.png",
+    "static/media/TaskManager.png": "/static/media/TaskManager.3189d2eeb6b93179a5f2.png",
+    "static/media/Blinkit.png": "/static/media/Blinkit.1d93ea83fa594381a157.png",
+    "index.html": "/index.html",
+    "main.5a490fe4.css.map": "/static/css/main.5a490fe4.css.map",
+    "main.f92e0a5f.js.map": "/static/js/main.f92e0a5f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5a490fe4.css",
+    "static/js/main.f92e0a5f.js"
+  ]
+}
