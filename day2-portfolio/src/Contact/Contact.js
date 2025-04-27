@@ -77,24 +77,19 @@ const ContactForm = () => {
               </td>
               <td>Sridharnani080@gmail.com</td>
             </tr>
-            <tr>
-              <td>
-                <FaPhoneVolume size="2em" />
-              </td>
-              <td>(+91) 7670893965</td>
-            </tr>
+            
           </tbody>
         </table>
 
         <div className="connect">
         <h3 style={{ color: 'rgba(79, 70, 229, 1)' }}>Lets Connect:</h3>
-          <div className="social-icons">
+        <div className="social-icons">
             <a
-              href="https://www.facebook.com/sridhar.nani.129"
+              href="https://www.linkedin.com/in/sridhar-reddy-37b63a203/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaFacebook size="2em" />
+              <FaLinkedinIn size="2em" />
             </a>
             <a
               href="https://www.instagram.com/sridhar.rdy/"
@@ -111,13 +106,14 @@ const ContactForm = () => {
               <FaTwitter size="2em" />
             </a>
             <a
-              href="https://www.linkedin.com/in/sridhar-reddy-37b63a203/"
+              href="https://www.facebook.com/sridhar.nani.129"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaLinkedinIn size="2em" />
+              <FaFacebook size="2em" />
             </a>
-          </div>
+        </div>
+
         </div>
       </div>
 

@@ -103,11 +103,14 @@
     
     .about-image-container {
       width: 59vw;
-      height: 43vh;
+      height: 35vh;
       margin-bottom: 2rem;
     }
     
     .section-title {
       font-size: 2rem;
+    }
+    .profile-image {
+      height: 100%;
     }
   }

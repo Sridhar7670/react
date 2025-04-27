@@ -42,13 +42,13 @@ const Home = () => {
           <h2 className="animate__animated animate__fadeInDown animate__delay-1s">
             Hello I'm Sridhar Reddy
           </h2>
-          <p className="animate__animated animate__fadeIn animate__delay-1-5s rotating-text"style={Setstyles[render_lines]}>
+          <p className="animate__animated animate__fadeIn animate__delay-1-5s rotating-text p1"style={Setstyles[render_lines]}>
           {introLines[render_lines]}
           </p>
-          <p className="animate__animated animate__fadeIn animate__delay-2s rotating-text" style={Setstyles[render_lines]}
+          <p className="animate__animated animate__fadeIn animate__delay-2s rotating-text p2" style={Setstyles[render_lines]}
           >{Actionlines[render_lines]}
           </p>
-          <div className="button-group animate__animated animate__fadeInUp animate__delay-2-5s">
+          <div className="button-group animate__animated animate__fadeInUp animate__delay-2-5s ">
             <Button 
               children="Contact Me" 
               onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
@@ -58,7 +58,7 @@ const Home = () => {
             />
             <Button 
               children="Resume" 
-              onClick={() => window.open('https://drive.google.com/file/d/1JMtlNZTMNCOua1tCcw6Gdy7ojbl1CEGR/view?usp=sharing', '_blank')}
+              onClick={() => window.open('https://drive.google.com/file/d/1PEfPPNNXHVEoGFXSKYIMRobT__NBv7jp/view?usp=sharing', '_blank')}
               variant="primary"
               size="medium"
             />
