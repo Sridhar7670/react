@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# React: useReducer and State Lifting Concepts
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This document outlines two important state management approaches in React:
 
-## Available Scripts
+1. **State Lifting**
+2. **useReducer Hook**
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📌 1. State Lifting
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Definition:**  
+State lifting involves moving state up to the nearest common ancestor component so that multiple child components can access and manipulate it via props.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### ✅ Advantages:
 
-### `npm test`
+- Simple to implement for small components.
+- Encourages better component structure and reusability.
+- Makes shared state predictable and centralized.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### ❌ Disadvantages:
 
-### `npm run build`
+- Can lead to **prop drilling** (passing props through many levels).
+- Becomes harder to manage as the application grows.
+- Not ideal for deeply nested or complex state logic.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📌 2. useReducer Hook
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Definition:**  
+The `useReducer` hook is an alternative to `useState` that is suited for managing more complex state logic using a reducer function (similar to Redux pattern).
 
-### `npm run eject`
+### ✅ Advantages:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Better for **complex state logic** (e.g. multiple sub-values or conditional updates).
+- Keeps state transitions organized and predictable.
+- Makes it easier to debug and test state updates.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### ❌ Disadvantages:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- More boilerplate than `useState` for simple cases.
+- Requires understanding of reducer patterns (actions, types, immutability).
+- Can be overkill for small or straightforward state needs.
