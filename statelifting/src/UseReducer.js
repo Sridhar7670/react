@@ -45,4 +45,19 @@ function Usereducer(){
     )
 
 }
+
+export function Clock(){
+    const [state,dipatch]=useReducer((state,action)=>{
+        switch (action.type){
+            case "start":
+                setInterval(inc,1000)
+            break 
+            case "stop":
+                
+                
+
+        }
+
+    })
+}
 export default Usereducer;
