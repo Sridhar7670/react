@@ -8,6 +8,8 @@ function App3(){
                 return {...state ,"v2":false}
             case "v3":
                 return {...state ,"v3":false}
+            default :
+                return state
         }
     },{v1:true,v2:true,v3:true})
     return(
