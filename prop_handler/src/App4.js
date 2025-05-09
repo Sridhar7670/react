@@ -10,8 +10,8 @@ function App4(){
         seta([...a,temp])
         settemp("")
     }
-    function fun2(index){
-        const newitems=a.filter((i)=>i !== index)
+    function fun2(value){
+        const newitems=a.filter((i)=>i !== value)
         seta(newitems)
     }
     return(
