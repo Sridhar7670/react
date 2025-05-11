@@ -176,6 +176,29 @@ tr:nth-child(even) {
   backdrop-filter: blur(5px);
 }
 
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 0.5fr));
+    gap: 16px;
+    padding: 20px;
+  }
+  
+.card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    position: relative;
+}
+  
+.card p{
+  position: absolute;
+  bottom:2.5px;
+  right:0;
+  font-size: 10px;
+  margin:0
+  }
 
 .btns {
   display: flex;

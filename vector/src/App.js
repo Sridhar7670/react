@@ -456,3 +456,217 @@ export function App11(){
   </div>
   )
 } 
+export function App12(){
+  const allData = [
+    {
+      id: 1,
+      name: "Wireless Headphones",
+      category: "Electronics",
+      price: 59.99,
+      date: "2024-12-01"
+    },
+    {
+      id: 2,
+      name: "Smartphone",
+      category: "Electronics",
+      price: 699.99,
+      date: "2024-11-15"
+    },
+    {
+      id: 3,
+      name: "Bluetooth Speaker",
+      category: "Electronics",
+      price: 29.99,
+      date: "2024-10-20"
+    },
+    {
+      id: 4,
+      name: "Laptop",
+      category: "Electronics",
+      price: 999.99,
+      date: "2024-09-25"
+    },
+    {
+      id: 5,
+      name: "Men's T-Shirt",
+      category: "Clothing",
+      price: 14.99,
+      date: "2024-09-10"
+    },
+    {
+      id: 6,
+      name: "Women's Jeans",
+      category: "Clothing",
+      price: 39.99,
+      date: "2024-08-30"
+    },
+    {
+      id: 7,
+      name: "Sneakers",
+      category: "Clothing",
+      price: 64.99,
+      date: "2024-08-20"
+    },
+    {
+      id: 8,
+      name: "Winter Jacket",
+      category: "Clothing",
+      price: 89.99,
+      date: "2024-08-05"
+    },
+    {
+      id: 9,
+      name: "Organic Bananas",
+      category: "Groceries",
+      price: 1.99,
+      date: "2024-07-01"
+    },
+    {
+      id: 10,
+      name: "Milk - 1 Gallon",
+      category: "Groceries",
+      price: 3.49,
+      date: "2024-07-01"
+    },
+    {
+      id: 11,
+      name: "Brown Bread",
+      category: "Groceries",
+      price: 2.49,
+      date: "2024-07-01"
+    },
+    {
+      id: 12,
+      name: "Free-Range Eggs (12 pack)",
+      category: "Groceries",
+      price: 4.99,
+      date: "2024-07-02"
+    },
+    {
+      id: 13,
+      name: "Microwave Oven",
+      category: "Home & Kitchen",
+      price: 79.99,
+      date: "2024-06-15"
+    },
+    {
+      id: 14,
+      name: "Stainless Steel Cookware Set",
+      category: "Home & Kitchen",
+      price: 149.99,
+      date: "2024-06-10"
+    },
+    {
+      id: 15,
+      name: "Vacuum Cleaner",
+      category: "Home & Kitchen",
+      price: 129.99,
+      date: "2024-06-05"
+    },
+    {
+      id: 16,
+      name: "LED Desk Lamp",
+      category: "Home & Kitchen",
+      price: 24.99,
+      date: "2024-06-01"
+    },
+    {
+      id: 17,
+      name: "Shampoo 500ml",
+      category: "Personal Care",
+      price: 5.99,
+      date: "2024-05-20"
+    },
+    {
+      id: 18,
+      name: "Toothpaste (Pack of 2)",
+      category: "Personal Care",
+      price: 4.49,
+      date: "2024-05-18"
+    },
+    {
+      id: 19,
+      name: "Body Wash",
+      category: "Personal Care",
+      price: 6.99,
+      date: "2024-05-15"
+    },
+    {
+      id: 20,
+      name: "Face Moisturizer",
+      category: "Personal Care",
+      price: 12.99,
+      date: "2024-05-10"
+    }
+  ];
+  
+  const[category,setcategory]=useState("all")
+  const[sortorder,setSortorder]=useState("asc")
+  const[sortDate,setSortdate]=useState("newest")
+  const filteredData= category=="all" ? allData : allData.filter((item)=>item.category==category)
+  const sortedData = [...filteredData].sort((a, b) => {
+    let dateCompare = 0;
+    if (sortDate === "newest") {
+      dateCompare = new Date(b.date) - new Date(a.date);
+    } else if (sortDate === "oldest") {
+      dateCompare = new Date(a.date) - new Date(b.date);
+    }
+  
+    if (dateCompare !== 0) return dateCompare;
+  
+    // Dates are equal, so compare price
+    if (sortorder === "asc") {
+      return a.price - b.price;
+    } else if (sortorder === "desc") {
+      return b.price - a.price;
+    }
+  
+    return 0;
+  });
+  
+  return (
+    // <input type="text" name="sortBy" placeholder="Sort by" onChange={(e) => console.log(e.target.value)}/>
+   <div>
+     <select name="sortby" onChange={(e)=>{setcategory(e.target.value)}} defaultValue={category}>
+      <option value="all" >all</option>
+      <option value="Electronics" >Electronics</option>
+      <option value="Clothing">Clothing</option>
+      <option value="Groceries">Groceries</option>
+      <option value="Home & Kitchen">Home & Kitchen</option>
+      <option value="Personal Care">Personal Care</option>
+
+    </select>
+    <select name="sortorder" onChange={(e)=>setSortorder(e.target.value)} >
+      <option  selected disabled value="" >sort by price</option>
+      <option value="asc" >LOW TO HIGH</option>
+      <option value="dsc" >HIGH TO LOW</option>
+    </select>
+    <select name="sortDate" onChange={(e)=>setSortdate(e.target.value)} >
+    <option  selected disabled value="" >sort by date</option>
+      <option value="newest" >Recent</option>
+      <option value="oldest" >Oldest</option>
+    </select>
+    
+
+        <div className='card-container'>
+          {
+          sortedData.map((i,ind)=>{return (
+            
+            <div key={ind} className='card'>
+              <div>{i.id}</div>
+              <h4>{i.name}</h4>
+              <div>{i.price}</div>
+              <p >date: {i.date}</p>
+            </div>)
+          }
+        )
+        }
+
+        </div>
+          
+   </div>
+)
+    
+  
+}
+

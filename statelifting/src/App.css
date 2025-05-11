@@ -1,0 +1,7 @@
+.ball{
+    background-color: black;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    position: relative;
+}
