@@ -1,7 +1,32 @@
-.ball{
+.ball {
     background-color: black;
     width: 10vh;
     height: 10vh;
     border-radius: 50%;
     position: relative;
+}
+
+.skill-container {
+    background-color: white;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill {
+    background-color: whitesmoke;
+    box-shadow: 2px 2px 4px gray; /* Fixed */
+    display: flex;
+    gap: 10px;
+    padding:5px 10px 5px 10px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    border:1px solid black;
+}
+
+.material-icons {
+    font-size: 24px; /* Adjust this to a visible size */
+    cursor: pointer;
 }

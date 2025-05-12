@@ -27,7 +27,7 @@ function App4(){
             value={temp}/>
             <button onClick={addSkills} >Add</button>
 
-            {skills.length> 0 && <div>
+            {skills.length> 0 && <div className="skill-container">
                 {skills.map((i,ind)=>
                 (
                     <Chip key={ind} i={i} ind={ind} delskill={delskill}/>
