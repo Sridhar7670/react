@@ -32,8 +32,8 @@ function App() {
           )
         }
         {filteredMovies.length==0 && <div> 
-          <img src={notfound} alt="not found" width="50vw" />
-        <div>TITLE NOT FOUND</div>
+          <img src={notfound} alt="not found" id="notfound" />
+        <div style={{fontSize:"50px"}}>Movie NOT FOUND</div>
           </div>}
       </div>
     </>
