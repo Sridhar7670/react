@@ -10,12 +10,12 @@ function App() {
   const [filteredMovies, setFilteredMovies] = useState([]);
   const[temp,setTemp]=useState(true)
   useEffect(()=>{
-    axios.get(`https://react-hf0x.onrender.com/all`).then((res)=>{setFilteredMovies(res.data)})
+    axios.get(`https://react-b6we.vercel.app/all`).then((res)=>{setFilteredMovies(res.data)})
   },[temp])
 
   const handleSearch=(title)=>{
     console.log(title)
-  axios.get(`https://react-hf0x.onrender.com/search/${title}`)
+  axios.get(`https://react-b6we.vercel.app/search/${title}`)
   .then((res)=>{ console.log(res.data);  setFilteredMovies(res.data)})
   .catch((err)=>{
     console.log(err.message)
