@@ -26,18 +26,28 @@ const getBook=async(req,res)=>{
 
 }
 const getBookById = async (req, res) => {
-  try {
-    const data = await Book.findById(req.params.id);  
+    try {
+        const { page = 1, limit = 5 } = req.query;
 
-    if (!data) {
-      return res.status(404).json({ message: 'Book not found' });
+        const book = await Book.findById(req.params.id);
+        if (!book) {
+            return res.status(404).json({ msg: 'Book not found' });
+        }
+
+        const totalRating = book.reviews.reduce((sum, r) => sum + r.rating, 0);
+        const avgRating = book.reviews.length > 0 ? totalRating / book.reviews.length : 0;
+
+        // Handle pagination logic
+        const startIndex = (page - 1) * limit;
+        const endIndex = page * limit;
+        const paginatedReviews = book.reviews.slice(startIndex, endIndex);
+
+       
+        res.json({ book, avgRating, reviews: paginatedReviews });
+    } catch (error) {
+        console.error('Error fetching book:', error);
+        res.status(500).json({ msg: 'Server error', error: error.message });
     }
-
-    res.json(data); 
-  } catch (err) {
-    console.log(err.message);
-    res.status(500).json({ message: "Server Error" });
-  }
 };
 
 // const addBook = async (req, res) => {
@@ -80,7 +90,7 @@ const updateReview = async (req, res) => {
             return res.status(404).json({ msg: 'Review not found' });
         }
 
-        const review = book.reviews.id(req.params.id);
+        const review = book.reviews.id(req.params.id);  //id or _id same ?
         if (!review) {
             return res.status(404).json({ msg: 'Review not found in book' });
         }
@@ -114,7 +124,7 @@ const deleteReview = async (req, res) => {
             return res.status(403).json({ msg: 'Unauthorized' });
         }
 
-        review.remove();
+        review.deleteOne();
         await book.save();
 
         res.json({ msg: 'Review deleted' });
