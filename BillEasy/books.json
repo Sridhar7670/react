@@ -1,0 +1,37 @@
+[
+  {
+    "_id": "001",
+    "title": "The Silent Patient",
+    "author": "Alex Michaelides",
+    "genre": "Thriller",
+    "reviews": []
+  },
+  {
+    "_id": "002",
+    "title": "Educated",
+    "author": "Tara Westover",
+    "genre": "Memoir",
+    "reviews": []
+  },
+  {
+    "_id": "003",
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "genre": "Self-Help",
+    "reviews": []
+  },
+  {
+    "_id": "004",
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "genre": "Science Fiction",
+    "reviews": []
+  },
+  {
+    "_id": "005",
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "genre": "Classic",
+    "reviews": []
+  }
+]
