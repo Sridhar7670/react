@@ -43,7 +43,8 @@ PORT=5000
 ### 4. Run the Server
 
 ```bash
-in package json: choose "start" : "nodemon index.js" 
+in package json: choose "start" : "nodemon index.js"
+and then use npm start 
 
 ```
 that will be running good on local host port number for now use post man to check for the backend routes 
