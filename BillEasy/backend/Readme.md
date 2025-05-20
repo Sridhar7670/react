@@ -18,8 +18,9 @@ A simple and modular Node.js REST API for book reviews, built with Express.js an
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/book-review-api.git
-cd book-review-api
+git clone https://github.com/Sridhar7670/react.git
+cd react/BillEasy/backend
+
 ```
 
 ### 2. Install Dependencies
