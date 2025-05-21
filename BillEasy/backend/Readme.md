@@ -9,7 +9,7 @@ A simple and modular Node.js REST API for book reviews, built with Express.js an
 * **Node.js** + **Express.js**
 * **MongoDB** with **Mongoose**
 * **JWT** for authentication
-* **dotenv** for environment config
+* **dotenv** for environme  nt config
 
 ---
 
