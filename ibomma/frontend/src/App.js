@@ -9,6 +9,7 @@ import { useState } from "react";
 import Login from "./Login";
 import Register from "./Register";
 import Favourites from "./Favourites";
+import Logout from "./Logout";
 function App() {
   const [movieData, setmovieData] = useState({});
   const [showSearch, setShowSearch] = useState(false);
@@ -24,6 +25,7 @@ function App() {
           <Route path="/login" element={<Login/>} />
           <Route path="/signup" element={<Register/>}/>
           <Route path="/favourite" element={<Favourites/>} />
+          <Route path="/logout" element={<Logout/>}/>
         </Routes>
         <Footer />
       </Context.Provider>

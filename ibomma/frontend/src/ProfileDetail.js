@@ -1,32 +1,41 @@
-import  { useContext, useState } from 'react';
+// import Context from './Context';
+import  { useState,useEffect } from 'react';
 import './ProfileDetail.css'; 
-import Context from './Context';
 
+import Cookies from 'js-cookie';
 const ProfileDetail = () => {
-  const {movieData :movie}=useContext(Context)
+  // const {movieData :movie}=useContext(Context) //use data from context if needed 
+  const [movie, setMovie] = useState(null);
   const [seeMore,SetseeMore]=useState(false)
 
-  // Dummy data for now — replace this with API call
-  // const profile = {
-  //   name: 'Felora Edword',
-  //   age: 23,
-  //   address: '4517 Washington Ave.',
-  //   relationshipStatus: 'Single',
-  //   bio: "I'm very simple girl. Simplicity is my attitude. I think it's personality of a man",
-  //   interests: ['Relaxing', 'Reading', 'Nature', 'Makeup', 'Honesty'],
-  //   image: 'https://dummyimage.com/200x300/000/fff&text=Baahubali', // Replace with real image
-  // };
-  // useEffect(()=>{
-  //   axios.get(`http://localhost:5000/search/${movieName}`).then((res)=>{console.log(res)})
-  // })
+  useEffect(() => {
+    const movieData = Cookies.get('selectedMovie');
+    if (movieData) {
+      try {
+        setMovie(JSON.parse(movieData));
+      } catch (error) {
+        console.error("Invalid cookie data", error.message);
+      }
+    }
+  }, []);
 
+  const handleAddtoFav=async()=>{
+    try {
+      
+    } catch (err) {
+      
+    }
+  }
+  if (!movie) {
+    return <div>Loading movie data...</div>; // Or a spinner, etc.
+  }
 return (
+
   <div className="movie-detail">
     <div className="movie-poster">
       <img src={movie.img} alt={movie.movieName} className="movie-image" width="100%" />
       <div className="icon-group">
-        <span className="heart-icon">❤️</span>
-        <span className="star-icon">⭐</span>
+        <span className="heart-icon" onClick={handleAddtoFav}>❤️</span>
       </div>
     </div>
 

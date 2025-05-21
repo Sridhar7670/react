@@ -1,11 +1,15 @@
-import { useContext, useState } from 'react';
+import React,{ useContext ,memo} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse } from '@fortawesome/free-solid-svg-icons';
+import { faHouse ,faRightFromBracket} from '@fortawesome/free-solid-svg-icons';
 import {Link} from "react-router-dom"
 import Context from "./Context";
-const Footer = () => {
-const {active,setActive}=useContext(Context)
+import Cookies from "js-cookie"
 
+
+const Footer = memo(() => {
+const {active,setActive}=useContext(Context)
+const token = Cookies.get('token');
+console.log(token)
   return (
     <div className='footer'>
       <Link to="/">
@@ -17,13 +21,6 @@ const {active,setActive}=useContext(Context)
       </span>
       </Link>
 
-      <span
-        className={`material-symbols-outlined footer-icon ${active === 'stories' ? 'active' : ''}`}
-        onClick={() => setActive('stories')}
-      >
-        web_stories
-      </span>
-
       <Link to="/favourite" >
       <span
         className={`material-symbols-outlined footer-icon ${active === 'favorite' ? 'active' : ''}`}
@@ -33,6 +30,15 @@ const {active,setActive}=useContext(Context)
       </span>
       </Link>
 
+      { token ? <Link to="/logout">
+      <span
+          className={`footer-icon ${active === 'logout'?'active':''}`}
+          onClick={()=>setActive('logout')}
+          title="Logout"
+        >
+          <FontAwesomeIcon icon={faRightFromBracket} style={{ fontSize: '24px' }} />
+        </span>
+      </Link>:
       <Link to="/login">
       <span
         className={`material-symbols-outlined footer-icon ${active === 'person' ? 'active' : ''}`}
@@ -40,9 +46,10 @@ const {active,setActive}=useContext(Context)
       >
         person
       </span>
-      </Link>
+      </Link>}
     </div>
   );
-};
+});
 
-export default Footer;
+export default React.memo(Footer);
+

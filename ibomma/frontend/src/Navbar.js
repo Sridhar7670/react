@@ -1,7 +1,9 @@
 import SearchIcon from '@mui/icons-material/Search';
+import React,{memo} from 'react';
 import { Link } from 'react-router-dom';
 
-function Navbar({ onSearchClick }) {
+const Navbar=memo(({ onSearchClick })=>{
+  console.log('nav bar rendered ')
   return (
     <div className="Nav">
       <div className="left-nav">
@@ -12,6 +14,6 @@ function Navbar({ onSearchClick }) {
       </div>
     </div>
   );
-}
+})
 
-export default Navbar;
+export default React.memo(Navbar);

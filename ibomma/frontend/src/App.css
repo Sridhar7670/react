@@ -427,7 +427,16 @@ body {
   width: 200px;
   height: auto;
 }
-
+.success-msg{
+  padding: 0.5rem;
+  color: green;
+  opacity: 0.7;
+}
+.error-msg{
+  padding: 0.5rem;
+  color: red;
+  opacity: 0.7;
+}
 /* Responsive layout for tablets and laptops */
 @media screen and (min-width: 768px) {
   .Nav {

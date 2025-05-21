@@ -1,13 +1,15 @@
-import React, { useContext } from 'react';
+// import { useContext } from 'react';
+// // import Context from './Context';
 import { useNavigate } from 'react-router-dom';
-import Context from './Context';
-
+import React from "react"
+import Cookies from 'js-cookie';
 const MovieCard = ({ item }) => {
-  const { setmovieData } = useContext(Context);
+  // const { setmovieData } = useContext(Context);// set data into context 
   const navigate = useNavigate();
 
   const handleClick = () => {
-    setmovieData(item);
+    //setmovieData(item);  //if wanted to use context 
+    Cookies.set('selectedMovie', JSON.stringify(item), { expires: 1 });
     navigate(`/search/${item.movieName}`); // assuming movieName is URL-safe
   };
 
@@ -22,4 +24,4 @@ const MovieCard = ({ item }) => {
   );
 };
 
-export default MovieCard;
+export default React.memo(MovieCard);

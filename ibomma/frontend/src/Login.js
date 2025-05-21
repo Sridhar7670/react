@@ -1,32 +1,37 @@
-import { useContext, useState } from "react";
+import React,{ useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom"; 
 import "./App.css";
 import axios from "axios";
 import Context from "./Context";
+import Cookies from "js-cookie"
+
+
 function Login() {
   const {setActive}=useContext(Context)
-  const [a, setA] = useState(false);
+  const [message, setMessage] = useState("");
+  const [a,setA]=useState(false)
   const [temp, setTemp] = useState({ _id: "", password: "" });
   const navigate=useNavigate()
   function Fun(e) {
     setTemp({ ...temp, [e.target.name]: e.target.value });
   }
 
-  function Fun1() {
+  const Fun1=async()=> {
     axios
       .post(`http://localhost:5000/login`, temp)
       .then((res) => {
-        alert(res.data.token);
-       if(res.data.token){
-         setA(true);
-       setTimeout(() => {
-        navigate("/")
-        setActive("home")
-         
-       }, 1000);
-       }
+      setMessage(res.data.msg);
 
-      })
+      if (res.data.token) {
+        const sendtoken= JSON.stringify(res.data.token)
+        Cookies.set('token',sendtoken,{expires:1})
+        setA(true);
+        setTimeout(() => {
+          navigate("/");
+          setActive("home");
+        }, 1000);
+      }
+        })
       .catch((err) => console.log(err.message));
   }
 
@@ -47,7 +52,7 @@ function Login() {
         name="password"
         value={temp.password}
       />
-      {a && <div className="success-msg">Login Successful</div>}
+      {message && <div className={a ? "success-msg" : "error-msg"}>{message}</div>}
       <button onClick={Fun1}>Login</button>
 
       {/* Sign Up Link */}
@@ -61,4 +66,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default React.memo(Login);

@@ -4,7 +4,8 @@ import { Link } from "react-router-dom"; // 👈 For navigation
 
 const Register = () => {
   const [temp, setTemp] = useState({ _id: "", password: "", name: "" });
-  const [success, setSuccess] = useState(false);
+  const [message, setMessage] = useState("");
+  const [isError, setIsError] = useState(false);
 
   function handleChange(e) {
     setTemp({ ...temp, [e.target.name]: e.target.value });
@@ -14,10 +15,18 @@ const Register = () => {
     axios
       .post("http://localhost:5000/register", temp)
       .then((res) => {
-        console.log(res.data);
-        setSuccess(true);
+        setMessage(res.data.msg);
+        setIsError(false);
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => {
+        if (err.response && err.response.data.msg) {
+          setMessage(err.response.data.msg);
+          setIsError(true);
+        } else {
+          setMessage("Something went wrong");
+          setIsError(true);
+        }
+      });
   }
 
   return (
@@ -45,7 +54,9 @@ const Register = () => {
         value={temp.password}
       />
 
-      {success && <div className="success-msg">Registration Successful!</div>}
+      {message && (
+        <div className={isError ? "error-msg" : "success-msg"}>{message}</div>
+      )}
 
       <button onClick={handleRegister}>Register</button>
 
@@ -58,5 +69,6 @@ const Register = () => {
     </div>
   );
 };
+
 
 export default Register;
