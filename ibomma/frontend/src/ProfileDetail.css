@@ -1,0 +1,202 @@
+/* ==== Base Layout ==== */
+.movie-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+  padding-bottom: 100px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  margin-top: 140px;
+  position: relative;
+}
+
+.movie-poster {
+  width: 100%;
+  position: relative;
+}
+
+.movie-image {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 4px solid #fff;
+}
+
+/* ==== Icon Overlay ==== */
+.icon-group {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 30px;
+  background: #fff;
+  border-radius: 40px;
+  padding: 8px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.heart-icon,
+.star-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ==== Content Section ==== */
+.movie-content {
+  padding: 20px;
+  width: 100%;
+}
+
+.movie-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.movie-meta {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.movie-rating {
+  display: inline-block;
+  background-color: #ffe0ef;
+  color: #ff2e93;
+  padding: 3px 10px;
+  border-radius: 14px;
+  margin-bottom: 29px;
+}
+
+/* ==== Description, Cast, Genres ==== */
+.movie-section h3 {
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.movie-section p {
+  font-size: 14px;
+  color: #333;
+}
+
+/* ==== See More Button ==== */
+.see-more {
+  color: rgb(206, 46, 46);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* ==== Tag Chips ==== */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 100%;
+}
+
+.tag {
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+/* ==== Call to Action Button ==== */
+.watch-button {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  max-width: 400px;
+  background: linear-gradient(to right, #ff2e93, #ff5faa);
+  color: #fff;
+  font-size: 16px;
+  padding: 14px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* ==== Responsive Styling ==== */
+@media screen and (min-width: 768px) {
+  .movie-detail {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 1000px;
+    gap: 40px;
+    padding: 40px;
+    margin-top: 100px;
+    padding-bottom: 120px;
+    margin-bottom: 98px;
+  }
+
+  .movie-poster {
+    flex: 1;
+  }
+
+  .movie-image {
+    height: 480px;
+    width: 100%;
+    aspect-ratio: auto;
+  }
+
+  .icon-group {
+    bottom: 30px;
+    font-size: 28px;
+    padding: 10px 24px;
+    gap: 40px;
+  }
+
+  .heart-icon,
+  .star-icon {
+    font-size: 28px;
+  }
+
+  .movie-content {
+    flex: 2;
+    padding: 0;
+  }
+
+  .movie-title {
+    font-size: 28px;
+  }
+
+  .movie-meta,
+  .movie-section p {
+    font-size: 16px;
+  }
+
+  .movie-section h3 {
+    font-size: 18px;
+  }
+
+  .tags {
+    max-width: 500px;
+  }
+
+  .tag {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+
+  .watch-button {
+    position: absolute;
+    bottom: 100px;
+    left: 60%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    padding: 16px;
+    width: 90%;
+    max-width: 420px;
+  }
+}
