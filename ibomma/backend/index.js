@@ -6,19 +6,17 @@ const manual_route = require("./routes/routes");
 
 const app = express();
 
-// --- CORS setup ---
-const cors = require("cors");
 
 app.use(cors({
   origin: ["https://react-li9a.vercel.app", "http://localhost:3000"],
-  // methods: ["GET", "POST", "PUT", "DELETE"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
 
 app.use(cors(corsOptions));
 
 
-// --- Other middlewares ---
+
 app.use(express.json());
 app.use("/", manual_route);
 
