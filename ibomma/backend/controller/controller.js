@@ -40,7 +40,7 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   try {
-     const user = await user_model.findOne({ _id: req.body._id });
+     const obj = await user_model.findOne({ _id: req.body._id });
     if (obj) {
       const f =await  bcrypt.compare(req.body.password, obj.password);
       if (f) {
