@@ -258,6 +258,68 @@ tr:nth-child(even) {
   margin: 5px 0;
   font-size: 1.1rem;
 }
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 10px;
+}
+
+.gallery img {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 4px;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+/* Lightbox styling */
+.lightbox {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  flex-direction: row;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  font-size: 2rem;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transform: translateY(-50%);
+  padding: 0 20px;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
 
 @media (max-width: 600px) {
   .display_panel {

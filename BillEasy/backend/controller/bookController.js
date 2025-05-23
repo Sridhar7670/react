@@ -84,13 +84,13 @@ const updateReview = async (req, res) => {
     const { rating, comment } = req.body;
     try {
         const book = await Book.findOne({ 'reviews._id': req.params.id });
-        console.log("id",req.params.id,"reviwes_id",book,book.reviews);
+        // console.log("id",req.params.id,"reviwes_id",book,book.reviews);
 
         if (!book) {
             return res.status(404).json({ msg: 'Review not found' });
         }
 
-        const review = book.reviews.id(req.params.id);  //id or _id same ?
+        const review = book.reviews.id(req.params.id);  //id or _id same ? id is helper function 
         if (!review) {
             return res.status(404).json({ msg: 'Review not found in book' });
         }
@@ -112,7 +112,7 @@ const updateReview = async (req, res) => {
 
 const deleteReview = async (req, res) => {
     try {
-        const book = await Book.findOne({ 'reviews._id': req.params.id });
+        const book = await Book.findOne({ 'reviews._id': req.params.id });  //fetches full book
         
         if (!book) return res.status(404).json({ msg: 'Review not found' });
         

@@ -1,7 +1,8 @@
 import './App.css';
 import Btn from './btn.js'
 import {useState } from 'react';
-
+import ReactMarkdown from "react-markdown";
+import DOMPurify from "dompurify";
 export let App=()=>{
   let [c,setc]=useState(0)
   let inc=()=>{
@@ -670,3 +671,73 @@ export function App12(){
   
 }
 
+export function App13(){
+const [markdown, setMarkdown] = useState("");
+
+  return (
+    <div style={{ display: "flex", gap: "20px" }}>
+      <textarea
+        value={markdown}
+        onChange={(e) => setMarkdown(e.target.value)}
+        style={{ width: "50%", height: "300px" }}
+        placeholder="Write your markdown here..."
+      />
+      <div style={{ width: "50%", border: "1px solid #ccc", padding: "10px" }}>
+        <Preview markdown={markdown} />
+      </div>
+    </div>
+  );
+function Preview({ markdown }) {
+  const sanitizedHtml = DOMPurify.sanitize(markdown);
+
+  return (
+    <ReactMarkdown>{sanitizedHtml}</ReactMarkdown>
+  );
+}
+
+
+}
+
+
+
+function App14() {
+  const images = [
+  { src: "https://dummyimage.com/200x300/000/fff&text=Baahubali", alt: "Image 1" },
+  { src: "https://dummyimage.com/200x300/000/fff&text=dangal", alt: "Image 2" },
+  { src: "https://dummyimage.com/200x300/000/fff&text=bongal", alt: "Image 3" },
+  // Add more images...
+];
+
+  const [selectedIndex, setSelectedIndex] = useState(null);
+
+  const openLightbox = (index) => setSelectedIndex(index);
+  const closeLightbox = () => setSelectedIndex(null);
+  const goNext = () => setSelectedIndex((i) => (i + 1) % images.length);
+  const goPrev = () => setSelectedIndex((i) => (i - 1 + images.length) % images.length);
+
+  return (
+    <div>
+      <div className="gallery">
+        {images.map((img, index) => (
+          <img
+            key={index}
+            src={img.src}
+            alt={img.alt}
+            onClick={() => openLightbox(index)}
+          />
+        ))}
+      </div>
+
+      {selectedIndex !== null && (
+        <div className="lightbox" onClick={closeLightbox}>
+          <span className="close">&times;</span>
+          <img src={images[selectedIndex].src} alt="" />
+          <button className="prev" onClick={(e) => { e.stopPropagation(); goPrev(); }}>&lt;</button>
+          <button className="next" onClick={(e) => { e.stopPropagation(); goNext(); }}>&gt;</button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default App14;
