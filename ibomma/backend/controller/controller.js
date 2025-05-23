@@ -2,6 +2,7 @@ const movieModel = require("../model/model");
 const bcrypt=require('bcrypt');
 const jwt=require('jsonwebtoken');
 const { user_model } = require("../model/usermodel");
+
 let searchmovie = async (req, res) => {
     try {
       let data = await movieModel.find({movieName: { $regex: '^' + req.params.movieName, $options: 'i' }})

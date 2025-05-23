@@ -23,7 +23,7 @@ function App() {
           <Route path="/" element={<Home showSearch={showSearch} />} />
           <Route path="/search/:moviename" element={<ProfileDetail />} />
           <Route path="/login" element={<Login/>} />
-          <Route path="/signup" element={<Register/>}/>
+          <Route path="/register" element={<Register/>}/>
           <Route path="/favourite" element={<Favourites/>} />
           <Route path="/logout" element={<Logout/>}/>
         </Routes>

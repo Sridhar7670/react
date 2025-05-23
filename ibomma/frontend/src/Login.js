@@ -58,7 +58,7 @@ function Login() {
       {/* Sign Up Link */}
       <p className="signup-text">
         Don't have an account?{" "}
-        <Link to="/signup" className="signup-link" >
+        <Link to="/register" className="signup-link" >
           Sign up
         </Link>
       </p>
