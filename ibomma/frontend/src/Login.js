@@ -18,7 +18,7 @@ function Login() {
 
   const Fun1=async()=> {
     axios
-      .post(`http://localhost:5000/login`, temp)
+      .post(`https://moviesbend.vercel.app/login`, temp)
       .then((res) => {
       setMessage(res.data.msg);
 

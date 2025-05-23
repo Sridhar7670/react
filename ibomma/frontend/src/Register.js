@@ -13,7 +13,7 @@ const Register = () => {
 
   function handleRegister() {
     axios
-      .post("http://localhost:5000/register", temp)
+      .post("https://moviesbend.vercel.app/register", temp)
       .then((res) => {
         setMessage(res.data.msg);
         setIsError(false);

@@ -30,13 +30,13 @@ const Home = ({ showSearch }) => {
 const handleSearch = useCallback((title) => {
 
   if (title === "") {
-    axios.get("http://localhost:5000/all")
+    axios.get("https://moviesbend.vercel.app/all")
       .then((res) => {
         setAllMovies(res.data);
         setVisibleMovies(res.data.slice(0, countToShow)); 
       });
   } else {
-    axios.get(`http://localhost:5000/search/${title}`)
+    axios.get(`https://moviesbend.vercel.app/search/${title}`)
       .then((res) => {
         setAllMovies(res.data);
         setVisibleMovies(res.data.slice(0, countToShow)); 
