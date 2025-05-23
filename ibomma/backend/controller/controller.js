@@ -37,7 +37,6 @@ const register = async (req, res) => {
   }
 };
 
-
 const login = async (req, res) => {
   try {
      const obj = await user_model.findOne({ _id: req.body._id });
@@ -59,5 +58,4 @@ const login = async (req, res) => {
     res.status(500).json({ msg: "Server error" });
   }
 };
-
 module.exports = { searchmovie, getall ,login ,register};
