@@ -12,7 +12,7 @@ const Home = ({ showSearch }) => {
   const countToShow = visibleCount; 
   console.log("i am from home rendered ")
   useEffect(() => {
-    axios.get("http://localhost:5000/all")
+    axios.get("https://moviesbend.vercel.app/all")
       .then((res) => {
         setAllMovies(res.data);
         setVisibleMovies(res.data.slice(0, countToShow));
