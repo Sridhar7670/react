@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 const express = require("express")
 const cors = require("cors")
 const manual_route = require("./routes/routes")
-mongoose.connect("mongodb+srv://sridharnani090:N3yJWx5DuiPsiL3u@cluster0.mrqdfcl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect("mongodb+srv://sridharnani090:ZjCHx8lLESXbqbSq@moviesapk.x9vm7y7.mongodb.net/IBOMMA")
 .then(()=>{
     console.log("Connection OK")
 }).catch((err)=>console.log(err))
@@ -15,5 +15,5 @@ app.use(cors({
 }))
 app.use("/",manual_route)
 
-// app.listen(5000)  vercel doesn't listen 
+app.listen(5000)  //vercel doesn't listen 
 module.exports = app;
