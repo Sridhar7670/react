@@ -31,4 +31,3 @@ mongoose.connect("mongodb+srv://sridharnani090:ZjCHx8lLESXbqbSq@moviesapk.x9vm7y
 
 // --- Export app for Vercel ---
 module.exports = app;
-app.listen(5000)
