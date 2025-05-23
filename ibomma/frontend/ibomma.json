@@ -1,0 +1,633 @@
+[{
+  "_id": 1,
+  "movieName": "Baahubali",
+  "director": "S.S. Rajamouli",
+  "cast": [
+    "Prabhas",
+    "Rana Daggubati",
+    "Anushka Shetty"
+  ],
+  "description": "A warrior prince rises to reclaim his kingdom.  A warrior prince rises to reclaim his kingdom, uncovering secrets of his past and challenging a tyrant in an epic saga of honor, betrayal, and destiny.",
+  "ratingIMDB": "8.1",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Baahubali",
+  "genere": "Action, Drama",
+  "releaseYear": 2015,
+  "language": "Telugu"
+},
+{
+  "_id": 2,
+  "movieName": "Dangal",
+  "director": "Nitesh Tiwari",
+  "cast": [
+    "Aamir Khan",
+    "Fatima Sana Shaikh",
+    "Sanya Malhotra"
+  ],
+  "description": " A father trains his daughters to become wrestling champions, defying societal norms and inspiring a nation through sheer perseverance and unwavering belief.",
+  "ratingIMDB": "8.4",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Dangal",
+  "genere": "Biography, Drama",
+  "releaseYear": 2016,
+  "language": "Hindi"
+},
+{
+  "_id": 3,
+  "movieName": "RRR",
+  "director": "S.S. Rajamouli",
+  "cast": [
+    "Ram Charan",
+    "Jr. NTR",
+    "Alia Bhatt"
+  ],
+  "description": "Two revolutionaries fight against British rule, forming an unbreakable bond and igniting a rebellion that blends mythology, friendship, and fiery resistance.",
+  "ratingIMDB": "8.5",
+  "img": "https://dummyimage.com/200x300/000/fff&text=RRR",
+  "genere": "Action, Drama",
+  "releaseYear": 2022,
+  "language": "Telugu"
+},
+{
+  "_id": 4,
+  "movieName": "3 idots",
+  "director": "Rajkumar Hirani",
+  "cast": [
+    "Aamir Khan",
+    "R. Madhavan",
+    "Sharman Joshi"
+  ],
+  "description": "Three friends challenge the traditional education system, confronting academic pressure and societal expectations with humor, heart, and a pursuit of true learning.",
+  "ratingIMDB": "8.4",
+  "img": "https://dummyimage.com/200x300/000/fff&text=3Idiots",
+  "genere": "Comedy, Drama",
+  "releaseYear": 2009,
+  "language": "Hindi"
+},
+{
+  "_id": 5,
+  "movieName": "Pushpa: The Rise",
+  "director": "Sukumar",
+  "cast": [
+    "Allu Arjun",
+    "Rashmika Mandanna",
+    "Fahadh Faasil"
+  ],
+  "description": "The rise of a red sandalwood smuggler, Pushpa navigates a treacherous underworld while asserting his identity in a system that seeks to silence him.",
+  "ratingIMDB": "7.6",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Pushpa",
+  "genere": "Action, Crime",
+  "releaseYear": 2021,
+  "language": "Telugu"
+},
+{
+  "_id": 6,
+  "movieName": "PK",
+  "director": "Rajkumar Hirani",
+  "cast": [
+    "Aamir Khan",
+    "Anushka Sharma",
+    "Sushant Singh Rajput"
+  ],
+  "description": "An alien questions human beliefs and religion, using innocence and logic to expose deep-rooted hypocrisies and provoke thought with humor and compassion.",
+  "ratingIMDB": "8.1",
+  "img": "https://dummyimage.com/200x300/000/fff&text=PK",
+  "genere": "Comedy, Sci-Fi",
+  "releaseYear": 2014,
+  "language": "Hindi"
+},
+{
+  "_id": 7,
+  "movieName": "Kantara",
+  "director": "Rishab Shetty",
+  "cast": [
+    "Rishab Shetty",
+    "Sapthami Gowda"
+  ],
+  "description": "A tale of folklore and land conflicts in coastal Karnataka, where divine traditions collide with greed, and the line between man and myth blurs.",
+  "ratingIMDB": "8.4",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Kantara",
+  "genere": "Action, Thriller",
+  "releaseYear": 2022,
+  "language": "Kannada"
+},
+{
+  "_id": 8,
+  "movieName": "Gully Boy",
+  "director": "Zoya Akhtar",
+  "cast": [
+    "Ranveer Singh",
+    "Alia Bhatt"
+  ],
+  "description": "A street rapper from Mumbai rises to fame, channeling his struggles into raw lyrics and battling class barriers through the power of music and self-expression.",
+  "ratingIMDB": "7.9",
+  "img": "https://dummyimage.com/200x300/000/fff&text=GullyBoy",
+  "genere": "Musical, Drama",
+  "releaseYear": 2019,
+  "language": "Hindi"
+},
+{
+  "_id": 9,
+  "movieName": "Vikram",
+  "director": "Lokesh Kanagaraj",
+  "cast": [
+    "Kamal Haasan",
+    "Fahadh Faasil",
+    "Vijay Sethupathi"
+  ],
+  "description": " An undercover cop takes down a drug syndicate, unraveling a deadly conspiracy and revealing hidden connections in a gritty, action-packed mission.",
+  "ratingIMDB": "8.3",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Vikram",
+  "genere": "Action, Thriller",
+  "releaseYear": 2022,
+  "language": "Tamil"
+},
+{
+  "_id": 10,
+  "movieName": "Drishyam",
+  "director": "Jeethu Joseph",
+  "cast": [
+    "Ajay Devgn",
+    "Tabu",
+    "Shriya Saran"
+  ],
+  "description": "A man tries to protect his family from a murder investigation, crafting a meticulous alibi while staying one step ahead of the relentless police pursuit.",
+  "ratingIMDB": "8.2",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Drishyam",
+  "genere": "Crime, Drama",
+  "releaseYear": 2015,
+  "language": "Hindi"
+},
+{
+  "_id": 11,
+  "movieName": "Jawan",
+  "director": "Atlee",
+  "cast": [
+    "Shah Rukh Khan",
+    "Nayanthara",
+    "Vijay Sethupathi"
+  ],
+  "description": "A man embarks on a mission to rectify societal injustices, assembling a team of skilled allies as he confronts corruption, inequality, and his own haunting past.",
+  "ratingIMDB": "7.8",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Jawan",
+  "genere": "Action, Thriller",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 12,
+  "movieName": "Pathaan",
+  "director": "Siddharth Anand",
+  "cast": [
+    "Shah Rukh Khan",
+    "Deepika Padukone",
+    "John Abraham"
+  ],
+  "description": "A spy embarks on a mission to thwart a global threat, facing high-stakes betrayals and dangerous enemies in a race against time that spans continents.",
+  "ratingIMDB": "6.9",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Pathaan",
+  "genere": "Action, Thriller",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 13,
+  "movieName": "Rocky Aur Rani Kii Prem Kahaani",
+  "director": "Karan Johar",
+  "cast": [
+    "Ranveer Singh",
+    "Alia Bhatt",
+    "Dharmendra"
+  ],
+  "description": " A love story that challenges societal norms, as a bold couple bridges cultural gaps and confronts generational beliefs to redefine family, love, and identity.",
+  "ratingIMDB": "7.0",
+  "img": "https://dummyimage.com/200x300/000/fff&text=RockyAurRani",
+  "genere": "Romance, Drama",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 14,
+  "movieName": "Leo",
+  "director": "Lokesh Kanagaraj",
+  "cast": [
+    "Vijay",
+    "Trisha Krishnan",
+    "Sanjay Dutt"
+  ],
+  "description": "A man with a dark past is forced to confront his demons when violence re-enters his life, dragging him into a battle for redemption and truth.",
+  "ratingIMDB": "7.5",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Leo",
+  "genere": "Action, Thriller",
+  "releaseYear": 2023,
+  "language": "Tamil"
+},
+{
+  "_id": 15,
+  "movieName": "OMG 2",
+  "director": "Amit Rai",
+  "cast": [
+    "Akshay Kumar",
+    "Pankaj Tripathi",
+    "Yami Gautam"
+  ],
+  "description": "A messenger of Lord Shiva advocates for sex education, challenging outdated taboos and sparking a legal and social movement to empower young minds.",
+  "ratingIMDB": "7.2",
+  "img": "https://dummyimage.com/200x300/000/fff&text=OMG2",
+  "genere": "Comedy, Drama",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 16,
+  "movieName": "Jailer",
+  "director": "Nelson Dilipkumar",
+  "cast": [
+    "Rajinikanth",
+    "Mohanlal",
+    "Shivarajkumar"
+  ],
+  "description": "A retired jailer is drawn back into action to rescue his son, navigating a dangerous criminal underworld where his old instincts and grit are his only weapons.",
+  "ratingIMDB": "7.6",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Jailer",
+  "genere": "Action, Thriller",
+  "releaseYear": 2023,
+  "language": "Tamil"
+},
+{
+  "_id": 17,
+  "movieName": "Gadar 2",
+  "director": "Anil Sharma",
+  "cast": [
+    "Sunny Deol",
+    "Ameesha Patel",
+    "Utkarsh Sharma"
+  ],
+  "description": "A father returns to Pakistan to rescue his son, facing emotional and physical battles that reignite memories of a tumultuous past and a divided nation.",
+  "ratingIMDB": "6.8",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Gadar2",
+  "genere": "Action, Drama",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 18,
+  "movieName": "The Kerala Story",
+  "director": "Sudipto Sen",
+  "cast": [
+    "Adah Sharma",
+    "Yogita Bihani",
+    "Sonia Balani"
+  ],
+  "description": " A woman's journey into the world of religious extremism exposes psychological manipulation, lost identities, and the harsh realities of radicalization.",
+  "ratingIMDB": "7.4",
+  "img": "https://dummyimage.com/200x300/000/fff&text=KeralaStory",
+  "genere": "Drama, Thriller",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 19,
+  "movieName": "Tu Jhoothi Main Makkar",
+  "director": "Luv Ranjan",
+  "cast": [
+    "Ranbir Kapoor",
+    "Shraddha Kapoor",
+    "Anubhav Singh Bassi"
+  ],
+  "description": "A man and woman navigate the complexities of modern relationships, testing love, trust, and independence in a game where no one wants to lose — or commit.",
+  "ratingIMDB": "6.5",
+  "img": "https://dummyimage.com/200x300/000/fff&text=TuJhoothiMainMakkar",
+  "genere": "Comedy, Romance",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 20,
+  "movieName": "Bholaa",
+  "director": "Ajay Devgn",
+  "cast": [
+    "Ajay Devgn",
+    "Tabu",
+    "Abhishek Bachchan"
+  ],
+  "description": "A man embarks on a journey to rescue his daughter.",
+  "ratingIMDB": "6.9",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Bholaa",
+  "genere": "Action, Crime",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 21,
+  "movieName": "Jaane Jaan",
+  "director": "Sujoy Ghosh",
+  "cast": [
+    "Kareena Kapoor Khan",
+    "Jaideep Ahlawat",
+    "Vijay Varma"
+  ],
+  "description": "A mother and her son become suspects in a murder case, entangling them in a tense psychological game with a clever detective and their mysterious past.",
+  "ratingIMDB": "7.8",
+  "img": "https://dummyimage.com/200x300/000/fff&text=JaaneJaan",
+  "genere": "Crime, Drama",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 22,
+  "movieName": "Animal",
+  "director": "Sandeep Reddy Vanga",
+  "cast": [
+    "Ranbir Kapoor",
+    "Parineeti Chopra",
+    "Anil Kapoor"
+  ],
+  "description": "A man navigates his complex relationship with his father while dealing with his own dark past.",
+  "ratingIMDB": "7.5",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Animal",
+  "genere": "Action, Crime, Drama",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 23,
+  "movieName": "Salaar: Part 1 - Ceasefire",
+  "director": "Prashanth Neel",
+  "cast": [
+    "Prabhas",
+    "Shruti Haasan",
+    "Jagapathi Babu"
+  ],
+  "description": "A man with a violent past is forced to confront his demons when his family is threatened, drawing him back into a brutal world he tried to leave behind.",
+  "ratingIMDB": "6.8",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Salaar",
+  "genere": "Action, Thriller",
+  "releaseYear": 2023,
+  "language": "Telugu"
+},
+{
+  "_id": 24,
+  "movieName": "Dunki",
+  "director": "Rajkumar Hirani",
+  "cast": [
+    "Shah Rukh Khan",
+    "Taapsee Pannu",
+    "Boman Irani"
+  ],
+  "description": "A man embarks on a journey to Canada through unconventional means, facing unexpected challenges, cultural shocks, and the emotional cost of illegal migration.",
+  "ratingIMDB": "7.2",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Dunki",
+  "genere": "Comedy, Drama",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 25,
+  "movieName": "Tiger 3",
+  "director": "Maneesh Sharma",
+  "cast": [
+    "Salman Khan",
+    "Katrina Kaif",
+    "Emraan Hashmi"
+  ],
+  "description": "A spy faces his most dangerous mission yet as he confronts a formidable adversary, risking everything to prevent a catastrophic international threat.",
+  "ratingIMDB": "6.9",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Tiger3",
+  "genere": "Action, Thriller",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 26,
+  "movieName": "Rocky Aur Rani Kii Prem Kahaani",
+  "director": "Karan Johar",
+  "cast": [
+    "Ranveer Singh",
+    "Alia Bhatt",
+    "Dharmendra"
+  ],
+  "description": "A love story that challenges societal norms and family expectations, blending romance and rebellion as two lovers bridge deeply rooted cultural divides.",
+  "ratingIMDB": "7.8",
+  "img": "https://dummyimage.com/200x300/000/fff&text=RockyAurRani",
+  "genere": "Romance, Drama",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 27,
+  "movieName": "OMG 2",
+  "director": "Amit Rai",
+  "cast": [
+    "Akshay Kumar",
+    "Pankaj Tripathi",
+    "Yami Gautam"
+  ],
+  "description": " A messenger of Lord Shiva advocates for sex education, sparking social reform and courtroom debates in a conservative society reluctant to change.",
+  "ratingIMDB": "7.2",
+  "img": "https://dummyimage.com/200x300/000/fff&text=OMG2",
+  "genere": "Comedy, Drama",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 28,
+  "movieName": "Jailer",
+  "director": "Nelson Dilipkumar",
+  "cast": [
+    "Rajinikanth",
+    "Mohanlal",
+    "Shivarajkumar"
+  ],
+  "description": "A retired jailer is drawn back into action to rescue his son.",
+  "ratingIMDB": "7.6",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Jailer",
+  "genere": "Action, Thriller",
+  "releaseYear": 2023,
+  "language": "Tamil"
+},
+{
+  "_id": 29,
+  "movieName": "Gadar 2",
+  "director": "Anil Sharma",
+  "cast": [
+    "Sunny Deol",
+    "Ameesha Patel",
+    "Utkarsh Sharma"
+  ],
+  "description": " A retired jailer is drawn back into action to rescue his son, taking justice into his own hands as he tracks ruthless criminals through a deadly maze.",
+  "ratingIMDB": "6.8",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Gadar2",
+  "genere": "Action, Drama",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 30,
+  "movieName": "The Kerala Story",
+  "director": "Sudipto Sen",
+  "cast": [
+    "Adah Sharma",
+    "Yogita Bihani",
+    "Sonia Balani"
+  ],
+  "description": "A woman's journey into the world of religious extremism unveils manipulation, fear, and a powerful fight for reclaiming identity and freedom.",
+  "ratingIMDB": "7.4",
+  "img": "https://dummyimage.com/200x300/000/fff&text=KeralaStory",
+  "genere": "Drama, Thriller",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 31,
+  "movieName": "Tu Jhoothi Main Makkar",
+  "director": "Luv Ranjan",
+  "cast": [
+    "Ranbir Kapoor",
+    "Shraddha Kapoor",
+    "Anubhav Singh Bassi"
+  ],
+  "description": " A man and woman navigate the complexities of modern relationships, where love, lies, and independence clash in a web of emotional mind games.",
+  "ratingIMDB": "6.5",
+  "img": "https://dummyimage.com/200x300/000/fff&text=TuJhoothiMainMakkar",
+  "genere": "Comedy, Romance",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 32,
+  "movieName": "Bholaa",
+  "director": "Ajay Devgn",
+  "cast": [
+    "Ajay Devgn",
+    "Tabu",
+    "Abhishek Bachchan"
+  ],
+  "description": "A man embarks on a journey to rescue his daughter, facing relentless danger through a drug-infested night while confronting ghosts from his past.",
+  "ratingIMDB": "6.9",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Bholaa",
+  "genere": "Action, Crime",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 33,
+  "movieName": "Jaane Jaan",
+  "director": "Sujoy Ghosh",
+  "cast": [
+    "Kareena Kapoor Khan",
+    "Jaideep Ahlawat",
+    "Vijay Varma"
+  ],
+  "description": "A mother and her son become suspects in a murder case, forcing her to rely on intellect and instinct to protect their secret and outwit a shrewd cop.",
+  "ratingIMDB": "7.8",
+  "img": "https://dummyimage.com/200x300/000/fff&text=JaaneJaan",
+  "genere": "Crime, Drama",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 34,
+  "movieName": "12th Fail",
+  "director": "Vidhu Vinod Chopra",
+  "cast": [
+    "Vikrant Massey",
+    "Medha Shankar"
+  ],
+  "description": " Based on the real-life story of a man who overcame academic failure to become an IPS officer, inspiring millions with his perseverance, honesty, and grit.",
+  "ratingIMDB": "9.1",
+  "img": "https://dummyimage.com/200x300/000/fff&text=12thFail",
+  "genere": "Biography, Drama",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 35,
+  "movieName": "Sam Bahadur",
+  "director": "Meghna Gulzar",
+  "cast": [
+    "Vicky Kaushal",
+    "Fatima Sana Shaikh",
+    "Sanya Malhotra"
+  ],
+  "description": "Biographical drama based on the life of Field Marshal Sam Manekshaw, chronicling his military leadership, fearless decisions, and patriotism during India’s wars.",
+  "ratingIMDB": "7.7",
+  "img": "https://dummyimage.com/200x300/000/fff&text=SamBahadur",
+  "genere": "Biography, Drama",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 36,
+  "movieName": "Bheed",
+  "director": "Anubhav Sinha",
+  "cast": [
+    "Rajkummar Rao",
+    "Bhumi Pednekar",
+    "Dia Mirza"
+  ],
+  "description": "xplores the migrant crisis during India's 2020 lockdown, portraying stark social inequalities and human endurance during a time of collective uncertainty..",
+  "ratingIMDB": "6.9",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Bheed",
+  "genere": "Drama",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 37,
+  "movieName": "Sirf Ek Bandaa Kaafi Hai",
+  "director": "Apoorv Singh Karki",
+  "cast": [
+    "Manoj Bajpayee"
+  ],
+  "description": "A courtroom drama inspired by real events of a lawyer fighting for justice, battling systemic corruption and powerful enemies with unwavering conviction.",
+  "ratingIMDB": "7.9",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Bandaa",
+  "genere": "Drama, Thriller",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 38,
+  "movieName": "Kathal",
+  "director": "Yashowardhan Mishra",
+  "cast": [
+    "Sanya Malhotra",
+    "Rajpal Yadav"
+  ],
+  "description": "A satirical mystery revolving around missing jackfruits in a politician's garden, exposing the absurdity of bureaucracy through humor, wit, and irony.",
+  "ratingIMDB": "6.6",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Kathal",
+  "genere": "Comedy, Drama",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 39,
+  "movieName": "Trial Period",
+  "director": "Aleya Sen",
+  "cast": [
+    "Genelia D'Souza",
+    "Manav Kaul"
+  ],
+  "description": "A single mother accidentally hires a 'trial father' for her son, leading to heartwarming chaos, unexpected bonding, and redefined family values.",
+  "ratingIMDB": "6.5",
+  "img": "https://dummyimage.com/200x300/000/fff&text=TrialPeriod",
+  "genere": "Comedy, Family",
+  "releaseYear": 2023,
+  "language": "Hindi"
+},
+{
+  "_id": 40,
+  "movieName": "Gaslight",
+  "director": "Pavan Kirpalani",
+  "cast": [
+    "Sara Ali Khan",
+    "Vikrant Massey",
+    "Chitrangda Singh"
+  ],
+  "description": "A young woman returns to her estate and uncovers unsettling secrets, descending into a chilling mystery where nothing — and no one — is as it seems.",
+  "ratingIMDB": "6.2",
+  "img": "https://dummyimage.com/200x300/000/fff&text=Gaslight",
+  "genere": "Mystery, Thriller",
+  "releaseYear": 2023,
+  "language": "Hindi"
+}]

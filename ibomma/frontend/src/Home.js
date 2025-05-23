@@ -1,34 +1,49 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import Details from "./Details";
+import Details from './Details';
 import axios from 'axios';
 import Search from './Search';
-import "./App.css";
+import './App.css';
 
 const Home = ({ showSearch }) => {
-  const [movies, setFilteredMovies] = useState([]);
-  const [loading, setloading] = useState(true);
-  console.log("i am rendered ")
+  const [allMovies, setAllMovies] = useState([]);
+  const [visibleMovies, setVisibleMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [visibleCount, setVisibleCount] = useState(10); 
+  const countToShow = visibleCount; 
+  console.log("i am from home rendered ")
   useEffect(() => {
     axios.get("http://localhost:5000/all")
       .then((res) => {
-        setFilteredMovies(res.data);
-        setloading(false);
+        setAllMovies(res.data);
+        setVisibleMovies(res.data.slice(0, countToShow));
+        setLoading(false);
       })
       .catch((err) => console.log(err.message));
   }, []);
 
-  // Memoize the handleSearch function
-  const handleSearch = useCallback((title) => {
-    if (title === "") {
-      axios.get("http://localhost:5000/all")
-        .then((res) => setFilteredMovies(res.data))
-        .catch((err) => console.log(err.message));
-    } else {
-      axios.get(`http://localhost:5000/search/${title}`)
-        .then((res) => setFilteredMovies(res.data))
-        .catch((err) => console.log(err.message));
-    }
-  }, []); 
+  const loadMore = () => {
+    const newCount = visibleCount + 10;
+    setVisibleCount(newCount);
+    setVisibleMovies(allMovies.slice(0, newCount));
+  };
+
+const handleSearch = useCallback((title) => {
+
+  if (title === "") {
+    axios.get("http://localhost:5000/all")
+      .then((res) => {
+        setAllMovies(res.data);
+        setVisibleMovies(res.data.slice(0, countToShow)); 
+      });
+  } else {
+    axios.get(`http://localhost:5000/search/${title}`)
+      .then((res) => {
+        setAllMovies(res.data);
+        setVisibleMovies(res.data.slice(0, countToShow)); 
+      });
+  }
+}, [visibleCount]); 
+
 
   return (
     <div>
@@ -41,18 +56,23 @@ const Home = ({ showSearch }) => {
       ) : (
         <div className="main-content">
           <div className="card-grid">
-            {movies.length === 0 ? (
+            {visibleMovies.length === 0 ? (
               <div className="not-found">
                 <h1>SORRY</h1>
                 <p>We couldn't find that movie</p>
-                <p>Try searching again or go to the <a href="/">home page</a>.</p>
               </div>
             ) : (
-              movies.map((item, ind) => (
+              visibleMovies.map((item, ind) => (
                 <Details item={item} key={ind} />
               ))
             )}
           </div>
+
+          {visibleCount < allMovies.length && (
+            <button className="load-more-btn" onClick={loadMore}>
+              Load More
+            </button>
+          )}
         </div>
       )}
     </div>
