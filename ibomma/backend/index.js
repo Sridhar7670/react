@@ -7,13 +7,18 @@ const manual_route = require("./routes/routes");
 const app = express();
 
 
-app.use(cors({
+// Configure CORS options
+const corsOptions = {
   origin: ["https://react-li9a.vercel.app", "http://localhost:3000"],
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Add OPTIONS
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
-}));
+};
 
+app.use(cors(corsOptions));
 
+// Handle preflight requests
+app.options('*', cors(corsOptions)); // Enable preflight for all routes
 
 
 app.use(express.json());
