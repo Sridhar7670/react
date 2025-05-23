@@ -15,4 +15,5 @@ app.use(cors({
 }))
 app.use("/",manual_route)
 
-app.listen(5000)
+// app.listen(5000)  vercel doesn't listen 
+module.exports = app;
