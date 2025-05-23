@@ -40,9 +40,9 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   try {
-    const obj = await user_model.findById({ "_id": req.body._id });
+     const user = await user_model.findOne({ _id: req.body._id });
     if (obj) {
-      const f =  bcrypt.compare(req.body.password, obj.password);
+      const f =await  bcrypt.compare(req.body.password, obj.password);
       if (f) {
         res.json({
           token: jwt.sign({ "_id": obj._id }, "abcd"),
