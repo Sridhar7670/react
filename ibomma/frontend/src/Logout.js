@@ -3,6 +3,8 @@ import Cookies from 'js-cookie';
 import React,{ useContext } from 'react';
 import Context from './Context';
 
+
+
 const Logout = () => {
   const navigate = useNavigate();
   const {setActive}=useContext(Context)

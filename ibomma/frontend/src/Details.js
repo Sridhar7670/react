@@ -3,6 +3,10 @@
 import { useNavigate } from 'react-router-dom';
 import React from "react"
 import Cookies from 'js-cookie';
+
+
+
+
 const MovieCard = ({ item }) => {
   // const { setmovieData } = useContext(Context);// set data into context 
   const navigate = useNavigate();

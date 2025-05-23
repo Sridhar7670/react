@@ -6,6 +6,8 @@ import Context from "./Context";
 import Cookies from "js-cookie"
 
 
+
+
 const Footer = memo(() => {
 const {active,setActive}=useContext(Context)
 const token = Cookies.get('token');

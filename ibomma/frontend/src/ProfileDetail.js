@@ -3,6 +3,9 @@ import  { useState,useEffect } from 'react';
 import './ProfileDetail.css'; 
 
 import Cookies from 'js-cookie';
+
+
+
 const ProfileDetail = () => {
   // const {movieData :movie}=useContext(Context) //use data from context if needed 
   const [movie, setMovie] = useState(null);
