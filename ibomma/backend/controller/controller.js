@@ -37,25 +37,5 @@ const register = async (req, res) => {
   }
 };
 
-const login = async (req, res) => {
-  try {
-     const obj = await user_model.findOne({ _id: req.body._id });
-    if (obj) {
-      const f =await  bcrypt.compare(req.body.password, obj.password);
-      if (f) {
-        res.json({
-          token: jwt.sign({ "_id": obj._id }, "abcd"),
-          name: obj.name,
-          msg: "Login successful"
-        });
-      } else {
-        res.json({ msg: "Please check the password" });
-      }
-    } else {
-      res.json({ msg: "User not found" });
-    }
-  } catch (err) {
-    res.status(500).json({ msg: "Server error" });
-  }
-};
+
 module.exports = { searchmovie, getall ,login ,register};
