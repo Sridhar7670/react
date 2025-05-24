@@ -12,7 +12,7 @@ const Home = ({ showSearch }) => {
   const countToShow = visibleCount; 
   console.log("i am from home rendered ")
   useEffect(() => {
-    axios.get("https://moviesbend.vercel.app/all")
+    axios.get("https://react-8ypw.vercel.app/all")
       .then((res) => {
         setAllMovies(res.data);
         setVisibleMovies(res.data.slice(0, countToShow));
@@ -30,13 +30,13 @@ const Home = ({ showSearch }) => {
 const handleSearch = useCallback((title) => {
 
   if (title === "") {
-    axios.get("https://moviesbend.vercel.app/all")
+    axios.get("https://react-8ypw.vercel.app/all")
       .then((res) => {
         setAllMovies(res.data);
         setVisibleMovies(res.data.slice(0, countToShow)); 
       });
   } else {
-    axios.get(`https://moviesbend.vercel.app/search/${title}`)
+    axios.get(`https://react-8ypw.vercel.app/search/${title}`)
       .then((res) => {
         setAllMovies(res.data);
         setVisibleMovies(res.data.slice(0, countToShow)); 
