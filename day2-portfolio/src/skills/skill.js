@@ -1,7 +1,8 @@
 import React from 'react';
 import Card from '../components/cards/cards';
 import { FaCode, FaPython, FaDatabase ,FaReact} from 'react-icons/fa';
-import './Skills.css';
+import './Skills.css'; 
+//some testing code 
 const Skills = () => {
   const skillsData = [
     {
