@@ -62,7 +62,7 @@ const Favourites = () => {
   if (loading) {
     return (
       <div className="favourites-container">
-        <h2>Your Favourites</h2>
+        <h2 style={{textAlign:"center"}}>Your Favourites</h2>
         <div className="loading">Loading your favourite movies...</div>
       </div>
     );
@@ -71,7 +71,7 @@ const Favourites = () => {
   if (!Cookies.get('token')) {
     return (
       <div className="favourites-container">
-        <h2>Your Favourites</h2>
+        <h2 style={{textAlign:"center"}}>Your Favourites</h2>
         <div className="login-prompt">
           <p>Please log in to view your favourite movies.</p>
           <button onClick={() => {navigate('/login');setActive('person')}} className="login-btn">
@@ -85,7 +85,7 @@ const Favourites = () => {
   if (error) {
     return (
       <div className="favourites-container">
-        <h2>Your Favourites</h2>
+        <h2 style={{textAlign:"center"}}>Your Favourites</h2>
         <div className="error">{error}</div>
         <button onClick={fetchFavourites} className="retry-btn">
           Try Again
@@ -96,7 +96,7 @@ const Favourites = () => {
 
   return (
     <div className="favourites-container">
-      <h2>Your Favourites</h2>
+      <h2 style={{textAlign:"center"}}>Your Favourites</h2>
       {favourites.length === 0 ? (
         <div className="no-favourites">
           <p>You haven't added any movies to your favourites yet.</p>

@@ -11,7 +11,7 @@ manual_route.get("/search/:movieName",searchmovie)
 manual_route.get("/all",getall)
 manual_route.post("/register",register);
 manual_route.post("/login",login)
-app.get('/favourites', authenticateToken, getFavourites);
-app.post('/favourites', authenticateToken, addFavourite);
-app.delete('/favourites/:movieName', authenticateToken, removeFavourite);
+manual_route.get('/favourites', authenticateToken, getFavourites);
+manual_route.post('/favourites', authenticateToken, addFavourite);
+manual_route.delete('/favourites/:movieName', authenticateToken, removeFavourite);
 module.exports = manual_route
