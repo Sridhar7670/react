@@ -450,6 +450,73 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
+.favourites-container {
+  padding: 20px;
+  margin-top: 70px;
+  margin-bottom: 60px;
+  flex: 1;
+}
+
+.loading, .error, .no-favourites {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+}
+
+.login-prompt {
+  text-align: center;
+  padding: 40px;
+}
+
+.login-btn, .retry-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.favourites-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+/* Heart icon states for favorites */
+.heart-icon {
+  color: #ff2e93;
+  font-size: 22px;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.heart-icon:hover {
+  transform: scale(1.1);
+}
+
+.heart-icon.favourited {
+  color: #ff2e93;
+}
+
+.heart-icon:not(.favourited) {
+  color: rgba(255, 46, 147, 0.5);
+}
+
+.remove-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
 
 /* Responsive layout for tablets and laptops */
 @media screen and (min-width: 768px) {
@@ -479,6 +546,19 @@ body {
   .footer-icon {
     font-size: 28px;
   }
+  .profile-detail {
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .chat-button {
+    width: 300px;
+  }
+  .favourites-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* Desktop large screens */
@@ -503,15 +583,4 @@ body {
     margin-bottom: 70px;
   }
 }
-@media screen and (min-width: 768px) {
-  .profile-detail {
-    max-width: 800px;
-    margin: 0 auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
 
-  .chat-button {
-    width: 300px;
-  }
-}
