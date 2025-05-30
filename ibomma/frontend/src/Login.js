@@ -98,6 +98,7 @@ function Login() {
       setMessage(res.data.msg);
       if (res.data.token) {
         Cookies.set("token", JSON.stringify(res.data.token), { expires: 1 });
+        Cookies.set("name", JSON.stringify(res.data.name), { expires: 1 });
         setA(true);
         setTimeout(() => {
           navigate("/");

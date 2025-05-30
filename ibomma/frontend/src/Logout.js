@@ -9,14 +9,17 @@ const Logout = () => {
   const navigate = useNavigate();
   const {setActive}=useContext(Context)
   const handleLogout = () => {
-    Cookies.remove('token'); 
+    Cookies.remove('token');
+    Cookies.remove('name') 
     navigate('/');
     setActive('home')
            
   };
+  const userName = JSON.parse(Cookies.get("name") || '""');
 
   return (
     <div style={styles.container}>
+      <h2 style={styles.message}>Hi {userName}</h2>
       <h2 style={styles.message}>It's hard to see you go 😢</h2>
       <button style={styles.linkButton} onClick={handleLogout}>
         Click here to Logout

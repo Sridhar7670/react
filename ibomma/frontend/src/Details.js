@@ -18,10 +18,10 @@ const MovieCard = ({ item }) => {
       const token = Cookies.get('token');
       if (!token) return;
 
-      const parsedToken = JSON.parse(token);
+      
       const response = await axios.get('https://react-8ypw.vercel.app/favourites', {
         headers: {
-          'Authorization': `Bearer ${parsedToken}`
+          'Authorization': `Bearer ${token}`
         }
       });
 
@@ -52,13 +52,13 @@ const MovieCard = ({ item }) => {
       }
 
       setLoading(true);
-      const parsedToken = JSON.parse(token);
+      
 
       if (isFavourite) {
         // Remove from favourites
         await axios.delete(`https://react-8ypw.vercel.app/favourites/${item.movieName}`, {
           headers: {
-            'Authorization': `Bearer ${parsedToken}`
+            'Authorization': `Bearer ${token}`
           }
         });
       } else {
@@ -71,7 +71,7 @@ const MovieCard = ({ item }) => {
           ...item // This will include all item properties
         }, {
           headers: {
-            'Authorization': `Bearer ${parsedToken}`
+            'Authorization': `Bearer ${token}`
           }
         });
       }
