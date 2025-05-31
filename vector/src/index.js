@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import  App14, { App,App1, App10, App11, App12, App13, App2, App3, App4, App5, App6, App7, App8, App9 } from './App';
+import  App14, { App,App1, App10, App11, App12, App13, App15, App2, App3, App4, App5, App6, App7, App8, App9, ParentComponentWithCallback } from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,6 +21,8 @@ root.render(
     <App12/>
     <App13/>
     <App14/>
+    <App15/>
+    <ParentComponentWithCallback/>
   </React.StrictMode>
 );
 

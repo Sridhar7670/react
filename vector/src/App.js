@@ -1,6 +1,6 @@
 import './App.css';
 import Btn from './btn.js'
-import {useState } from 'react';
+import {useState ,useCallback,memo,useEffect} from 'react';
 import ReactMarkdown from "react-markdown";
 import DOMPurify from "dompurify";
 export let App=()=>{
@@ -700,13 +700,14 @@ function Preview({ markdown }) {
 
 
 
+
 function App14() {
   const images = [
-  { src: "https://dummyimage.com/200x300/000/fff&text=Baahubali", alt: "Image 1" },
-  { src: "https://dummyimage.com/200x300/000/fff&text=dangal", alt: "Image 2" },
-  { src: "https://dummyimage.com/200x300/000/fff&text=bongal", alt: "Image 3" },
-  // Add more images...
-];
+    { src: "https://dummyimage.com/200x300/000/fff&text=Baahubali", alt: "Image 1" },
+    { src: "https://dummyimage.com/200x300/000/fff&text=dangal", alt: "Image 2" },
+    { src: "https://dummyimage.com/200x300/000/fff&text=bongal", alt: "Image 3" },
+    // Add more images...
+  ];
 
   const [selectedIndex, setSelectedIndex] = useState(null);
 
@@ -714,6 +715,29 @@ function App14() {
   const closeLightbox = () => setSelectedIndex(null);
   const goNext = () => setSelectedIndex((i) => (i + 1) % images.length);
   const goPrev = () => setSelectedIndex((i) => (i - 1 + images.length) % images.length);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (selectedIndex === null) return;
+
+      switch (e.key) {
+        case 'ArrowRight':
+          goNext();
+          break;
+        case 'ArrowLeft':
+          goPrev();
+          break;
+        case 'Escape':
+          closeLightbox();
+          break;
+        default:
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedIndex]);
 
   return (
     <div>
@@ -724,13 +748,14 @@ function App14() {
             src={img.src}
             alt={img.alt}
             onClick={() => openLightbox(index)}
+            style={{ cursor: 'pointer', margin: '5px' }}
           />
         ))}
       </div>
 
       {selectedIndex !== null && (
         <div className="lightbox" onClick={closeLightbox}>
-          <span className="close">&times;</span>
+          <span className="close" onClick={(e) => { e.stopPropagation(); closeLightbox(); }}>&times;</span>
           <img src={images[selectedIndex].src} alt="" />
           <button className="prev" onClick={(e) => { e.stopPropagation(); goPrev(); }}>&lt;</button>
           <button className="next" onClick={(e) => { e.stopPropagation(); goNext(); }}>&gt;</button>
@@ -741,3 +766,92 @@ function App14() {
 }
 
 export default App14;
+
+
+
+export function App15(){ 
+const[num,setNum]=useState([]);
+const[temp,settemp]=useState(null)
+const fun21=(e)=>{settemp(e.target.value)}
+const del=(ind)=>{setNum(num.filter((_,i)=>i!==ind))}
+const fun22=()=>{{ if (temp.trim() === "") return; // prevent adding empty entries
+    setNum([...num, temp]);
+    settemp(""); // clear input
+    }}
+return (
+<>
+
+<input type='text' onChange={fun21} value={temp}/>
+<button onClick={()=>fun22()}>Add Item</button>
+  {
+  num.map((item,ind)=>{return (
+      <>
+      <div><span key={ind} >{ind+1}:{item}</span>
+      <button onClick={()=>del(ind)}> delete </button></div>
+       </>   
+    
+  )})}
+</>
+)
+} 
+
+
+// use call back and use memo differnce example 
+
+// --- Child Component (Memoized) ---
+// This component will only re-render if its props (onClick) shallowly change.
+const MyButton = memo(({ onClick, children }) => {
+  console.log(`  MyButton rendered: ${children}`);
+  return (
+    <button onClick={onClick} style={{ margin: '5px' }}>
+      {children}
+    </button>
+  );
+});
+
+// --- Parent Component ---
+export function ParentComponentWithCallback() {
+  const [count1, setCount1] = useState(0);
+  const [count2, setCount2] = useState(0);
+
+  console.log('ParentComponentWithCallback rendered!');
+
+  // 1. Memoized callback: This function's reference will be stable across renders
+  //    as long as `setCount1` (which is stable by React guarantee) doesn't change.
+  //    This means MyButton("Increment Count 1") will NOT re-render when count2 changes.
+  const handleClick1 = useCallback(() => {
+    setCount1(prevCount => prevCount + 1);
+
+  }, []); // Empty dependency array: this function is created once
+
+  // 2. Non-memoized callback: This function is re-created on EVERY render of ParentComponentWithCallback.
+  //    This will cause MyButton("Increment Count 2") to re-render EVERY time,
+  //    even if only count1 changes (because its 'onClick' prop's reference keeps changing).
+  const handleClick2 = () => {
+    setCount2(prevCount => prevCount + 1);
+  };
+
+  return (
+    <div>
+      <h2>Parent with useCallback Example</h2>
+      <p>Count 1: {count1}</p>
+      <p>Count 2: {count2}</p>
+
+      {/* This button uses the memoized handleClick1.
+        It will only re-render if its own 'onClick' prop (handleClick1's reference) changes.
+        Since handleClick1 is memoized with an empty dependency array, its reference is stable.
+        So, if count2 changes, MyButton("Increment Count 1") will NOT re-render.
+      */}
+      <MyButton onClick={handleClick1}>Increment Count 1</MyButton>
+
+      {/* This button uses the non-memoized handleClick2.
+        handleClick2 is recreated on every render of ParentComponentWithCallback.
+        Even though MyButton is memoized, its 'onClick' prop (handleClick2) is a NEW function reference every time.
+        Therefore, MyButton("Increment Count 2") WILL re-render every time ParentComponentWithCallback re-renders.
+      */}
+      <MyButton onClick={handleClick2}>Increment Count 2</MyButton>
+    </div>
+  );
+}
+
+ 

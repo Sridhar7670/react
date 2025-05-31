@@ -66,12 +66,15 @@
 
 .movie-rating {
   display: inline-block;
-  background-color: #ffe0ef;
-  color: #ff2e93;
-  padding: 3px 10px;
-  border-radius: 14px;
-  margin-bottom: 29px;
+    background-color: rgba(0, 0, 255, 0.575);
+    color: white ;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 1px auto;
+    font-size: 14px;
+    height: 5vh;
 }
+
 
 /* ==== Description, Cast, Genres ==== */
 .movie-section h3 {
@@ -116,7 +119,7 @@
   transform: translateX(-50%);
   width: calc(100% - 40px);
   max-width: 400px;
-  background: linear-gradient(to right, #ff2e93, #ff5faa);
+  background: linear-gradient(to right, rgba(0, 0, 255, 0.575), #ff5faa);
   color: #fff;
   font-size: 16px;
   padding: 14px;
@@ -138,6 +141,8 @@
     margin-top: 100px;
     padding-bottom: 120px;
     margin-bottom: 98px;
+    box-shadow: 2px 2px 4px gray;
+    border-radius: 5px;
   }
 
   .movie-poster {
