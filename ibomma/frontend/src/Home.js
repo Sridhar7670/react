@@ -8,7 +8,7 @@ const Home = ({ showSearch }) => {
   const [allMovies, setAllMovies] = useState([]);
   const [visibleMovies, setVisibleMovies] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [visibleCount, setVisibleCount] = useState(10); 
+  const [visibleCount, setVisibleCount] = useState(10);  
   const countToShow = visibleCount; 
   console.log("i am from home rendered ")
   useEffect(() => {
