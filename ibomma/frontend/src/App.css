@@ -8,6 +8,7 @@
 /* Body Layout */
 body, html {
   height: 100%;
+  background-color: #f0f4f8;
 }
 
 /* Wrapper to structure layout */
@@ -23,11 +24,11 @@ body {
   padding: 1rem 2rem;
   align-items: center;
   width: 100%;
-  background-color: #f1f1f1;
+  background-color: #393939; /* Dark Grey */
   z-index: 2;
   height: 70px; 
   position:fixed;
-  
+  color: white;
 }
 
 /* Fixed Footer */
@@ -36,8 +37,8 @@ body {
   justify-content: space-around;
   align-items: center;
   padding: 15px 0;
-  background-color: #fff;
-  border-top: 1px solid #ddd;
+  background-color: #393939; /* Dark Grey */
+  border-top: 1px solid #555;
   position: fixed;
   bottom: -1px;
   width: 100%;
@@ -46,15 +47,14 @@ body {
 
 .footer-icon {
   cursor: pointer;
-  color: #999;
+  color: #ec7f37; /* Light Orange */
   font-size: 24px;
   transition: color 0.2s ease;
 }
 
 .footer-icon.active {
-  color: #ff2e93; /* Pink or any active color */
+  color: #FF5A09; /* Deep Orange */
 }
-
 
 /* Scrollable Content Area */
 .main-content {
@@ -72,21 +72,21 @@ body {
 }
 
 .right-nav div {
-  background-color: white;
-  box-shadow: 2px 2px 4px gray;
+  background-color: #FF5A09; /* Deep Orange */
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   border-radius: 50%;
   padding: 10px;
 }
 
 #icon {
   cursor: pointer;
-  color: black;
+  color: white;
   font-size: 35px;
 }
 
 .main-content {
-  margin-top: 70px; /* height of header */
-  margin-bottom: 60px; /* height of footer */
+  margin-top: 70px;
+  margin-bottom: 60px;
   flex: 1;
   display: flex;
   justify-content: center;
@@ -94,15 +94,12 @@ body {
   flex-direction: column;
 }
 
-/* This ensures it doesn't take up card-grid styling */
 .not-found-wrapper {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-/* Keep your existing styles for .not-found */
 
 /* Cards Grid */
 .card-grid {
@@ -114,11 +111,9 @@ body {
   margin-bottom: calc(80px);
   box-sizing: border-box;
   width: 100vw;
-  
 }
 
-/* Profile Card */
-/* === Movie Card === */
+/* Movie Card */
 .movie-card {
   border-radius: 20px;
   overflow: hidden;
@@ -152,7 +147,7 @@ body {
 .movie-footer {
   width: 100%;
   height: 25%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  background: linear-gradient(to top, rgba(57, 57, 57, 0.8), transparent); /* Dark Grey with opacity */
   color: white;
   padding: 16px 12px;
   display: flex;
@@ -174,21 +169,22 @@ body {
 }
 
 .heart-icon {
-  color: #ff2e93;
+  color: #FF5A09; /* Deep Orange */
   font-size: 22px;
   cursor: pointer;
 }
 
 .loading-screen{
-       display: 'flex';
-      flex-direction: 'column';
-      justify-content: 'center';
-      align-items: 'center';
-      height: '100vh';
-      background-color: '#f8f8f8';
-      text-align: center;
-      margin-top: 20vh;
+  display: 'flex';
+  flex-direction: 'column';
+  justify-content: 'center';
+  align-items: 'center';
+  height: '100vh';
+  background-color: '#f8f8f8';
+  text-align: center;
+  margin-top: 20vh;
 }
+
 .profile-card:hover {
   transform: scale(1.03);
 }
@@ -207,7 +203,7 @@ body {
 .profile-footer {
   width: 100%;
   height: 25%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  background: linear-gradient(to top, rgba(57, 57, 57, 0.8), transparent); /* Dark Grey with opacity */
   color: white;
   padding: 23px 12px;
   display: flex;
@@ -220,12 +216,6 @@ body {
 .name-age {
   font-weight: bold;
   font-size: 22px;
-}
-
-.heart-icon {
-  color: #e91e63;
-  font-size: 22px;
-  cursor: pointer;
 }
 
 .search-form {
@@ -247,14 +237,14 @@ body {
 }
 
 .search-input:focus {
-  border-color: #007BFF;
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  border-color: #FF5A09; /* Deep Orange */
+  box-shadow: 0 0 8px rgba(255, 90, 9, 0.3);
   outline: none;
 }
 
 .search-button {
   padding: 10px 20px;
-  background-color: #007BFF;
+  background-color: #FF5A09; /* Deep Orange */
   border: none;
   border-radius: 25px;
   color: white;
@@ -264,13 +254,15 @@ body {
 }
 
 .search-button:hover {
-  background-color: #0056b3;
+  background-color: #be4f0c; /* Orange Yellow */
 }
+
 .Nav .left-nav h1 a {
-  color: inherit;           /* Inherits the color from h1 */
+  color: inherit;
   text-decoration: none;   
   font: inherit;         
 }
+
 .login {
   display: flex;
   flex-direction: column;
@@ -303,14 +295,14 @@ body {
 }
 
 .login input:focus {
-  border-color: #007BFF;
-  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+  border-color: #FF5A09; /* Deep Orange */
+  box-shadow: 0 0 6px rgba(255, 90, 9, 0.3);
 }
 
 .login button {
   width: 100%;
   padding: 12px 0;
-  background: linear-gradient(to right, #4CAF50, #66BB6A); /* Green */
+  background: linear-gradient(to right, #FF5A09, #ec7f37); /* Deep Orange to Light Orange */
   color: white;
   border: none;
   border-radius: 8px;
@@ -321,7 +313,7 @@ body {
 }
 
 .login button:hover {
-  background: linear-gradient(to right, #388E3C, #43A047);
+  background: linear-gradient(to right, #be4f0c, #FF5A09); /* Orange Yellow to Deep Orange */
 }
 
 .success-msg {
@@ -362,14 +354,14 @@ body {
 }
 
 .register input:focus {
-  border-color: #007BFF;
-  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+  border-color: #FF5A09; /* Deep Orange */
+  box-shadow: 0 0 6px rgba(255, 90, 9, 0.3);
 }
 
 .register button {
   width: 100%;
   padding: 12px 0;
-  background: linear-gradient(to right, #4CAF50, #66BB6A);
+  background: linear-gradient(to right, #FF5A09, #ec7f37); /* Deep Orange to Light Orange */
   color: white;
   border: none;
   border-radius: 8px;
@@ -380,7 +372,7 @@ body {
 }
 
 .register button:hover {
-  background: linear-gradient(to right, #388E3C, #43A047);
+  background: linear-gradient(to right, #be4f0c, #FF5A09); /* Orange Yellow to Deep Orange */
 }
 
 .success-msg {
@@ -396,15 +388,16 @@ body {
 }
 
 .login-link {
-  color: #007bff;
+  color: #FF5A09; /* Deep Orange */
   text-decoration: none;
   font-weight: 500;
 }
 
 .login-link:hover {
   text-decoration: underline;
-  color: #0056b3;
+  color: #be4f0c; /* Orange Yellow */
 }
+
 .not-found {
   text-align: center;
   padding: 40px;
@@ -428,11 +421,13 @@ body {
   width: 200px;
   height: auto;
 }
+
 .success-msg{
   padding: 0.5rem;
   color: green;
   opacity: 0.7;
 }
+
 .error-msg{
   padding: 0.5rem;
   color: red;
@@ -444,12 +439,17 @@ body {
   display: block;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #007bff;
+  background-color: #FF5A09; /* Deep Orange */
   border: none;
   color: white;
   border-radius: 5px;
   cursor: pointer;
 }
+
+.load-more-btn:hover {
+  background-color: #be4f0c; /* Orange Yellow */
+}
+
 .favourites-container {
   display: flex;
   flex-direction: column;
@@ -471,7 +471,7 @@ body {
 }
 
 .login-btn, .retry-btn {
-  background-color: #007bff;
+  background-color: #FF5A09; /* Deep Orange */
   color: white;
   border: none;
   padding: 10px 20px;
@@ -481,20 +481,26 @@ body {
   min-width: 120px;
   max-width: 140px;
   margin: 0 auto;
+}
 
+.login-btn:hover, .retry-btn:hover {
+  background-color: #be4f0c; /* Orange Yellow */
 }
+
 .label-login{
-    font-size: 16px;
-    position: relative;
-    right: 115px;
-    font-style: italic;
-    padding-bottom: 5px;
-    font-weight: bolder;
+  font-size: 16px;
+  position: relative;
+  right: 115px;
+  font-style: italic;
+  padding-bottom: 5px;
+  font-weight: bolder;
 }
+
 .error_login{
-    color: red;
-    padding-bottom: 5px;
+  color: red;
+  padding-bottom: 5px;
 }
+
 .label-register {
   font-size: 16px;
   margin-top: 10px;
@@ -517,7 +523,7 @@ body {
 
 /* Heart icon states for favorites */
 .heart-icon {
-  color: #ff2e93;
+  color: #FF5A09; /* Deep Orange */
   font-size: 22px;
   cursor: pointer;
   transition: color 0.2s ease, transform 0.2s ease;
@@ -528,11 +534,11 @@ body {
 }
 
 .heart-icon.favourited {
-  color: #ff2e93;
+  color: #FF5A09; /* Deep Orange */
 }
 
 .heart-icon:not(.favourited) {
-  color: rgba(255, 46, 147, 0.5);
+  color: rgba(255, 90, 9, 0.5); /* Deep Orange with opacity */
 }
 
 .remove-btn {
@@ -545,18 +551,16 @@ body {
   margin-top: 10px;
 }
 
-
 /* Responsive layout for tablets and laptops */
 @media screen and (min-width: 768px) {
   .Nav {
     padding: 1rem 3rem;
   }
 
- .movie-card {
-    width: 100%; /* Grid will control size */
+  .movie-card {
+    width: 100%;
     height: 320px;
   }
-
 
   .movie-title-year {
     font-size: 18px;
@@ -574,6 +578,7 @@ body {
   .footer-icon {
     font-size: 28px;
   }
+  
   .profile-detail {
     max-width: 800px;
     margin: 0 auto;
@@ -584,6 +589,7 @@ body {
   .chat-button {
     width: 300px;
   }
+  
   .favourites-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -595,10 +601,11 @@ body {
     grid-template-columns: repeat(4, 1fr);
   }
 
-   .movie-card {
+  .movie-card {
     height: 350px;
   }
-   .movie-title-year {
+  
+  .movie-title-year {
     font-size: 20px;
   }
 
@@ -611,4 +618,3 @@ body {
     margin-bottom: 70px;
   }
 }
-

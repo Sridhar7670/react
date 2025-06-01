@@ -3,7 +3,7 @@ import Details from './Details';
 import axios from 'axios';
 import Search from './Search';
 import './App.css';
-
+import notfoundimage from "./images/undraw_void_wez2.png"
 const Home = ({ showSearch }) => {
   const [allMovies, setAllMovies] = useState([]);
   const [visibleMovies, setVisibleMovies] = useState([]);
@@ -45,38 +45,43 @@ const handleSearch = useCallback((title) => {
 }, [visibleCount]); 
 
 
-  return (
-    <div>
-      {showSearch && <Search onSearch={handleSearch} />}
+return (
+  <div>
+    {showSearch && <Search onSearch={handleSearch} />}
 
-      {loading ? (
-        <div className="loading-screen">
-          <h2>Movies are being loaded...</h2>
-        </div>
-      ) : (
-        <div className="main-content">
-          <div className="card-grid">
-            {visibleMovies.length === 0 ? (
-              <div className="not-found">
-                <h1>SORRY</h1>
-                <p>We couldn't find that movie</p>
-              </div>
-            ) : (
-              visibleMovies.map((item, ind) => (
-                <Details item={item} key={ind} />
-              ))
-            )}
+    {loading ? (
+      <div className="loading-screen">
+        <h2>Movies are being loaded...</h2>
+      </div>
+    ) : (
+      <div className="main-content">
+        {visibleMovies.length === 0 ? (
+          <div className="not-found">
+            <img src={notfoundimage} alt="Not Found" />
+            <h1>Oops!</h1>
+            <p>We couldn't find that movie. Try a different title.</p>
           </div>
 
-          {visibleCount < allMovies.length && (
-            <button className="load-more-btn" onClick={loadMore}>
-              Load More
-            </button>
-          )}
-        </div>
-      )}
-    </div>
-  );
+        ) : (
+          <>
+            <div className="card-grid">
+              {visibleMovies.map((item, ind) => (
+                <Details item={item} key={ind} />
+              ))}
+            </div>
+
+            {visibleCount < allMovies.length && (
+              <button className="load-more-btn" onClick={loadMore}>
+                Load More
+              </button>
+            )}
+          </>
+        )}
+      </div>
+    )}
+  </div>
+);
+
 };
 
 export default React.memo(Home);

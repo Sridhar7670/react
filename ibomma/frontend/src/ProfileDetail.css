@@ -33,16 +33,17 @@
   transform: translateX(-50%);
   display: flex;
   gap: 30px;
-  background: #fff;
   border-radius: 40px;
   padding: 8px 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 1;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(57, 57, 57, 0.1);
 }
 
 .heart-icon,
 .star-icon {
   font-size: 24px;
+  color: #FF5A09;
   cursor: pointer;
 }
 
@@ -66,8 +67,8 @@
 
 .movie-rating {
   display: inline-block;
-    background-color: rgba(0, 0, 255, 0.575);
-    color: white ;
+  background-color: #FF5A09; 
+  color: white;
     border-radius: 10px;
     padding: 5px;
     margin: 1px auto;
@@ -90,7 +91,7 @@
 
 /* ==== See More Button ==== */
 .see-more {
-  color: rgb(206, 46, 46);
+   color: #FF5A09;
   font-weight: 500;
   cursor: pointer;
 }
@@ -105,7 +106,8 @@
 
 .tag {
   background-color: #f0f0f0;
-  color: #333;
+  color: #393939;
+  border: 1px solid #ec7f37;
   font-size: 13px;
   padding: 6px 12px;
   border-radius: 20px;
@@ -119,7 +121,7 @@
   transform: translateX(-50%);
   width: calc(100% - 40px);
   max-width: 400px;
-  background: linear-gradient(to right, rgba(0, 0, 255, 0.575), #ff5faa);
+  background: linear-gradient(to right, #FF5A09, #ec7f37);
   color: #fff;
   font-size: 16px;
   padding: 14px;
@@ -141,7 +143,7 @@
     margin-top: 100px;
     padding-bottom: 120px;
     margin-bottom: 98px;
-    box-shadow: 2px 2px 4px gray;
+    box-shadow: 0 8px 30px rgba(57, 57, 57, 0.15);
     border-radius: 5px;
   }
 
