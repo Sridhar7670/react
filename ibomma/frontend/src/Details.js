@@ -123,7 +123,7 @@ const MovieCard = ({ item }) => {
       const token = Cookies.get('token');
       if (!token) return;
 
-      const response = await axios.get('https://react-8ypw.vercel.app/favourites', {
+      const response = await axios.get('https://moviesbackend-tau.vercel.app/favourites', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
@@ -151,11 +151,11 @@ const MovieCard = ({ item }) => {
     setLoading(true);
     try {
       if (isFavourite) {
-        await axios.delete(`https://react-8ypw.vercel.app/favourites/${item.movieName}`, {
+        await axios.delete(`https://moviesbackend-tau.vercel.app/favourites/${item.movieName}`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
       } else {
-        await axios.post('https://react-8ypw.vercel.app/favourites', item, {
+        await axios.post('https://moviesbackend-tau.vercel.app/favourites', item, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
       }
