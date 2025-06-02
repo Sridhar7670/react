@@ -23,11 +23,11 @@ const Favourites = () => {
         return;
       }
 
-      // const parsedToken = JSON.parse(token);
+      const parsedToken = JSON.parse(token);
       
       const response = await axios.get('https://moviesbackend-tau.vercel.app/favourites', {
         headers: {
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${parsedToken}`
         }
       });
 
@@ -43,11 +43,11 @@ const Favourites = () => {
   const removeFavourite = async (movieId) => {
     try {
       const token = Cookies.get('token');
-      // const parsedToken = JSON.parse(token);
+      const parsedToken = JSON.parse(token);
 
       await axios.delete(`https://moviesbackend-tau.vercel.app/favourites/${movieId}`, {
         headers: {
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${parsedToken}`
         }
       });
 
