@@ -1,31 +1,37 @@
 import React,{ useContext ,memo} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse ,faRightFromBracket} from '@fortawesome/free-solid-svg-icons';
+import { faRightFromBracket} from '@fortawesome/free-solid-svg-icons';
 import {Link} from "react-router-dom"
 import Context from "./Context";
 import Cookies from "js-cookie"
 
 
 
-
 const Footer = memo(() => {
 const {active,setActive}=useContext(Context)
 const token = Cookies.get('token');
-  return (
+  return (  
     <div className='footer'>
       <Link to="/">
-      <span
-        className={`footer-icon ${active === 'home' ? 'active' : ''}`}
-        onClick={() => setActive('home')}
-      >
-        <FontAwesomeIcon icon={faHouse} style={{ fontSize: '24px' }} />
-      </span>
+        <span
+          className={`material-symbols-outlined footer-icon ${active === 'home' ? 'active' : ''}`}
+          onClick={() => {
+          setActive('home');
+          Cookies.set('activeTab', 'home');
+          }}
+
+        >
+          home
+        </span>
       </Link>
 
       <Link to="/favourite" >
       <span
         className={`material-symbols-outlined footer-icon ${active === 'favorite' ? 'active' : ''}`}
-        onClick={() => setActive('favorite')}
+       onClick={() => {
+          setActive('favorite');
+          Cookies.set('activeTab', 'favorite');
+          }}
       >
         favorite
       </span>
@@ -34,7 +40,10 @@ const token = Cookies.get('token');
       { token ? <Link to="/logout">
       <span
           className={`footer-icon ${active === 'logout'?'active':''}`}
-          onClick={()=>setActive('logout')}
+         onClick={() => {
+          setActive('logout');
+          Cookies.set('activeTab', 'logout');
+          }}
           title="Logout"
         >
           <FontAwesomeIcon icon={faRightFromBracket} style={{ fontSize: '24px' }} />
@@ -43,7 +52,10 @@ const token = Cookies.get('token');
       <Link to="/login">
       <span
         className={`material-symbols-outlined footer-icon ${active === 'person' ? 'active' : ''}`}
-        onClick={() => setActive('person')}
+        onClick={() => {
+          setActive('person');
+          Cookies.set('activeTab', 'person');
+          }}
       >
         person
       </span>

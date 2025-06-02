@@ -11,10 +11,11 @@ import Register from "./Register";
 import Favourites from "./Favourites";
 import Logout from "./Logout";
 import NotFound from "./Notfound";
+import Cookies from "js-cookie"
 function App() {
   const [movieData, setmovieData] = useState({});
   const [showSearch, setShowSearch] = useState(false);
-  const [active, setActive] = useState('home');
+  const [active, setActive] = useState(Cookies.get('activeTab') || 'home');
 
   return (  
   <BrowserRouter>
