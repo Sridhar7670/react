@@ -103,15 +103,17 @@ const Favourites = () => {
       ) : (
         <div className="favourites-grid">
           {favourites.map(movie => (
-            <div key={movie.movieName} className="movie-card">
-              <img src={movie.img} alt={movie.movieName} className="movie-poster" />
+            <div key={movie.movieName} className="movie-card" >
+              <img src={movie.img} alt={movie.movieName} className="movie-poster" onClick={()=>navigate(`/search/${encodeURIComponent(movie.movieName)}`)}/>
               <div className="movie-info">  
-                <h3 style={{textAlign:"center"}}>{movie.movieName}</h3>
+               <h3 style={{ textAlign: "center" }}>{movie.movieName?.trim().split(" ")[0]}
+                {movie.movieName?.trim().split(" ").length > 1 ? "..." : ""}</h3>
+
                 <button 
                   onClick={() => removeFavourite(movie.movieName)}
                   className="remove-btn"
                 >
-                  Remove from Favourites
+                 <i className="fa fa-trash" aria-hidden="true"></i>
                 </button>
               </div>
             </div>

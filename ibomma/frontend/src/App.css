@@ -519,7 +519,16 @@ body {
   right: 115px;
   padding-bottom: 5px;
 }
-
+.movie-info{
+  display: flex;
+  align-items: center ;
+  justify-content: space-around;
+  margin: 5px;
+  gap: 20px;
+}
+.movie-info h3{
+  overflow: hidden;
+}
 .favourites-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -527,6 +536,13 @@ body {
   padding: 20px;
   width: 100%;
   box-sizing: border-box;
+}
+.remove-btn{
+  color: white;
+  background-color: red;
+outline: none;
+border-radius: 5px;
+padding: 10px;
 }
 
 /* Heart icon states for favorites */

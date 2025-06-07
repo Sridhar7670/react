@@ -152,8 +152,7 @@ const MovieCard = ({ item }) => {
 
       setIsFavourite(!isFavourite);
     } catch (err) {
-      console.error('Error toggling favourite:', err);
-      alert(err.response.data.error);
+      alert(err?.response?.data?.error);
     } finally {
       setLoading(false);
     }
