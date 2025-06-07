@@ -1,0 +1,61 @@
+.post-card {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.post-title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  color: #333;
+}
+
+.post-title a {
+  text-decoration: none;
+  color: #0079d3;
+}
+
+.post-title a:hover {
+  text-decoration: underline;
+}
+
+.post-body {
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.post-footer {
+  font-size: 14px;
+  color: #666;
+}
+.post-body p {
+  margin-bottom: 1em;
+  line-height: 1.5;
+}
+
+.post-body h2, .post-body h3 {
+  margin-top: 1em;
+}
+
+.post-body a {
+  color: #0079d3;
+  text-decoration: underline;
+}
+/* Code block and pre formatting fixes */
+.post-body pre,
+.post-body code {
+  white-space: pre-wrap;     /* Wrap long lines */
+  word-wrap: break-word;     /* Break long words */
+  overflow-x: auto;          /* Add horizontal scroll if needed */
+  max-width: 100%;           /* Prevent overflow */
+  display: block;            /* Make sure pre/code respects container */
+  font-family: 'Courier New', monospace;
+  background-color: #f8f9fa;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.4;
+}

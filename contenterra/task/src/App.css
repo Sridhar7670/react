@@ -1,0 +1,165 @@
+/* ===== Global Body Styling ===== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* ===== Container ===== */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ===== PostCard ===== */
+.post-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin: 15px;
+  padding: 20px;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.post-card:hover {
+  transform: scale(1.03);
+}
+
+/* ===== Post Title ===== */
+.post-title {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.post-title a {
+  color: #0079d3;
+  text-decoration: none;
+}
+
+.post-title a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Post Body (sanitized Reddit HTML) ===== */
+.post-body {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-family: sans-serif;
+}
+
+/* Styling for HTML content inside post-body mimicking Reddit HTML */
+.post-body p {
+  margin-bottom: 1em;
+}
+
+.post-body h2 {
+  font-size: 1.25rem;
+  margin-top: 1.5em;
+  color: #007bff;
+}
+
+.post-body ol,
+.post-body ul {
+  padding-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+.post-body li {
+  margin-bottom: 0.5em;
+}
+
+.post-body hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 1.5em 0;
+}
+
+.post-body a {
+  color: #0079d3;
+  text-decoration: none;
+}
+
+.post-body a:hover {
+  text-decoration: underline;
+}
+
+.post-body code {
+  background: #f6f6f6;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+/* ===== Post Footer ===== */
+.post-footer {
+  font-weight: bold;
+  color: #222;
+  font-size: 14px;
+}
+
+/* ===== Score badge (optional styling) ===== */
+.score {
+  background-color: #ffe600;
+  padding: 5px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+/* ===== Responsive Media Queries ===== */
+
+/* Medium screens (tablets) */
+@media (max-width: 1024px) {
+  .post-card {
+    width: 45%;
+  }
+
+  .post-title {
+    font-size: 16px;
+  }
+
+  .post-body {
+    font-size: 13px;
+  }
+
+  .post-footer {
+    font-size: 13px;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .post-card {
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  .post-title {
+    font-size: 16px;
+  }
+
+  .post-body {
+    font-size: 13px;
+  }
+
+  .post-footer {
+    font-size: 13px;
+  }
+}
