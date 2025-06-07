@@ -391,6 +391,9 @@ body {
   font-size: 14px;
   color: #555;
 }
+.favourited {
+  color: red;
+}
 
 .login-link {
   color: #FF5A09; /* Deep Orange */
@@ -522,7 +525,7 @@ body {
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   padding: 20px;
-  width: 100vw;
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -546,15 +549,7 @@ body {
   color: rgba(255, 90, 9, 0.5); /* Deep Orange with opacity */
 }
 
-.remove-btn {
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-}
+
 
 /* Responsive layout for tablets and laptops */
 @media screen and (min-width: 768px) {

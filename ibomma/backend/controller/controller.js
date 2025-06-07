@@ -74,12 +74,30 @@ const getFavourites = async (req, res) => {
 const addFavourite = async (req, res) => {
   try {
     const userId = req.user._id;
-    const movieData = req.body;
-    
+    const { movieName, img } = req.body;
+
+    // Get the user document
+    const user = await user_model.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Check if the movie already exists in favourites
+    const alreadyExists = user.favourites.some(
+      (fav) => fav.movieName === movieName
+    );
+
+    if (alreadyExists) {
+      return res.status(400).json({ error: 'Movie already in favourites' });
+    }
+
+    // Add to favourites
+    const movieData = { movieName, img };
     await user_model.findByIdAndUpdate(userId, {
       $push: { favourites: movieData }
     });
-    
+
     res.json({ message: 'Added to favourites' });
   } catch (error) {
     res.status(500).json({ error: 'Failed to add to favourites' });

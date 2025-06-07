@@ -30,7 +30,6 @@ const Favourites = () => {
           'Authorization': `Bearer ${parsedToken}`
         }
       });
-
       setFavourites(response.data.favourites || []);
       setLoading(false);
     } catch (err) {
@@ -52,7 +51,7 @@ const Favourites = () => {
       });
 
       // Update local state
-      setFavourites(favourites.filter(movie => movie.id !== movieId));
+      setFavourites(favourites.filter(movie => movie.movieName !== movieId));
     } catch (err) {
       console.error('Error removing favourite:', err);
       setError('Failed to remove from favourites');
@@ -104,13 +103,12 @@ const Favourites = () => {
       ) : (
         <div className="favourites-grid">
           {favourites.map(movie => (
-            <div key={movie.id} className="movie-card">
-              <img src={movie.poster} alt={movie.title} className="movie-poster" />
-              <div className="movie-info">
-                <h3>{movie.title}</h3>
-                <p>{movie.year}</p>
+            <div key={movie.movieName} className="movie-card">
+              <img src={movie.img} alt={movie.movieName} className="movie-poster" />
+              <div className="movie-info">  
+                <h3 style={{textAlign:"center"}}>{movie.movieName}</h3>
                 <button 
-                  onClick={() => removeFavourite(movie.id)}
+                  onClick={() => removeFavourite(movie.movieName)}
                   className="remove-btn"
                 >
                   Remove from Favourites
