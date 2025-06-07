@@ -6,11 +6,29 @@ import emp_mangment_sys from "../components/images/employee_managment_system.png
 import Blinkit from "../components/images/Blinkit.png"
 import TaskManager from "../components/images/TaskManager.png"
 import portfolio from "../components/images/portfolio.png"
-
+import Movies from "../components/images/Movies App.png"
 const Projects = () => {
   const [activeTile, setActiveTile] = useState(null);
 
   const projects = [
+    {
+      
+      title: "Movies App",
+      description: "Complete Mern stack Application",
+      tech: ["React", "Express","RestApi"],
+      thumbnail: Movies,
+      codeUrl: "https://github.com/Sridhar7670/react/tree/main/ibomma",
+      liveUrl: "https://react-li9a.vercel.app/"
+    },
+    {
+      
+      title: "Portfolio Website",
+      description: "Responsive portfolio built with React and GSAP animations",
+      tech: ["React", "react-router-dom","CSS Modules"],
+      thumbnail: portfolio,
+      codeUrl: "https://github.com/Sridhar7670/react/tree/main/day2-portfolio",
+      liveUrl: "https://sridhars-portfolio.netlify.app/"
+    },
     
     {
       
@@ -57,15 +75,8 @@ const Projects = () => {
       codeUrl: "https://github.com/Sridhar7670/Blinkit-Clone",
       liveUrl: "https://sridhar7670.github.io/Blinkit-Clone/"
     },
-    {
-      
-      title: "Portfolio Website",
-      description: "Responsive portfolio built with React and GSAP animations",
-      tech: ["React", "react-router-dom","CSS Modules"],
-      thumbnail: portfolio,
-      codeUrl: "https://github.com/Sridhar7670/react/tree/main/day2-portfolio",
-      liveUrl: "https://yourportfolio.com"
-    }
+    
+    
     
   ];
 
