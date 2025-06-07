@@ -8,8 +8,9 @@
   ],
   "routes": [
     {
-      "source": "/(.*)", 
-      "destination": "/index.js"
+      "src": "/(.*)", 
+      "dest": "/index.js",
+      "Methods":["GET","POST","PUT","DELETE","OPTIONS"]
     }
   ],
   "headers": [
