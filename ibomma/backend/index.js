@@ -9,7 +9,7 @@ const app = express();
 
 // Configure CORS options
 const corsOptions = {
-  origin: ["https://moviesbackend-phi.vercel.app/", "http://localhost:3000"],
+  origin: ["https://react-li9a.vercel.app/", "http://localhost:3000"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Add OPTIONS
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
