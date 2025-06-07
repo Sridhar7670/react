@@ -106,7 +106,7 @@ const ProfileDetail = () => {
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const response = await axios.get(`https://moviesbackend-tau.vercel.app/search/${encodeURIComponent(moviename)}`);
+        const response = await axios.get(`https://moviesbackend-phi.vercel.app/search/${encodeURIComponent(moviename)}`);
         if (response.data.length > 0) {
           setMovie(response.data[0]); // Assuming the API returns an array
         } else {

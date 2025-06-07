@@ -111,7 +111,7 @@ const MovieCard = ({ item }) => {
 
       const parsedToken = JSON.parse(token);
 
-      const response = await axios.get('https://moviesbackend-tau.vercel.app/favourites', {
+      const response = await axios.get('https://moviesbackend-phi.vercel.app/favourites', {
         headers: { 'Authorization': `Bearer ${parsedToken}` }
       });
 
@@ -141,11 +141,11 @@ const MovieCard = ({ item }) => {
 
     try {
       if (isFavourite) {
-        await axios.delete(`https://moviesbackend-tau.vercel.app/${item.movieName}`, {
+        await axios.delete(`https://moviesbackend-phi.vercel.app/${item.movieName}`, {
           headers: { 'Authorization': `Bearer ${parsedToken}` }
         });
       } else {
-        await axios.post('https://moviesbackend-tau.vercel.app/favourites', item, {
+        await axios.post('https://moviesbackend-phi.vercel.app/favourites', item, {
           headers: { 'Authorization': `Bearer ${parsedToken}` }
         });
       }

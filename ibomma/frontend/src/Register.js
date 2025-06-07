@@ -39,7 +39,7 @@ const Register = () => {
     if (!validateForm()) return;
 
     axios
-      .post("https://moviesbackend-tau.vercel.app/register", temp)
+      .post("https://moviesbackend-phi.vercel.app/register", temp)
       .then((res) => {
         setMessage(res.data.msg);
         setIsError(false);
