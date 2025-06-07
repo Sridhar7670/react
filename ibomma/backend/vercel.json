@@ -8,13 +8,13 @@
   ],
   "rewrites": [
     {
-      "source": "/.*",
+      "source": "/(.*)",
       "destination": "/index.js"
     }
   ],
   "headers": [
     {
-      "source": "/.*",
+      "source": "/(.*)",
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "https://react-li9a.vercel.app" },
         { "key": "Access-Control-Allow-Methods", "value": "GET,POST,PUT,DELETE,OPTIONS" },
