@@ -25,7 +25,7 @@ const Favourites = () => {
 
       const parsedToken = JSON.parse(token);
       
-      const response = await axios.get('https://moviesbackend-phi.vercel.app/favourites', {
+      const response = await axios.get('https://backend-d70u.onrender.com/favourites', {
         headers: {
           'Authorization': `Bearer ${parsedToken}`
         }
@@ -44,7 +44,7 @@ const Favourites = () => {
       const token = Cookies.get('token');
       const parsedToken = JSON.parse(token);
 
-      await axios.delete(`https://moviesbackend-phi.vercel.app/favourites/${movieId}`, {
+      await axios.delete(`https://backend-d70u.onrender.com/favourites/${movieId}`, {
         headers: {
           'Authorization': `Bearer ${parsedToken}`
         }

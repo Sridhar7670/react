@@ -35,7 +35,7 @@ function Login() {
     if (Object.keys(errs).length > 0) return;
 
     try {
-      const res = await axios.post(`https://moviesbackend-tau.vercel.app/login`, temp);
+      const res = await axios.post(`https://backend-d70u.onrender.com/login`, temp);
       setMessage(res.data.msg);
       if (res.data.token) {
         Cookies.set("token", JSON.stringify(res.data.token), { expires: 1 });
