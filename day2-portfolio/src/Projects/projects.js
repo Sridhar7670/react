@@ -16,9 +16,9 @@ const Projects = () => {
       title: "E-Commerce Platform",
       description: "Full-featured online store with Next/Nest js Dockerized",
       tech: ["Nest/Nest", "PgSQL", "Docker"],
-      thumbnail: "/images/ecommerce-thumb.jpg",
-      codeUrl: "https://github.com/yourusername/ecommerce",
-      liveUrl: "https://yourapp.com"
+      thumbnail: "https://www.google.com/imgres?q=e%20commerce&imgurl=https%3A%2F%2Fewm.swiss%2Fapplication%2Ffiles%2F8216%2F1597%2F9679%2FE-commerce_web_design_EWM_SA_Digital_Agency_Geneva.jpg&imgrefurl=https%3A%2F%2Fwww.growthjockey.com%2Fblogs%2Fecommerce-business-set-up-success-tips&docid=dOKJ8iFpKO31lM&tbnid=qQE3ddv-9SCxqM&vet=12ahUKEwiOzNzb-p2QAxW91jgGHbRIFTQQM3oECBsQAA..i&w=1920&h=1080&hcb=2&ved=2ahUKEwiOzNzb-p2QAxW91jgGHbRIFTQQM3oECBsQAA",
+      codeUrl: "https://github.com/Sridhar7670/E-Commers",
+      liveUrl: "https://github.com/Sridhar7670/E-Commers"
     },
     {
       
