@@ -11,6 +11,15 @@ const Projects = () => {
   const [activeTile, setActiveTile] = useState(null);
 
   const projects = [
+     {
+      
+      title: "E-Commerce Platform",
+      description: "Full-featured online store with Next/Nest js Dockerized",
+      tech: ["Nest/Nest", "PgSQL", "Docker"],
+      thumbnail: "/images/ecommerce-thumb.jpg",
+      codeUrl: "https://github.com/yourusername/ecommerce",
+      liveUrl: "https://yourapp.com"
+    },
     {
       
       title: "Movies App",
@@ -47,15 +56,6 @@ const Projects = () => {
       thumbnail: TaskManager,
       codeUrl: "https://github.com/Sridhar7670/Task-manager",
       liveUrl: "https://sridhar7670.github.io/Task-manager/"
-    },
-    {
-      
-      title: "E-Commerce Platform",
-      description: "Full-featured online store with React, Node.js, and MongoDB",
-      tech: ["React", "Node.js", "MongoDB", "Redux"],
-      thumbnail: "/images/ecommerce-thumb.jpg",
-      codeUrl: "https://github.com/yourusername/ecommerce",
-      liveUrl: "https://yourapp.com"
     },
     {
       
