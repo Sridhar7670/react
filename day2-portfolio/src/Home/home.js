@@ -58,7 +58,7 @@ const Home = () => {
             />
             <Button 
               children="Resume" 
-              onClick={() => window.open('https://drive.google.com/file/d/1xW7pfM6LM6B5aGKMx9AdyPo9Xcz_CCtS/view?usp=sharing', '_blank')}
+              onClick={() => window.open('https://drive.google.com/file/d/1S0HdJVfIKkTSXX9DTKH7JjBxMqdbqVLQ/view?usp=sharing', '_blank')}
               variant="primary"
               size="medium"
             />
