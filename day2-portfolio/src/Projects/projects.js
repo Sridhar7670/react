@@ -45,16 +45,7 @@ const Projects = () => {
       codeUrl: "https://github.com/Sridhar7670/react/tree/main/day2-portfolio",
       liveUrl: "https://sridhars-portfolio.netlify.app/"
     },
-    
     {
-
-      title: "Early Projects",
-      description: "Small apps from my learning phase — Employee Management, Task Manager, Tic-Tac-Toe, Blinkit clone. Check my GitHub for more",
-      tech: ["JavaScript", "HTML", "CSS"],
-      thumbnail: TaskManager,
-      codeUrl: "https://github.com/Sridhar7670",
-    },
-     {
       
       title: "Employee Management App",
       description: "Add data into the input fields and perform opeartions on them ",
@@ -63,6 +54,15 @@ const Projects = () => {
       codeUrl: "https://github.com/Sridhar7670/employee-management-system-",
       liveUrl: "https://sridhar7670.github.io/employee-management-system-/"
     },
+    {
+
+      title: "Early Projects",
+      description: "Small apps from my learning phase — Employee Management, Task Manager, Tic-Tac-Toe, Blinkit clone. Check my GitHub for more",
+      tech: ["JavaScript", "HTML", "CSS"],
+      thumbnail: TaskManager,
+      codeUrl: "https://github.com/Sridhar7670",
+    },
+     
   ];
 
   return (
@@ -70,7 +70,7 @@ const Projects = () => {
       <h2 className="section-title">My Projects</h2>
       <div className="tile-grid">
         {projects.map((project,i) => (
-          <div key={i+1} className={`project-tile `}
+          <div key={i+1} className={`project-tile `} tabIndex={0}
           >
             <div className="tile-front">
               <img src={project.thumbnail} alt={project.title}  className="tile-image"/>

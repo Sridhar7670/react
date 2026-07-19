@@ -2,6 +2,7 @@
 .projects-section {
   padding: 5rem 2rem;
   background-color: #f8fafc;
+  scroll-margin-top: 5rem;
 }
 
 .section-title {
@@ -74,12 +75,20 @@
   top: -50px;
 }
 
-.project-tile:hover .tile-front {
+.project-tile:hover .tile-front,
+.project-tile:focus-within .tile-front,
+.project-tile:focus .tile-front {
   transform: rotateY(180deg);
 }
 
-.project-tile:hover .tile-back {
+.project-tile:hover .tile-back,
+.project-tile:focus-within .tile-back,
+.project-tile:focus .tile-back {
   transform: rotateY(0deg);
+}
+
+.project-tile:focus {
+  outline: none;
 }
 
 /* Tile Content Styles */

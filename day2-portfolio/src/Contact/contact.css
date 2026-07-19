@@ -1,5 +1,6 @@
 .form {
   width: 100%;
+  scroll-margin-top: 5rem;
   background-color: #fff;
   border-radius: 5px;
   /* box-shadow: 4px 4px 4px gray;  */
@@ -87,6 +88,10 @@
     transition: 0.3s;
   }
   
+  .input:focus {
+    border-color: #149279;
+  }
+
   textarea.input {
     padding: 0.8rem 1.2rem;
     min-height: 150px;

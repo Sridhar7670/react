@@ -1,5 +1,6 @@
 .skills-section {
     padding: 5rem 2rem;
+    scroll-margin-top: 5rem;
     background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
   }
   
@@ -24,7 +25,7 @@
   
 .skills-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
