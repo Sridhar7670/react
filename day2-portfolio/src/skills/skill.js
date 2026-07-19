@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../components/cards/cards';
-import { FaCode, FaPython, FaDatabase ,FaReact} from 'react-icons/fa';
+import { FaCode, FaDatabase ,FaReact} from 'react-icons/fa';
 import './Skills.css'; 
 //some testing code 
 const Skills = () => {
@@ -13,22 +13,21 @@ const Skills = () => {
     url: "https://github.com/Sridhar7670/JavaScript"
   },
   {
-    icon: <FaPython />,
-    title: "Programming",
-    description: "Learn't most used programming languages like Python, Java & JavaScript",
-    linkText: "Explored concepts",
-    url: "https://github.com/Sridhar7670/python"
+    icon: <FaCode />,
+    title: "Cloud & AWS",
+    description: "Deployed apps on AWS (EC2, S3) with Docker. Basic Terraform for infrastructure setup.",
+    url: "#"
   },
   {
     icon: <FaDatabase />,
-    title: "Database Programming",
-    description: "Profecient In SQl and MongoDb. Looking for opportunities to apply database skills.",
+    title: "Databases",
+    description: "Worked with PostgreSQL and MongoDB in real projects — schemas, queries, and API integrations.",
     url: "#"
   },
   {
     icon: <FaReact />,
     title: "MERN Stack",
-    description: "Efficent in using modern Frameworks and Libraries Such as React Express Node",
+    description: "Efficient in using modern Frameworks and Libraries Such as React Express Node",
     linkText: "View Projects",
     url: "https://github.com/Sridhar7670/react"
   },

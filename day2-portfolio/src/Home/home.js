@@ -6,9 +6,9 @@ import myimage from "../components/images/my_image.jpg"
 const Home = () => {
   const introLines = [
     "I am a Web Developer.",
-    "I am a MERN Stack Developer.",
-    "I am a Frontend Developer.", 
-    "I am a Full Stack Developer."
+    "I am a Full Stack Developer (Next.js / NestJS).",
+    "I am a Frontend Developer.",
+    "I build and deploy web apps end to end."
   ];
   
   const Actionlines = [

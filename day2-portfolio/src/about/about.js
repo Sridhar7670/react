@@ -4,10 +4,10 @@ import './about.css';
 
 const About = () => {
   const hireReasons = [
-    "Full-stack Fresher developer ",
-    "Always like to work on new Projects, Things ",
-    "Quick learner who learned MERN stack in just few months",
-    "Works exceptionally well in Team settings and achieving common goals."
+    "Full-stack developer with ~1 year of hands-on experience at Alpine Code",
+    "Shipped production features using Next.js, NestJS, TypeScript and PostgreSQL",
+    "Comfortable with Docker, AWS and Git workflows — debugged real production issues",
+    "Work well in a team — used to PRs, code reviews and shared deadlines"
   ];
 
   return (
@@ -38,9 +38,9 @@ const About = () => {
               <strong>Electronics & Communication Engineering</strong>
             </p>
             <p>
-              Transitioned to web development through self-intrest, completing 
-              multiple MERN stack projects with focus on responsive design 
-              and clean code practices.
+              Transitioned to web development through self-interest, and now
+              work as a Software Developer building full-stack apps with
+              PostgreSQL, Docker and AWS deployments.
             </p>
           </div>
 

@@ -1,29 +1,36 @@
 import React, { useState } from 'react';
 import { FiGithub, FiExternalLink, FiCode } from 'react-icons/fi';
 import './project.css';
-import tic_tac_toe from "../components/images/tic_tac_toe.jpg"
 import emp_mangment_sys from "../components/images/employee_managment_system.png"
-import Blinkit from "../components/images/Blinkit.png"
 import TaskManager from "../components/images/TaskManager.png"
+import alpine_work from "../components/images/alpine_work.svg"
+import ecommerce from "../components/images/ecommerce.svg"
 import portfolio from "../components/images/portfolio.png"
 import Movies from "../components/images/Movies App.png"
 const Projects = () => {
   const [activeTile, setActiveTile] = useState(null);
 
   const projects = [
-     {
-      
+    {
+
+      title: "Production Work @ Alpine Code",
+      description: "Full-stack modules with Next.js, NestJS and PostgreSQL — JWT auth, RBAC, Dockerized AWS deployments. Company work, so no public code.",
+      tech: ["Next.js", "NestJS", "PostgreSQL", "AWS"],
+      thumbnail: alpine_work,
+    },
+    {
+
       title: "E-Commerce Platform",
-      description: "Full-featured online store with Next/Nest js Dockerized",
-      tech: ["Nest/Nest", "PgSQL", "Docker"],
-      thumbnail: "https://www.google.com/imgres?q=e%20commerce&imgurl=https%3A%2F%2Fewm.swiss%2Fapplication%2Ffiles%2F8216%2F1597%2F9679%2FE-commerce_web_design_EWM_SA_Digital_Agency_Geneva.jpg&imgrefurl=https%3A%2F%2Fwww.growthjockey.com%2Fblogs%2Fecommerce-business-set-up-success-tips&docid=dOKJ8iFpKO31lM&tbnid=qQE3ddv-9SCxqM&vet=12ahUKEwiOzNzb-p2QAxW91jgGHbRIFTQQM3oECBsQAA..i&w=1920&h=1080&hcb=2&ved=2ahUKEwiOzNzb-p2QAxW91jgGHbRIFTQQM3oECBsQAA",
+      description: "Online store with product browsing, auth and cart. Next.js + NestJS + PostgreSQL, Dockerized",
+      tech: ["Next.js", "NestJS", "PostgreSQL", "Docker"],
+      thumbnail: ecommerce,
       codeUrl: "https://github.com/Sridhar7670/E-Commers",
       liveUrl: "https://github.com/Sridhar7670/E-Commers"
     },
     {
-      
+
       title: "Movies App",
-      description: "Complete Mern stack Application",
+      description: "MERN stack app with JWT auth, bcrypt password hashing and a wishlist feature",
       tech: ["React", "Express","RestApi"],
       thumbnail: Movies,
       codeUrl: "https://github.com/Sridhar7670/react/tree/main/ibomma",
@@ -40,6 +47,14 @@ const Projects = () => {
     },
     
     {
+
+      title: "Early Projects",
+      description: "Small apps from my learning phase — Employee Management, Task Manager, Tic-Tac-Toe, Blinkit clone. Check my GitHub for more",
+      tech: ["JavaScript", "HTML", "CSS"],
+      thumbnail: TaskManager,
+      codeUrl: "https://github.com/Sridhar7670",
+    },
+     {
       
       title: "Employee Management App",
       description: "Add data into the input fields and perform opeartions on them ",
@@ -48,36 +63,6 @@ const Projects = () => {
       codeUrl: "https://github.com/Sridhar7670/employee-management-system-",
       liveUrl: "https://sridhar7670.github.io/employee-management-system-/"
     },
-    {
-      
-      title: "Task Manager",
-      description: "Add task and edit delete tasks based on users choise",
-      tech: ["JavaScript","HTML","CSS"],
-      thumbnail: TaskManager,
-      codeUrl: "https://github.com/Sridhar7670/Task-manager",
-      liveUrl: "https://sridhar7670.github.io/Task-manager/"
-    },
-    {
-      
-      title: "TIC-TAC-TOE",
-      description: "Some Fun Time Gaming App",
-      tech: ["JavaScript", "Vanilla JS"],
-      thumbnail: tic_tac_toe,
-      codeUrl: "https://github.com/Sridhar7670/TIC-TAC-TOE",
-      liveUrl: "https://sridhar7670.github.io/TIC-TAC-TOE/"
-    },
-    {
-      
-      title: "Blinkit Clone",
-      description: "Made Basic Home page of Blinkit using only HTML,CSS",
-      tech: ["HTML","CSS"],
-      thumbnail: Blinkit,
-      codeUrl: "https://github.com/Sridhar7670/Blinkit-Clone",
-      liveUrl: "https://sridhar7670.github.io/Blinkit-Clone/"
-    },
-    
-    
-    
   ];
 
   return (
@@ -99,22 +84,26 @@ const Projects = () => {
               <h4 className="project-title">{project.title}</h4>
               <p className="project-description">{project.description}</p>
               <div className="project-links">
-                <a 
-                  href={project.codeUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="project-link"
-                >
-                  <FiCode /> Code
-                </a>
-                <a 
-                  href={project.liveUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="project-link"
-                >
-                  <FiExternalLink /> Live Demo
-                </a>
+                {project.codeUrl && (
+                  <a
+                    href={project.codeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    <FiCode /> Code
+                  </a>
+                )}
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    <FiExternalLink /> Live Demo
+                  </a>
+                )}
               </div>
             </div>
           </div>
