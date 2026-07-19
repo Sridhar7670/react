@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {FaMapLocationDot,FaEnvelope,FaPhoneVolume,FaFacebook,FaInstagram,FaTwitter,FaLinkedinIn,} 
+import {FaMapLocationDot,FaEnvelope,FaFacebook,FaInstagram,FaTwitter,FaLinkedinIn,}
 from "react-icons/fa6";
 import './contact.css'
 const ContactForm = () => {

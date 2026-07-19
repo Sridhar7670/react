@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
-import { FiGithub, FiExternalLink, FiCode } from 'react-icons/fi';
+import React from 'react';
+import { FiExternalLink, FiCode } from 'react-icons/fi';
 import './project.css';
 import emp_mangment_sys from "../components/images/employee_managment_system.png"
 import TaskManager from "../components/images/TaskManager.png"
 import alpine_work from "../components/images/alpine_work.svg"
 import ecommerce from "../components/images/ecommerce.svg"
 import portfolio from "../components/images/portfolio.png"
-import Movies from "../components/images/Movies App.png"
+import Movies from "../components/images/movies_app.png"
 const Projects = () => {
-  const [activeTile, setActiveTile] = useState(null);
-
   const projects = [
     {
 
@@ -25,7 +23,6 @@ const Projects = () => {
       tech: ["Next.js", "NestJS", "PostgreSQL", "Docker"],
       thumbnail: ecommerce,
       codeUrl: "https://github.com/Sridhar7670/E-Commers",
-      liveUrl: "https://github.com/Sridhar7670/E-Commers"
     },
     {
 
@@ -49,7 +46,7 @@ const Projects = () => {
     {
 
       title: "Early Projects",
-      description: "Small apps from my learning phase — Employee Management, Task Manager, Tic-Tac-Toe, Blinkit clone. Check my GitHub for more",
+      description: "Small apps from my learning phase — Task Manager, Tic-Tac-Toe, Blinkit clone. Check my GitHub for more",
       tech: ["JavaScript", "HTML", "CSS"],
       thumbnail: TaskManager,
       codeUrl: "https://github.com/Sridhar7670",
@@ -57,7 +54,7 @@ const Projects = () => {
      {
       
       title: "Employee Management App",
-      description: "Add data into the input fields and perform opeartions on them ",
+      description: "Add data into the input fields and perform operations on them ",
       tech: ["javascript", "Front-end","Local-storage"],
       thumbnail: emp_mangment_sys,
       codeUrl: "https://github.com/Sridhar7670/employee-management-system-",
