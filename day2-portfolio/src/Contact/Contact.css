@@ -60,7 +60,7 @@
   
   .title {
     color: #fff;
-    font-size: 1.5rem;
+    font-size: var(--fs-lg);
     margin-bottom: 0.8rem;
   }
   
@@ -80,7 +80,7 @@
     background: none;
     padding: 0.6rem 1.2rem;
     color: #fff;
-    font-size: 0.95rem;
+    font-size: var(--fs-sm);
     letter-spacing: 0.5px;
     border-radius: 25px;
     transition: 0.3s;
@@ -100,7 +100,7 @@
     border: none;
     padding: 0.8rem 1.5rem;
     border-radius: 25px;
-    font-size: 1rem;
+    font-size: var(--fs-base);
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -131,7 +131,7 @@
   }
   
   .attractive-lines {
-    font-size: 1.8rem;
+    font-size: var(--fs-xl);
     color: #4f46e5;
     margin-bottom: 1rem;
   }

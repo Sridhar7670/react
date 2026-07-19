@@ -6,7 +6,7 @@
 
 .section-title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: var(--fs-3xl);
   color: #1e293b;
   margin-bottom: 3rem;
   position: relative;
@@ -105,12 +105,12 @@
   color: white;
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
   font-weight: 500;
 }
 
 .project-title {
-  font-size: 1.5rem;
+  font-size: var(--fs-lg);
   margin-bottom: 1rem;
 }
 

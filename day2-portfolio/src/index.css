@@ -1,0 +1,31 @@
+/* Global typography — single source of truth for font family and text sizes */
+
+:root {
+  --font-sans: 'Space Grotesk', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* Type scale */
+  --fs-xs: 0.8rem;
+  --fs-sm: 0.9rem;
+  --fs-base: 1rem;
+  --fs-md: 1.1rem;
+  --fs-lg: 1.5rem;
+  --fs-xl: 1.8rem;
+  --fs-2xl: 2rem;
+  --fs-3xl: 2.5rem;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Form controls and buttons do not inherit fonts by default */
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}

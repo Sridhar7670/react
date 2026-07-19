@@ -40,7 +40,7 @@
   }
   
   .section-title {
-    font-size: 2.5rem;
+    font-size: var(--fs-3xl);
     margin-bottom: 2rem;
     color: #1e293b;
   }
@@ -89,7 +89,7 @@
   
   .passion-statement {
     font-style: italic;
-    font-size: 1.1rem;
+    font-size: var(--fs-md);
     color: #4b5563;
     border-top: 1px dashed #cbd5e1;
     padding-top: 1.5rem;
@@ -108,7 +108,7 @@
     }
     
     .section-title {
-      font-size: 2rem;
+      font-size: var(--fs-2xl);
     }
     .profile-image {
       height: 100%;

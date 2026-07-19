@@ -48,17 +48,17 @@
   /* Button Sizes */
   .btn-small {
     padding: 6px 12px !important;
-    font-size: 12px;
+    font-size: var(--fs-xs);
   }
   
   .btn-medium {
     padding: 10px 20px !important;
-    font-size: 14px;
+    font-size: var(--fs-sm);
   }
   
   .btn-large {
     padding: 14px 28px !important;
-    font-size: 16px;
+    font-size: var(--fs-base);
   }
   
   /* Disabled State */
