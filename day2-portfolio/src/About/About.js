@@ -1,20 +1,19 @@
-import React from 'react';
-import developerImage from '../components/images/my_image.jpg'; // Replace with your image path
-import './about.css';
+import developerImage from '../components/images/my_image.jpg';
+import './About.css';
+
+const HIRE_REASONS = [
+  'Full-stack developer with ~1 year of hands-on experience at Alpine Code',
+  'Shipped production features using Next.js, NestJS, TypeScript and PostgreSQL',
+  'Comfortable with Docker, AWS and Git workflows — debugged real production issues',
+  'Work well in a team — used to PRs, code reviews and shared deadlines',
+];
 
 const About = () => {
-  const hireReasons = [
-    "Full-stack developer with ~1 year of hands-on experience at Alpine Code",
-    "Shipped production features using Next.js, NestJS, TypeScript and PostgreSQL",
-    "Comfortable with Docker, AWS and Git workflows — debugged real production issues",
-    "Work well in a team — used to PRs, code reviews and shared deadlines"
-  ];
-
   return (
     <section className="about-section" id="about">
       <div className="about-container">
         <div className="about-image-container">
-          <img  src={developerImage}  alt="Sridhar Reddy"  className="profile-image" />
+          <img src={developerImage} alt="Sridhar Reddy" className="profile-image" />
           <div className="image-border"></div>
         </div>
 
@@ -22,10 +21,10 @@ const About = () => {
           <h2 className="section-title">
             Why <span className="highlight">Hire Me?</span>
           </h2>
-          
+
           <div className="hire-reasons">
-            {hireReasons.map((reason, index) => (
-              <div key={index} className="reason-item">
+            {HIRE_REASONS.map((reason) => (
+              <div key={reason} className="reason-item">
                 <div className="reason-icon">✓</div>
                 <p>{reason}</p>
               </div>
@@ -46,7 +45,9 @@ const About = () => {
 
           <div className="passion-statement">
             <p>
-            Every day is a chance to learn something new — and I stay curious and driven to explore fresh concepts and sharpen my skills in web development. </p>
+              Every day is a chance to learn something new — and I stay curious and driven to explore fresh
+              concepts and sharpen my skills in web development.
+            </p>
           </div>
         </div>
       </div>
