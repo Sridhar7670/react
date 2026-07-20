@@ -55,6 +55,25 @@
     color: white;
   }
 
+  /* For use on a dark or coloured panel, where a solid indigo button would
+     not stand out. Used by the contact form on its teal background. */
+  .btn-light {
+    background-color: #fff;
+    color: var(--color-accent);
+  }
+
+  .btn-light:hover:not(:disabled) {
+    background-color: var(--color-accent-dark);
+    color: #fff;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Shape modifier, passed through the `className` prop. The contact form
+     uses pill-shaped inputs, so its button matches them. */
+  .btn-pill {
+    border-radius: 25px;
+  }
+
   /* Button Sizes
      These used to need !important because Contact.css also defined a .btn
      rule that loaded later and overrode them. That rule is now scoped as

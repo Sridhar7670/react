@@ -1,6 +1,12 @@
-import developerImage from '../components/images/my_image.jpg';
+import developerImage from '../components/images/my_image_new.png';
 import useScrollReveal from '../hooks/useScrollReveal';
 import './About.css';
+
+// The file is 634x483. Passing these to the <img> lets the browser reserve
+// the right amount of space before the image downloads, so the text below
+// does not jump once it arrives.
+const IMAGE_WIDTH = 634;
+const IMAGE_HEIGHT = 483;
 
 const HIRE_REASONS = [
   'Full-stack developer with ~1 year of hands-on experience at Alpine Code',
@@ -22,7 +28,14 @@ const About = () => {
           ref={imageRef}
           className={`about-image-container reveal reveal-left ${isImageVisible ? 'is-visible' : ''}`}
         >
-          <img src={developerImage} alt="Sridhar Reddy" className="profile-image" />
+          <img
+            src={developerImage}
+            alt="Sridhar Reddy"
+            className="profile-image"
+            width={IMAGE_WIDTH}
+            height={IMAGE_HEIGHT}
+            loading="lazy"
+          />
           <div className="image-border"></div>
         </div>
 

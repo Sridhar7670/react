@@ -1,12 +1,7 @@
 import { useEffect, useState } from 'react';
-import {
-  FaMapLocationDot,
-  FaEnvelope,
-  FaFacebook,
-  FaInstagram,
-  FaTwitter,
-  FaLinkedinIn,
-} from 'react-icons/fa6';
+import { FaMapLocationDot, FaEnvelope } from 'react-icons/fa6';
+import Button from '../components/Button/Button';
+import { SOCIAL_LINKS } from '../data/socialLinks';
 import useScrollReveal from '../hooks/useScrollReveal';
 import './Contact.css';
 
@@ -17,13 +12,6 @@ const WEB3FORMS_ACCESS_KEY =
 const STATUS_CLEAR_MS = 5000;
 
 const EMPTY_FORM = { name: '', email: '', phone: '', message: '' };
-
-const SOCIAL_LINKS = [
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/sridhar-reddy-37b63a203/', icon: <FaLinkedinIn size="2em" /> },
-  { label: 'Instagram', href: 'https://www.instagram.com/sridhar.rdy/', icon: <FaInstagram size="2em" /> },
-  { label: 'Twitter / X', href: 'https://x.com/Sridhar67956954', icon: <FaTwitter size="2em" /> },
-  { label: 'Facebook', href: 'https://www.facebook.com/sridhar.nani.129', icon: <FaFacebook size="2em" /> },
-];
 
 const ContactForm = () => {
   const [formData, setFormData] = useState(EMPTY_FORM);
@@ -111,9 +99,9 @@ const ContactForm = () => {
         <div className="connect">
           <h3 style={{ color: 'rgba(79, 70, 229, 1)' }}>Lets Connect:</h3>
           <div className="social-icons">
-            {SOCIAL_LINKS.map(({ label, href, icon }) => (
+            {SOCIAL_LINKS.map(({ label, href, Icon }) => (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
-                {icon}
+                <Icon size="2em" />
               </a>
             ))}
           </div>
@@ -179,9 +167,11 @@ const ContactForm = () => {
               required
             ></textarea>
           </div>
-          <button type="submit" disabled={isSubmitting} className="contact-submit-btn">
+          {/* Uses the shared Button component rather than its own styles, so
+              every button on the site now goes through one place. */}
+          <Button type="submit" variant="light" size="large" className="btn-pill" disabled={isSubmitting}>
             {isSubmitting ? 'Sending...' : 'Submit'}
-          </button>
+          </Button>
         </form>
       </div>
     </div>
