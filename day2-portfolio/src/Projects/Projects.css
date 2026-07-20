@@ -35,10 +35,19 @@
     box-shadow 0.3s ease;
 }
 
-/* All hover effects are grouped here and gated behind `hover: hover`, which
-   is true only on devices with a real pointer such as a mouse or trackpad.
-   A plain `max-width` breakpoint would not be enough: a wide touchscreen
-   laptop would still get hover-only content it can never reach. */
+/* ---------------------------------------------------------------------
+   A tile flips when any one of three things happens, so every kind of
+   visitor can reach the back:
+
+     1. hovered      — mouse or trackpad only, see the @media block below
+     2. tapped       — .is-flipped, added by the click handler in Projects.js
+     3. focused      — :focus-within, for people navigating by keyboard
+
+   Hover is kept separate because `hover: hover` is only true on devices
+   with a real pointer. On a phone there is no hover, so without 2 and 3
+   the back of the card — the description and the Code / Live Demo links —
+   would be unreachable.
+   --------------------------------------------------------------------- */
 @media (hover: hover) {
   .project-tile:hover {
     transform: translateY(-6px);
@@ -58,13 +67,12 @@
   }
 }
 
-/* Keyboard users cannot hover either, so flip the tile when anything inside
-   it receives focus. :focus-within matches the tile when one of its links
-   is tabbed to. */
+.project-tile.is-flipped .tile-front,
 .project-tile:focus-within .tile-front {
   transform: rotateY(180deg);
 }
 
+.project-tile.is-flipped .tile-back,
 .project-tile:focus-within .tile-back {
   transform: rotateY(0deg);
 }
@@ -92,7 +100,16 @@
   padding: 1.5rem;
   transform: rotateY(180deg);
   z-index: 1;
-  top: -50px;
+  /* Centred rather than bottom-aligned. It used to inherit
+     `justify-content: flex-end` from the rule above and was then dragged
+     back up with `top: -50px`, which pushed the card's top edge off screen
+     whenever the description ran long. */
+  justify-content: center;
+}
+
+/* Hidden by default; only devices without hover show the tap hint. */
+.tap-hint {
+  display: none;
 }
 
 .project-tile:hover .tile-front,
@@ -212,52 +229,25 @@
 }
 
 /* ---------------------------------------------------------------------
-   Touch devices: no flip at all.
-
-   The back of the tile holds the description and the Code / Live Demo
-   links. Because the flip was driven purely by :hover, and phones have no
-   hover, that content was completely unreachable on a phone — visitors saw
-   six pictures and nothing else.
-
-   Here the card is laid out as an ordinary vertical card instead: image on
-   top, text and links underneath, both always visible.
+   Touch devices keep the flip; the tap handler drives it instead of hover.
    --------------------------------------------------------------------- */
 @media (hover: none) {
-  .project-tile {
-    height: auto;
-    perspective: none;
+  /* Tells the visitor the card does something. Sits inside .tile-front, so
+     it is hidden automatically once the card turns over. */
+  .tap-hint {
     display: flex;
-    flex-direction: column;
-  }
-
-  .tile-front,
-  .tile-back {
-    /* Undo the flip: back in normal flow, facing forward, no rotation */
-    position: relative;
-    top: 0;
-    transform: none;
-    backface-visibility: visible;
-    height: auto;
-  }
-
-  .tile-front {
-    min-height: 190px;
-  }
-
-  .tile-back {
-    padding: 1.25rem 1.5rem 1.5rem;
-  }
-
-  /* The note is absolutely positioned in the flip layout. Putting it back
-     in the flow lets the card grow to fit however long the text is. */
-  .tile-note {
-    position: relative;
-    z-index: 0;
-    padding: 1.5rem;
-  }
-
-  .project-description {
-    margin: 0 0 1.25rem;
+    align-items: center;
+    gap: 0.35rem;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    padding: 0.35rem 0.7rem;
+    border-radius: 20px;
+    font-size: var(--fs-xs);
+    font-weight: 500;
   }
 
   /* Comfortable tap targets — 44px is the usual minimum */
@@ -270,5 +260,11 @@
 @media (max-width: 768px) {
   .tile-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* A single-column card is narrower, so the description wraps onto more
+     lines and needs more height to fit without being cut off. */
+  .project-tile {
+    height: 340px;
   }
 }

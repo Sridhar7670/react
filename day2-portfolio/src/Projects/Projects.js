@@ -1,4 +1,5 @@
-import { FiExternalLink, FiCode, FiGithub } from 'react-icons/fi';
+import { useState } from 'react';
+import { FiExternalLink, FiCode, FiGithub, FiRotateCw } from 'react-icons/fi';
 import useScrollReveal from '../hooks/useScrollReveal';
 import './Projects.css';
 import alpineWork from '../components/images/alpine_work.svg';
@@ -64,6 +65,19 @@ const Projects = () => {
   const [titleRef, isTitleVisible] = useScrollReveal();
   const [gridRef, isGridVisible] = useScrollReveal();
 
+  // Title of the tile currently turned over, or null when none is. Holding a
+  // single title rather than a flag per card means opening one automatically
+  // closes the previous one.
+  const [flippedTitle, setFlippedTitle] = useState(null);
+
+  const handleTileClick = (event, title) => {
+    // A tap on Code / Live Demo should follow the link, not flip the card.
+    // closest() checks whether the tapped element sits inside a link.
+    if (event.target.closest('a')) return;
+
+    setFlippedTitle((current) => (current === title ? null : title));
+  };
+
   return (
     <section className="projects-section" id="projects">
       <h2
@@ -77,10 +91,16 @@ const Projects = () => {
         className={`tile-grid ${isGridVisible ? 'is-visible' : ''}`}
       >
         {PROJECTS.map((project, index) => (
+          /* eslint-disable-next-line jsx-a11y/click-events-have-key-events,
+             jsx-a11y/no-static-element-interactions -- keyboard users do not
+             need this handler: tabbing to the links inside the card triggers
+             the :focus-within flip in CSS. Making the card itself a button
+             would nest the links inside a button, which is invalid HTML. */
           <div
             key={project.title}
-            className="project-tile reveal"
+            className={`project-tile reveal ${flippedTitle === project.title ? 'is-flipped' : ''}`}
             style={{ transitionDelay: `${index * 80}ms` }}
+            onClick={(event) => handleTileClick(event, project.title)}
           >
             <div className="tile-front">
               {/* Show the screenshot when there is one, otherwise a short
@@ -93,6 +113,9 @@ const Projects = () => {
                   <p>{project.frontNote}</p>
                 </div>
               )}
+              <span className="tap-hint">
+                <FiRotateCw /> Tap
+              </span>
               <div className="tech-tags">
                 {project.tech.map((tech) => (
                   <span key={tech} className="tech-tag">{tech}</span>
