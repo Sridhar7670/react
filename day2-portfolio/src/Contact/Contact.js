@@ -7,6 +7,7 @@ import {
   FaTwitter,
   FaLinkedinIn,
 } from 'react-icons/fa6';
+import useScrollReveal from '../hooks/useScrollReveal';
 import './Contact.css';
 
 // Web3Forms access keys are public by design; the env var lets deployments override it.
@@ -28,6 +29,10 @@ const ContactForm = () => {
   const [formData, setFormData] = useState(EMPTY_FORM);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+
+  // One reveal per column so the info slides in just before the form.
+  const [infoRef, isInfoVisible] = useScrollReveal();
+  const [formRef, isFormVisible] = useScrollReveal();
 
   useEffect(() => {
     if (!submitStatus) return undefined;
@@ -73,9 +78,15 @@ const ContactForm = () => {
 
   return (
     <div className="form" id="contact">
-      <div className="contact-info">
-        <h3 className="attractive-lines animate__animated animate__fadeInLeft animate__delay-1s">Let's get in touch</h3>
-        <p className="thanking-lines animate__animated animate__fadeInLeft animate__delay-1s">
+      {/* These used to use animate.css delay classes, which start counting
+          from page load — so the animation had already finished long before
+          anyone scrolled this far down. The reveal hook waits for the user. */}
+      <div
+        ref={infoRef}
+        className={`contact-info reveal reveal-left ${isInfoVisible ? 'is-visible' : ''}`}
+      >
+        <h3 className="attractive-lines">Let's get in touch</h3>
+        <p className="thanking-lines">
           Your interest means a lot to me. Thanks for visiting my Portfolio Feel free to reach out if you have
           any questions or just want to connect!
         </p>
@@ -109,7 +120,10 @@ const ContactForm = () => {
         </div>
       </div>
 
-      <div className="contact-form">
+      <div
+        ref={formRef}
+        className={`contact-form reveal reveal-right ${isFormVisible ? 'is-visible' : ''}`}
+      >
         <span className="circle one"></span>
         <span className="circle two"></span>
 
@@ -165,7 +179,7 @@ const ContactForm = () => {
               required
             ></textarea>
           </div>
-          <button type="submit" disabled={isSubmitting} className="btn">
+          <button type="submit" disabled={isSubmitting} className="contact-submit-btn">
             {isSubmitting ? 'Sending...' : 'Submit'}
           </button>
         </form>

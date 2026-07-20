@@ -18,15 +18,15 @@
   
   .home-text h2 {
     font-size: var(--fs-3xl);
-    color: #4f46e5; /* Matching your header color */
+    color: var(--color-primary);
     margin-bottom: 1.5rem;
     font-weight: 700;
   }
-  
+
   .home-text p {
     font-size: var(--fs-md);
     line-height: 1.8;
-    color: #4b5563;
+    color: var(--color-text-muted);
     margin-bottom: 1.5rem;
   }
   
@@ -68,12 +68,12 @@
 /* Per-line styling for the rotating intro/action text */
 .rotating-text.line-0 {
   font-weight: 700;
-  color: #4f46e5;
+  color: var(--color-primary);
 }
 
 .rotating-text.line-1 {
   font-style: italic;
-  color: #1abc9c;
+  color: var(--color-accent);
 }
 
 .rotating-text.line-2 {

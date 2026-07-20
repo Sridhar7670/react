@@ -1,4 +1,5 @@
 import { FiExternalLink, FiCode } from 'react-icons/fi';
+import useScrollReveal from '../hooks/useScrollReveal';
 import './Projects.css';
 import alpineWork from '../components/images/alpine_work.svg';
 import ecommerce from '../components/images/ecommerce.svg';
@@ -38,13 +39,7 @@ const PROJECTS = [
     codeUrl: 'https://github.com/Sridhar7670/react/tree/main/day2-portfolio',
     liveUrl: 'https://sridhars-portfolio.netlify.app/',
   },
-  {
-    title: 'Early Projects',
-    description: 'Small apps from my learning phase — Task Manager, Tic-Tac-Toe, Blinkit clone. Check my GitHub for more',
-    tech: ['JavaScript', 'HTML', 'CSS'],
-    thumbnail: taskManager,
-    codeUrl: 'https://github.com/Sridhar7670',
-  },
+  
   {
     title: 'Employee Management App',
     description: 'Add data into the input fields and perform operations on them',
@@ -53,15 +48,37 @@ const PROJECTS = [
     codeUrl: 'https://github.com/Sridhar7670/employee-management-system-',
     liveUrl: 'https://sridhar7670.github.io/employee-management-system-/',
   },
+  {
+    title: 'Early Projects',
+    description: 'Small apps from my learning phase — Task Manager, Tic-Tac-Toe, Blinkit clone. Check my GitHub for more',
+    tech: ['JavaScript', 'HTML', 'CSS'],
+    thumbnail: taskManager,
+    codeUrl: 'https://github.com/Sridhar7670',
+  },
 ];
 
 const Projects = () => {
+  const [titleRef, isTitleVisible] = useScrollReveal();
+  const [gridRef, isGridVisible] = useScrollReveal();
+
   return (
     <section className="projects-section" id="projects">
-      <h2 className="section-title">My Projects</h2>
-      <div className="tile-grid">
-        {PROJECTS.map((project) => (
-          <div key={project.title} className="project-tile">
+      <h2
+        ref={titleRef}
+        className={`section-title reveal ${isTitleVisible ? 'is-visible' : ''}`}
+      >
+        My Projects
+      </h2>
+      <div
+        ref={gridRef}
+        className={`tile-grid ${isGridVisible ? 'is-visible' : ''}`}
+      >
+        {PROJECTS.map((project, index) => (
+          <div
+            key={project.title}
+            className="project-tile reveal"
+            style={{ transitionDelay: `${index * 80}ms` }}
+          >
             <div className="tile-front">
               <img src={project.thumbnail} alt={project.title} className="tile-image" loading="lazy" />
               <div className="tech-tags">
