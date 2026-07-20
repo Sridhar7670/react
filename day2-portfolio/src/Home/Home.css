@@ -3,10 +3,11 @@
     padding: 6rem 2rem 4rem;
     scroll-margin-top: 5rem;
     background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-    /* box-shadow: 2px 2px 4px gray ; */
     border-radius: 5px;
+    /* Anchors the scroll cue at the bottom of the section */
+    position: relative;
   }
-  
+
   .home-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -15,56 +16,149 @@
     gap: 3rem;
     align-items: center;
   }
-  
-  .home-text h2 {
-    font-size: var(--fs-3xl);
+
+  /* --- Headline block ---------------------------------------------- */
+
+  .home-greeting {
+    font-size: var(--fs-md);
+    color: var(--color-text-muted);
+    margin: 0 0 0.25rem;
+  }
+
+  .home-name {
+    font-size: clamp(2.5rem, 6vw, 4rem);
     color: var(--color-primary);
-    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    margin: 0 0 0.5rem;
     font-weight: 700;
   }
 
-  .home-text p {
+  .home-role {
+    font-size: var(--fs-xl);
+    color: var(--color-text);
+    font-weight: 600;
+    margin: 0 0 1.25rem;
+  }
+
+  .home-summary {
     font-size: var(--fs-md);
     line-height: 1.8;
     color: var(--color-text-muted);
-    margin-bottom: 1.5rem;
+    max-width: 52ch; /* Long lines are hard to read — this caps the width */
+    margin: 0 0 1.5rem;
   }
-  
+
   .button-group {
     display: flex;
     gap: 1rem;
     margin-top: 2rem;
+    flex-wrap: wrap;
   }
-  
+
+  /* --- Rotating line ------------------------------------------------ */
+
+  /* This used to be `transition: all 0.5s`, which could never work: React
+     replaces the text instantly, and a transition cannot animate a change of
+     text content. A keyframe animation plus a changing `key` in Home.js
+     restarts the fade on every swap. */
+  .rotating-text {
+    font-size: var(--fs-lg);
+    font-weight: 500;
+    color: var(--color-primary);
+    /* Reserves space for two lines so shorter and longer lines do not make
+       the buttons below jump around. Replaces the old competing
+       `height: 5vh` and `min-height: 60px` rules. */
+    min-height: 3.5rem;
+    margin: 0;
+    animation: rotate-line-in 0.5s var(--ease-out);
+  }
+
+  @keyframes rotate-line-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* --- Photo -------------------------------------------------------- */
+
   .home-image {
-    position: relative;
-    height: 100%;
-    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  
+
+  /* Was `width: 30vw; height: 85vh; margin-left: 10vw`. Sizing a photo in
+     viewport units meant it grew to almost the full screen height on a
+     laptop and changed shape on every window size. A max-width plus a fixed
+     aspect-ratio keeps it the same shape everywhere. */
   .image-placeholder {
     width: 100%;
+<<<<<<< HEAD
     max-width: 340px;
     height: auto;
     display: block;
     margin: 0 auto;
+=======
+    max-width: 360px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+>>>>>>> b568405 (Rework home section and add a text front for grouped projects)
     background-color: #e0e7ff;
     border-radius: 1rem;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
     border: 8px solid white;
+<<<<<<< HEAD
+=======
+    transition: transform 0.4s var(--ease-out), box-shadow 0.4s ease;
   }
-  
+
+  .image-placeholder:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -5px rgba(79, 70, 229, 0.25);
+>>>>>>> b568405 (Rework home section and add a text front for grouped projects)
+  }
+
+  /* --- Scroll cue --------------------------------------------------- */
+
+  .scroll-cue {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-primary);
+    font-size: var(--fs-lg);
+    padding: 0.5rem;
+    opacity: 0.7;
+    animation: scroll-bounce 2s ease-in-out infinite;
+  }
+
+  .scroll-cue:hover {
+    opacity: 1;
+  }
+
+  @keyframes scroll-bounce {
+    0%, 100% {
+      transform: translate(-50%, 0);
+    }
+    50% {
+      transform: translate(-50%, 8px);
+    }
+  }
+
   /* Animation overrides */
   .animate__animated {
     --animate-duration: 1s;
   }
-.rotating-text {
-  transition: all 0.5s ease-in-out;
-  font-size: var(--fs-lg);
-  margin: 1rem 0;
-}
 
+<<<<<<< HEAD
 /* Per-line styling for the rotating intro/action text */
 .rotating-text.line-0 {
   font-weight: 700;
@@ -94,23 +188,43 @@
 .home-text p {
   min-height: 60px; /* Prevent layout shift */
 }
+=======
+>>>>>>> b568405 (Rework home section and add a text front for grouped projects)
   /* Responsive design */
   @media (max-width: 768px) {
+    .home-section {
+      padding: 6rem 1.5rem 4rem;
+    }
+
     .home-content {
       grid-template-columns: 1fr;
     }
-    
+
     .home-image {
-      min-height: 300px;
       order: -1;
     }
-    
-    .home-text h2 {
-      font-size: var(--fs-2xl);
-    }
+
     .image-placeholder {
+<<<<<<< HEAD
       width: 100%;
       max-width: 300px;
       height: auto;
+=======
+      max-width: 260px;
+>>>>>>> b568405 (Rework home section and add a text front for grouped projects)
+    }
+
+    .home-role {
+      font-size: var(--fs-lg);
+    }
+
+    /* Short lines wrap onto more rows on a narrow screen */
+    .rotating-text {
+      min-height: 4.5rem;
+    }
+
+    /* The cue would sit on top of the buttons once the layout stacks */
+    .scroll-cue {
+      display: none;
     }
   }
