@@ -141,34 +141,10 @@
     }
   }
   
-  /* Named .contact-submit-btn, not .btn. The old name clashed with the
-     shared Button component's .btn class — CSS is global, this file loaded
-     last and silently overrode it, which is why Button.css had to use
-     !important to win. A specific name keeps the two independent. */
-  .contact-submit-btn {
-    background: #fff;
-    color: var(--color-accent);
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 25px;
-    font-size: var(--fs-base);
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease,
-      transform 0.25s var(--ease-out), box-shadow 0.3s ease;
-  }
-
-  .contact-submit-btn:hover:not(:disabled) {
-    background: var(--color-accent-dark);
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-  }
-
-  .contact-submit-btn:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-  }
+  /* The submit button used to be styled here under a `.btn` class, which
+     clashed with the shared Button component's `.btn`. It now uses that
+     component directly (variant="light"), so there are no button styles in
+     this file at all. */
   
   .connect {
     margin-top: 2rem;

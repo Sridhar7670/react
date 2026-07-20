@@ -1,53 +1,98 @@
 # 🌟 My React Portfolio
 
-Welcome to my personal React portfolio! This project showcases my skills and experience as a front-end developer. Here you can find examples of projects I've worked on, my experience, and how I approach problem-solving.
+My personal portfolio — a single-page React site covering who I am, the tools
+I work with, and the projects I have built.
+
+**Live:** https://sridhars-portfolio.netlify.app/
 
 ---
 
 ## 📋 Table of Contents
 
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Personal Projects](#personal-projects)
-- [Contact Me](#contact-me)
+- [Project Overview](#-project-overview)
+- [Features](#-features)
+- [Technologies Used](#️-technologies-used)
+- [Project Structure](#-project-structure)
+- [Setup Instructions](#-setup-instructions)
 
 ---
 
 ## 📝 Project Overview
 
-This portfolio is built with **React** and uses modern web technologies to display my work. It includes several sections, such as my skills, personal projects, and a contact form to get in touch with me. The app is responsive and mobile-friendly to ensure a great experience across all devices.
+A single-page site: every section lives on one page and the navbar scrolls to
+them rather than routing between pages. It is built with Create React App and
+plain CSS — no UI framework and no CSS-in-JS.
 
 ---
 
 ## 🚀 Features
 
-- **Home Section**: A clean introduction to who I am, including a profile image and short description.
-- **Skills Section**: A breakdown of the technologies and tools I am proficient in, such as React, JavaScript, HTML/CSS, and more.
-- **Project Showcase**: A list of personal projects with descriptions, links, and GitHub repositories for each.
-- **Contact Form**: Allows users to reach out to me directly from the portfolio.
-- **Responsive Design**: The portfolio adjusts to different screen sizes and devices.
-- **Smooth Navigation**: Smooth scrolling between sections for a seamless user experience.
+- **Home** — introduction, a rotating tagline, and links to my resume and contact form.
+- **About** — background, education and why I would be a good hire.
+- **Skills** — the technologies I work with, as cards.
+- **Projects** — project tiles that flip to reveal a description and links.
+  On touch devices, where there is no hover, they lay out as normal cards
+  instead so nothing is unreachable.
+- **Contact** — a working contact form, submitted through Web3Forms.
+- **Scroll animations** — sections fade into view as you reach them, using
+  `IntersectionObserver` rather than an animation library.
+- **Responsive** — adapts from phones up to desktops.
+- **Accessible** — visible keyboard focus, and all motion is switched off for
+  anyone whose system asks for reduced motion.
 
 ---
 
 ## 🛠️ Technologies Used
 
-- **React**: For building the user interface using functional components and hooks.
-- **HTML/CSS**: To create the structure and style the layout.
-- **JavaScript**: For scripting and logic.
-- **React Router**: For handling navigation between sections.
-- **Node.js (Optional)**: For backend support if you're using a server or API. I still am learning this.
-- **GitHub Pages / Netlify / Vercel**: For hosting the portfolio.
+- **React 19** — functional components and hooks.
+- **Create React App** (`react-scripts`) — build tooling.
+- **Plain CSS** — one stylesheet per component, with shared design tokens
+  (fonts, colours, spacing) defined in `src/index.css`.
+- **react-icons** — icon set.
+- **animate.css** — the entrance animation in the hero only. Everything below
+  the fold uses the custom `useScrollReveal` hook.
+- **Web3Forms** — receives contact form submissions; no backend of my own.
+- **Netlify** — hosting.
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+  Home/  About/  Skills/  Projects/  Contact/  Navbar/  Footer/
+      one folder per section, each with its .js and .css
+
+  components/         reusable pieces: Button, Card, ScrollProgress
+  hooks/              useScrollReveal, useActiveSection
+  data/               socialLinks shared between Contact and Footer
+  index.css           design tokens and styles shared across the whole site
+```
 
 ---
 
 ## 🔧 Setup Instructions
 
-To set up this project locally, follow these steps:
+```bash
+git clone https://github.com/Sridhar7670/react.git
+cd react/day2-portfolio
+npm install
+npm start
+```
 
- **open this  Live Project**
+The site runs at http://localhost:3000.
 
+To build for production:
 
-- [live link to the portfolio](https://github.com/your-username/react-portfolio.git)
+```bash
+npm run build
+```
 
+### Environment variables
+
+The contact form works out of the box with a public Web3Forms key. To send
+submissions to your own inbox, copy `.env.example` to `.env` and set your own:
+
+```
+REACT_APP_WEB3FORMS_KEY=your-key-here
+```

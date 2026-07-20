@@ -67,13 +67,21 @@
     transition: width 0.3s var(--ease-out), left 0.3s var(--ease-out);
   }
 
-  .nav-link:hover::after {
+  .nav-link:hover::after,
+  .nav-link.active::after {
     width: 100%;
     left: 0;
   }
 
-  .nav-link:hover {
+  .nav-link:hover,
+  .nav-link.active {
     color: var(--color-primary);
+  }
+
+  /* The current section also reads slightly bolder, so the highlight does
+     not rely on colour alone. */
+  .nav-link.active {
+    font-weight: 600;
   }
   
   /* .mobile-menu-button rules were removed — no element in Navbar.js ever
@@ -123,10 +131,15 @@
 
   /* Nudged with transform rather than padding — changing padding forces the
      browser to re-do layout on every frame, transform does not. */
-  .mobile-nav-link:hover {
+  .mobile-nav-link:hover,
+  .mobile-nav-link.active {
     background-color: var(--color-primary-soft);
     color: var(--color-primary);
     transform: translateX(6px);
+  }
+
+  .mobile-nav-link.active {
+    font-weight: 600;
   }
   /* Fa-Bars and Fa-Times */
   /* These were plain `blue`, which did not match the indigo used

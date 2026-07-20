@@ -14,15 +14,24 @@
     align-items: center;
   }
   
+  /* Was `width: 30vw`. Sizing in viewport units meant the photo changed size
+     on every window width; a percentage with a max-width keeps it steady. */
   .about-image-container {
     position: relative;
-    width: 30vw;
-    max-width: 400px;
+    width: 100%;
+    max-width: 460px;
     margin: 0 auto;
   }
-  
+
+  /* This photo is landscape (634x483). Locking the same ratio in CSS means
+     the box always matches the image, so it can never be squashed — and the
+     browser knows the shape before the file finishes loading. */
   .profile-image {
     width: 100%;
+    height: auto;
+    aspect-ratio: 634 / 483;
+    object-fit: cover;
+    display: block;
     border-radius: 15px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     position: relative;
@@ -107,17 +116,18 @@
       grid-template-columns: 1fr;
     }
     
+    /* Was `width: 59vw; height: 35vh` with `.profile-image { height: 100% }`,
+       which forced the photo into a box of a completely different shape and
+       stretched it. The aspect-ratio above handles the shape, so the phone
+       layout only needs to say how wide it is. */
     .about-image-container {
       width: 100%;
       max-width: 320px;
       height: auto;
       margin-bottom: 2rem;
     }
-    
+
     /* The mobile .section-title size lives in index.css with the rest of
        the shared heading styles — it was here, but being global it was
        silently resizing the Skills and Projects titles too. */
-    .profile-image {
-      height: 100%;
-    }
   }

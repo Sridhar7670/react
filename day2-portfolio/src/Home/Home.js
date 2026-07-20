@@ -53,7 +53,7 @@ const Home = () => {
 
           <p className="home-summary animate__animated animate__fadeIn animate__delay-1-5s">
             About a year of hands-on experience building and shipping production
-            web apps with Next.js, NestJS, TypeScript and PostgreSQL. Based in
+            web apps with Next.js, NestJS, TypeScript, PostgreSQL and AWS. Based in
             Hyderabad, India.
           </p>
 

@@ -35,9 +35,38 @@
     box-shadow 0.3s ease;
 }
 
-.project-tile:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(79, 70, 229, 0.2);
+/* All hover effects are grouped here and gated behind `hover: hover`, which
+   is true only on devices with a real pointer such as a mouse or trackpad.
+   A plain `max-width` breakpoint would not be enough: a wide touchscreen
+   laptop would still get hover-only content it can never reach. */
+@media (hover: hover) {
+  .project-tile:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(79, 70, 229, 0.2);
+  }
+
+  .project-tile:hover .tile-front {
+    transform: rotateY(180deg);
+  }
+
+  .project-tile:hover .tile-back {
+    transform: rotateY(0deg);
+  }
+
+  .project-tile:hover .tile-image {
+    transform: scale(1.08);
+  }
+}
+
+/* Keyboard users cannot hover either, so flip the tile when anything inside
+   it receives focus. :focus-within matches the tile when one of its links
+   is tabbed to. */
+.project-tile:focus-within .tile-front {
+  transform: rotateY(180deg);
+}
+
+.project-tile:focus-within .tile-back {
+  transform: rotateY(0deg);
 }
 
 .tile-front,
@@ -140,13 +169,10 @@
   font-weight: 500;
 }
 
-/* Slowly zoom the thumbnail while hovering the tile */
+/* Slowly zoom the thumbnail while hovering the tile (see the hover block
+   further up, where the zoom itself is defined) */
 .tile-image {
   transition: transform 0.6s var(--ease-out);
-}
-
-.project-tile:hover .tile-image {
-  transform: scale(1.08);
 }
 
 .project-title {
@@ -185,13 +211,64 @@
   text-decoration: none;
 }
 
+/* ---------------------------------------------------------------------
+   Touch devices: no flip at all.
+
+   The back of the tile holds the description and the Code / Live Demo
+   links. Because the flip was driven purely by :hover, and phones have no
+   hover, that content was completely unreachable on a phone — visitors saw
+   six pictures and nothing else.
+
+   Here the card is laid out as an ordinary vertical card instead: image on
+   top, text and links underneath, both always visible.
+   --------------------------------------------------------------------- */
+@media (hover: none) {
+  .project-tile {
+    height: auto;
+    perspective: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tile-front,
+  .tile-back {
+    /* Undo the flip: back in normal flow, facing forward, no rotation */
+    position: relative;
+    top: 0;
+    transform: none;
+    backface-visibility: visible;
+    height: auto;
+  }
+
+  .tile-front {
+    min-height: 190px;
+  }
+
+  .tile-back {
+    padding: 1.25rem 1.5rem 1.5rem;
+  }
+
+  /* The note is absolutely positioned in the flip layout. Putting it back
+     in the flow lets the card grow to fit however long the text is. */
+  .tile-note {
+    position: relative;
+    z-index: 0;
+    padding: 1.5rem;
+  }
+
+  .project-description {
+    margin: 0 0 1.25rem;
+  }
+
+  /* Comfortable tap targets — 44px is the usual minimum */
+  .project-link {
+    min-height: 44px;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .tile-grid {
     grid-template-columns: 1fr;
-  }
-  
-  .project-tile {
-    height: 250px;
   }
 }
