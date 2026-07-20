@@ -1,11 +1,10 @@
-import { FiExternalLink, FiCode } from 'react-icons/fi';
+import { FiExternalLink, FiCode, FiGithub } from 'react-icons/fi';
 import useScrollReveal from '../hooks/useScrollReveal';
 import './Projects.css';
 import alpineWork from '../components/images/alpine_work.svg';
 import ecommerce from '../components/images/ecommerce.svg';
 import moviesApp from '../components/images/movies_app.jpg';
 import portfolio from '../components/images/portfolio.jpg';
-import taskManager from '../components/images/TaskManager.png';
 import employeeManagement from '../components/images/employee_managment_system.png';
 
 const PROJECTS = [
@@ -52,7 +51,11 @@ const PROJECTS = [
     title: 'Early Projects',
     description: 'Small apps from my learning phase — Task Manager, Tic-Tac-Toe, Blinkit clone. Check my GitHub for more',
     tech: ['JavaScript', 'HTML', 'CSS'],
-    thumbnail: taskManager,
+    // No `thumbnail` here on purpose. One screenshot cannot represent a
+    // group of projects, so the front of this tile shows `frontNote`
+    // instead. Any project can do this by leaving out the thumbnail.
+    frontNote:
+      'Beginner-level projects I built while learning — Tic-Tac-Toe, a Blinkit clone, a Task Manager and more. Visit my GitHub to browse them all.',
     codeUrl: 'https://github.com/Sridhar7670',
   },
 ];
@@ -80,7 +83,16 @@ const Projects = () => {
             style={{ transitionDelay: `${index * 80}ms` }}
           >
             <div className="tile-front">
-              <img src={project.thumbnail} alt={project.title} className="tile-image" loading="lazy" />
+              {/* Show the screenshot when there is one, otherwise a short
+                  written summary. */}
+              {project.thumbnail ? (
+                <img src={project.thumbnail} alt={project.title} className="tile-image" loading="lazy" />
+              ) : (
+                <div className="tile-note">
+                  <FiGithub className="tile-note-icon" />
+                  <p>{project.frontNote}</p>
+                </div>
+              )}
               <div className="tech-tags">
                 {project.tech.map((tech) => (
                   <span key={tech} className="tech-tag">{tech}</span>

@@ -84,6 +84,37 @@
   z-index: -1;
 }
 
+/* Front of a tile that has no screenshot. Sits at the same z-index as
+   .tile-image so the dark scrim on .tile-front still darkens the bottom
+   and keeps the tech tags readable. */
+.tile-note {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  /* Extra bottom padding leaves room for the tech tags underneath */
+  padding: 1.5rem 1.5rem 4.5rem;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #7c3aed 100%);
+}
+
+.tile-note p {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+
+.tile-note-icon {
+  font-size: var(--fs-2xl);
+  opacity: 0.9;
+  flex-shrink: 0;
+}
+
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
