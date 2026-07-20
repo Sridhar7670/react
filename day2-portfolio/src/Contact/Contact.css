@@ -16,14 +16,14 @@
   }
   
   .contact-form {
-    background-color: #1abc9c;
+    background-color: var(--color-accent);
     position: relative;
-  
+
   }
   
   .circle {
     border-radius: 50%;
-    background: linear-gradient(to top right, transparent 20%, #149279);
+    background: linear-gradient(to top right, transparent 20%, var(--color-accent-dark));
     position: absolute;
   }
   
@@ -46,7 +46,7 @@
     position: absolute;
     width: 26px;
     height: 26px;
-    background-color: #1abc9c;
+    background-color: var(--color-accent);
     transform: rotate(45deg);
     top: 50px;
     left: -13px;
@@ -86,6 +86,18 @@
     transition: 0.3s;
   }
   
+  /* Placeholder text was inheriting a colour with poor contrast on the
+     teal panel — this makes it readable but still clearly a placeholder. */
+  .input::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  /* Show the user which field they are typing in */
+  .input:focus {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
   textarea.input {
     padding: 0.8rem 1.2rem;
     min-height: 150px;
@@ -93,22 +105,67 @@
     resize: none;
     overflow-y: auto;
   }
+
+  /* Feedback messages after submitting. These classes are used in
+     Contact.js but had no styles, so the text rendered unformatted. */
+  .form-success,
+  .form-error {
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    animation: message-in 0.4s var(--ease-out);
+  }
+
+  .form-success {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--color-accent-dark);
+  }
+
+  .form-error {
+    background: rgba(220, 38, 38, 0.95);
+    color: #fff;
+  }
+
+  @keyframes message-in {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
   
-  .btn {
+  /* Named .contact-submit-btn, not .btn. The old name clashed with the
+     shared Button component's .btn class — CSS is global, this file loaded
+     last and silently overrode it, which is why Button.css had to use
+     !important to win. A specific name keeps the two independent. */
+  .contact-submit-btn {
     background: #fff;
-    color: #1abc9c;
+    color: var(--color-accent);
     border: none;
     padding: 0.8rem 1.5rem;
     border-radius: 25px;
     font-size: var(--fs-base);
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease,
+      transform 0.25s var(--ease-out), box-shadow 0.3s ease;
   }
-  
-  .btn:hover {
-    background: #149279;
+
+  .contact-submit-btn:hover:not(:disabled) {
+    background: var(--color-accent-dark);
     color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  }
+
+  .contact-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
   }
   
   .connect {
@@ -122,20 +179,23 @@
   }
   
   .social-icons a {
-    color: #1abc9c;
-    transition: color 0.3s;
+    color: var(--color-accent);
+    display: inline-flex;
+    transition: color 0.3s ease, transform 0.3s var(--ease-out);
   }
-  
+
+  /* Grow slightly on hover so the icons feel responsive to the cursor */
   .social-icons a:hover {
-    color: #149279;
+    color: var(--color-accent-dark);
+    transform: translateY(-3px) scale(1.1);
   }
-  
+
   .attractive-lines {
     font-size: var(--fs-xl);
-    color: #4f46e5;
+    color: var(--color-primary);
     margin-bottom: 1rem;
   }
-  
+
   .thanking-lines {
     color: #666;
     margin-bottom: 2rem;
