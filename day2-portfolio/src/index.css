@@ -1,4 +1,4 @@
-/* Global typography — single source of truth for font family and text sizes */
+/* Global design tokens — single source of truth for fonts, sizes and colours */
 
 :root {
   --font-sans: 'Space Grotesk', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -12,14 +12,45 @@
   --fs-xl: 1.8rem;
   --fs-2xl: 2rem;
   --fs-3xl: 2.5rem;
+
+  /* Colours — change the value here and the whole site follows */
+  --color-primary: #4f46e5;
+  --color-primary-dark: #4338ca;
+  --color-primary-soft: #eef2ff;
+  --color-accent: #1abc9c;
+  --color-accent-dark: #149279;
+  --color-text: #1e293b;
+  --color-text-muted: #4b5563;
+  --color-text-soft: #64748b;
+  --color-surface: #ffffff;
+
+  /* Shared motion settings, so animations feel like one system */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration: 0.6s;
+
+  /* Height of the fixed navbar — used to offset scrolling */
+  --navbar-height: 80px;
+}
+
+html {
+  /* Smooth scrolling for plain #anchor links too, not just our JS calls */
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   font-family: var(--font-sans);
   font-size: var(--fs-base);
+  color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* The navbar is position:fixed, so without this the heading of the section we
+   jump to would sit hidden underneath it. */
+section,
+[id] {
+  scroll-margin-top: var(--navbar-height);
 }
 
 /* Form controls and buttons do not inherit fonts by default */
@@ -28,4 +59,123 @@ input,
 textarea,
 select {
   font-family: inherit;
+}
+
+/* ---------------------------------------------------------------
+   Shared section heading
+   Previously this class was copy-pasted into Skills.css, Projects.css
+   and About.css. CSS is global, so whichever file loaded last silently
+   won. Defining it once here removes that guesswork.
+   --------------------------------------------------------------- */
+.section-title {
+  text-align: center;
+  font-size: var(--fs-3xl);
+  color: var(--color-text);
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--color-primary);
+}
+
+/* Modifier for headings inside a two-column layout (About), where a
+   centred title looks off next to left-aligned body text. */
+.section-title--left {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.section-title--left::after {
+  left: 0;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: var(--fs-2xl);
+  }
+}
+
+/* ---------------------------------------------------------------
+   Scroll reveal — the CSS half of the useScrollReveal hook.
+   The element starts invisible and slightly lower, then slides into
+   place when the hook adds .is-visible.
+
+   We only animate opacity and transform because those are the two
+   properties the browser can animate on the GPU, which keeps scrolling
+   smooth.
+   --------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--duration) var(--ease-out),
+    transform var(--duration) var(--ease-out);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* When a container is revealed, reveal everything inside it too. Paired with
+   a per-item transition-delay this makes a grid of cards appear one after
+   another, using a single observer for the whole grid instead of one each. */
+.is-visible .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* Slide in from the side instead of from below */
+.reveal-left {
+  transform: translateX(-32px);
+}
+
+.reveal-right {
+  transform: translateX(32px);
+}
+
+/* ---------------------------------------------------------------
+   Keyboard focus. Without this, someone navigating with the Tab key
+   cannot see where they are. :focus-visible only shows the ring for
+   keyboard users, not on mouse clicks.
+   --------------------------------------------------------------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------------------------------------------------------------
+   Respect the OS "reduce motion" setting. Some people get motion
+   sickness from animation, so we show everything instantly instead.
+   --------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* Content must still be readable even with the animation switched off */
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }

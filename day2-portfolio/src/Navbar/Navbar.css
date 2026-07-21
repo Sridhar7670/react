@@ -9,9 +9,13 @@
   box-sizing: border-box;  
 }
   
+  /* Slightly see-through with a blur, so content scrolling underneath is
+     hinted at rather than hidden behind a solid white bar. */
   .navbar.scrolled {
-    background-color: white;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px -1px rgba(0, 0, 0, 0.08);
     padding: 0.5rem 0;
   }
   
@@ -27,55 +31,85 @@
   .navbar-brand {
     font-size: var(--fs-lg);
     font-weight: bold;
-    color: #4f46e5;
+    color: var(--color-primary);
     text-decoration: none;
+    transition: transform 0.3s var(--ease-out);
   }
-  
+
+  .navbar-brand:hover {
+    transform: scale(1.05);
+  }
+
   .nav-links {
     display: flex;
     gap: 2rem;
   }
-  
+
   .nav-link {
     color: #374151;
     font-weight: 500;
     text-decoration: none;
+    position: relative;
+    padding-bottom: 4px;
     transition: color 0.3s ease;
   }
-  
-  .nav-link:hover {
-    color: #4f46e5;
+
+  /* Underline that grows out from the middle on hover. It is a separate
+     pseudo-element so the link text itself never moves. */
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width 0.3s var(--ease-out), left 0.3s var(--ease-out);
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+    left: 0;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--color-primary);
+  }
+
+  /* The current section also reads slightly bolder, so the highlight does
+     not rely on colour alone. */
+  .nav-link.active {
+    font-weight: 600;
   }
   
-  .mobile-menu-button {
-    display: none;
-    color: #374151;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: var(--fs-lg);
-  }
-  
-  .mobile-menu-button:hover {
-    color: #4f46e5;
-  }
-  
+  /* .mobile-menu-button rules were removed — no element in Navbar.js ever
+     used that class, the menu button is .toggle. */
+
+  /* Slides down using transform instead of animating `top` from -100%.
+     Browsers can move a layer with transform without re-calculating page
+     layout each frame, so the slide is noticeably smoother.
+     `visibility: hidden` also keeps the closed links out of reach of the
+     Tab key and screen readers — offscreen alone does not do that. */
   .mobile-menu {
     position: fixed;
-    top: -100%;
+    top: 4rem;
     left: 0;
     right: 0;
     background-color: white;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
     opacity: 0;
     visibility: hidden;
+    transform: translateY(-16px);
+    transition: opacity 0.3s ease, transform 0.3s var(--ease-out),
+      visibility 0.3s;
   }
 
   .mobile-menu.open {
-    top: 4rem;
     opacity: 1;
     visibility: visible;
+    transform: translateY(0);
   }
   
   .mobile-nav-links {
@@ -91,30 +125,44 @@
     color: #374151;
     text-decoration: none;
     border-radius: 0.375rem;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease,
+      transform 0.3s var(--ease-out);
   }
-  
-  .mobile-nav-link:hover {
-    background-color: #eef2ff;
-    color: #4f46e5;
+
+  /* Nudged with transform rather than padding — changing padding forces the
+     browser to re-do layout on every frame, transform does not. */
+  .mobile-nav-link:hover,
+  .mobile-nav-link.active {
+    background-color: var(--color-primary-soft);
+    color: var(--color-primary);
+    transform: translateX(6px);
+  }
+
+  .mobile-nav-link.active {
+    font-weight: 600;
   }
   /* Fa-Bars and Fa-Times */
-  /* Define styles for the hamburger icon */
-.hamburger-icon {
-  color: blue;
-  font-size: var(--fs-2xl);
-  transition: transform 0.3s ease;
-}
-
-/* Define styles for the close icon */
+  /* These were plain `blue`, which did not match the indigo used
+     everywhere else in the navbar. */
+.hamburger-icon,
 .close-icon {
-  color: blue;
+  color: var(--color-primary);
   font-size: var(--fs-2xl);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s var(--ease-out);
 }
 
+.toggle:hover .hamburger-icon,
+.toggle:hover .close-icon {
+  transform: scale(1.1);
+}
 
-.toggle{display: none;}
+.toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+}
   /* Media query for mobile devices */
   @media (max-width: 768px) {
     .nav-links {
@@ -123,10 +171,7 @@
     .toggle{
       display: block;
     }
-  
-    .mobile-menu-button {
-      display: block;
-    }
+
     .navbar-container{
       padding: 0 2.5rem;
     }

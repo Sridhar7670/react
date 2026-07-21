@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import useActiveSection from '../hooks/useActiveSection';
 import './Navbar.css';
 
 const NAV_ITEMS = [
@@ -10,6 +11,8 @@ const NAV_ITEMS = [
   { id: 'contact', label: 'Contact' },
 ];
 
+const SECTION_IDS = NAV_ITEMS.map((item) => item.id);
+
 const scrollToSection = (id) => {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 };
@@ -17,6 +20,7 @@ const scrollToSection = (id) => {
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const activeSection = useActiveSection(SECTION_IDS);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -39,7 +43,14 @@ export const Header = () => {
 
         <div className="nav-links">
           {NAV_ITEMS.map(({ id, label }) => (
-            <a key={id} href={`#${id}`} className="nav-link" onClick={(e) => handleNavClick(e, id)}>
+            <a
+              key={id}
+              href={`#${id}`}
+              className={`nav-link ${activeSection === id ? 'active' : ''}`}
+              // Tells screen readers which link is the current page section
+              aria-current={activeSection === id ? 'true' : undefined}
+              onClick={(e) => handleNavClick(e, id)}
+            >
               {label}
             </a>
           ))}
@@ -58,7 +69,13 @@ export const Header = () => {
       <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
         <div className="mobile-nav-links">
           {NAV_ITEMS.map(({ id, label }) => (
-            <a key={id} href={`#${id}`} className="mobile-nav-link" onClick={(e) => handleNavClick(e, id)}>
+            <a
+              key={id}
+              href={`#${id}`}
+              className={`mobile-nav-link ${activeSection === id ? 'active' : ''}`}
+              aria-current={activeSection === id ? 'true' : undefined}
+              onClick={(e) => handleNavClick(e, id)}
+            >
               {label}
             </a>
           ))}

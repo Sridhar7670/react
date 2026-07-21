@@ -1,5 +1,6 @@
 import Card from '../components/Card/Card';
 import { FaCode, FaDatabase, FaReact, FaAws, FaDocker } from 'react-icons/fa';
+import useScrollReveal from '../hooks/useScrollReveal';
 import './Skills.css';
 
 const SKILLS = [
@@ -58,13 +59,27 @@ const SKILLS = [
 ];
 
 const Skills = () => {
+  const [titleRef, isTitleVisible] = useScrollReveal();
+  // One observer for the whole grid. Each card then staggers itself using
+  // the `index` prop, so we don't need eight separate observers.
+  const [gridRef, isGridVisible] = useScrollReveal();
+
   return (
     <section className="skills-section" id="skills">
-      <h2 className="section-title">My Skills</h2>
-      <div className="skills-container">
-        {SKILLS.map((skill) => (
+      <h2
+        ref={titleRef}
+        className={`section-title reveal ${isTitleVisible ? 'is-visible' : ''}`}
+      >
+        My Skills
+      </h2>
+      <div
+        ref={gridRef}
+        className={`skills-container ${isGridVisible ? 'is-visible' : ''}`}
+      >
+        {SKILLS.map((skill, index) => (
           <Card
             key={skill.title}
+            index={index}
             icon={skill.icon}
             title={skill.title}
             description={skill.description}

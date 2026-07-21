@@ -1,5 +1,12 @@
-import developerImage from '../components/images/my_image.jpg';
+import developerImage from '../components/images/my_image_new.png';
+import useScrollReveal from '../hooks/useScrollReveal';
 import './About.css';
+
+// The file is 634x483. Passing these to the <img> lets the browser reserve
+// the right amount of space before the image downloads, so the text below
+// does not jump once it arrives.
+const IMAGE_WIDTH = 634;
+const IMAGE_HEIGHT = 483;
 
 const HIRE_REASONS = [
   'Full-stack developer with ~1 year of hands-on experience at Alpine Code',
@@ -9,22 +16,44 @@ const HIRE_REASONS = [
 ];
 
 const About = () => {
+  // The photo slides in from the left and the text from the right, so the
+  // two halves of the section meet in the middle as the user scrolls.
+  const [imageRef, isImageVisible] = useScrollReveal();
+  const [contentRef, isContentVisible] = useScrollReveal();
+
   return (
     <section className="about-section" id="about">
       <div className="about-container">
-        <div className="about-image-container">
-          <img src={developerImage} alt="Sridhar Reddy" className="profile-image" />
+        <div
+          ref={imageRef}
+          className={`about-image-container reveal reveal-left ${isImageVisible ? 'is-visible' : ''}`}
+        >
+          <img
+            src={developerImage}
+            alt="Sridhar Reddy"
+            className="profile-image"
+            width={IMAGE_WIDTH}
+            height={IMAGE_HEIGHT}
+            loading="lazy"
+          />
           <div className="image-border"></div>
         </div>
 
-        <div className="about-content">
-          <h2 className="section-title">
+        <div
+          ref={contentRef}
+          className={`about-content reveal reveal-right ${isContentVisible ? 'is-visible' : ''}`}
+        >
+          <h2 className="section-title section-title--left">
             Why <span className="highlight">Hire Me?</span>
           </h2>
 
           <div className="hire-reasons">
-            {HIRE_REASONS.map((reason) => (
-              <div key={reason} className="reason-item">
+            {HIRE_REASONS.map((reason, index) => (
+              <div
+                key={reason}
+                className="reason-item reveal"
+                style={{ transitionDelay: `${150 + index * 100}ms` }}
+              >
                 <div className="reason-icon">✓</div>
                 <p>{reason}</p>
               </div>

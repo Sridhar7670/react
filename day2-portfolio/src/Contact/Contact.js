@@ -1,12 +1,8 @@
 import { useEffect, useState } from 'react';
-import {
-  FaMapLocationDot,
-  FaEnvelope,
-  FaFacebook,
-  FaInstagram,
-  FaTwitter,
-  FaLinkedinIn,
-} from 'react-icons/fa6';
+import { FaMapLocationDot, FaEnvelope } from 'react-icons/fa6';
+import Button from '../components/Button/Button';
+import { SOCIAL_LINKS } from '../data/socialLinks';
+import useScrollReveal from '../hooks/useScrollReveal';
 import './Contact.css';
 
 // Web3Forms access keys are public by design; the env var lets deployments override it.
@@ -17,17 +13,14 @@ const STATUS_CLEAR_MS = 5000;
 
 const EMPTY_FORM = { name: '', email: '', phone: '', message: '' };
 
-const SOCIAL_LINKS = [
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/sridhar-reddy-37b63a203/', icon: <FaLinkedinIn size="2em" /> },
-  { label: 'Instagram', href: 'https://www.instagram.com/sridhar.rdy/', icon: <FaInstagram size="2em" /> },
-  { label: 'Twitter / X', href: 'https://x.com/Sridhar67956954', icon: <FaTwitter size="2em" /> },
-  { label: 'Facebook', href: 'https://www.facebook.com/sridhar.nani.129', icon: <FaFacebook size="2em" /> },
-];
-
 const ContactForm = () => {
   const [formData, setFormData] = useState(EMPTY_FORM);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+
+  // One reveal per column so the info slides in just before the form.
+  const [infoRef, isInfoVisible] = useScrollReveal();
+  const [formRef, isFormVisible] = useScrollReveal();
 
   useEffect(() => {
     if (!submitStatus) return undefined;
@@ -73,9 +66,15 @@ const ContactForm = () => {
 
   return (
     <div className="form" id="contact">
-      <div className="contact-info">
-        <h3 className="attractive-lines animate__animated animate__fadeInLeft animate__delay-1s">Let's get in touch</h3>
-        <p className="thanking-lines animate__animated animate__fadeInLeft animate__delay-1s">
+      {/* These used to use animate.css delay classes, which start counting
+          from page load — so the animation had already finished long before
+          anyone scrolled this far down. The reveal hook waits for the user. */}
+      <div
+        ref={infoRef}
+        className={`contact-info reveal reveal-left ${isInfoVisible ? 'is-visible' : ''}`}
+      >
+        <h3 className="attractive-lines">Let's get in touch</h3>
+        <p className="thanking-lines">
           Your interest means a lot to me. Thanks for visiting my Portfolio Feel free to reach out if you have
           any questions or just want to connect!
         </p>
@@ -100,16 +99,19 @@ const ContactForm = () => {
         <div className="connect">
           <h3 style={{ color: 'rgba(79, 70, 229, 1)' }}>Lets Connect:</h3>
           <div className="social-icons">
-            {SOCIAL_LINKS.map(({ label, href, icon }) => (
+            {SOCIAL_LINKS.map(({ label, href, Icon }) => (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
-                {icon}
+                <Icon size="2em" />
               </a>
             ))}
           </div>
         </div>
       </div>
 
-      <div className="contact-form">
+      <div
+        ref={formRef}
+        className={`contact-form reveal reveal-right ${isFormVisible ? 'is-visible' : ''}`}
+      >
         <span className="circle one"></span>
         <span className="circle two"></span>
 
@@ -165,9 +167,11 @@ const ContactForm = () => {
               required
             ></textarea>
           </div>
-          <button type="submit" disabled={isSubmitting} className="btn">
+          {/* Uses the shared Button component rather than its own styles, so
+              every button on the site now goes through one place. */}
+          <Button type="submit" variant="light" size="large" className="btn-pill" disabled={isSubmitting}>
             {isSubmitting ? 'Sending...' : 'Submit'}
-          </button>
+          </Button>
         </form>
       </div>
     </div>
