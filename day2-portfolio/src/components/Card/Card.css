@@ -1,0 +1,75 @@
+.skill-card {
+    background: var(--color-surface);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    /* Includes opacity so the scroll-reveal fade works. Without it, the
+       .reveal transition from index.css would be overridden here and the
+       card would pop in instead of fading. */
+    transition: opacity var(--duration) var(--ease-out),
+      transform 0.3s var(--ease-out),
+      box-shadow 0.3s ease,
+      border-top-color 0.3s ease;
+    max-width: 350px;
+    margin: 1rem;
+    /* Top edge picks up the brand colour on hover — see the rule below */
+    border-top: 3px solid transparent;
+  }
+
+  .skill-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(79, 70, 229, 0.18);
+    border-top-color: var(--color-primary);
+  }
+
+  .card-icon {
+    font-size: var(--fs-3xl);
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    display: inline-block;
+    transition: transform 0.3s var(--ease-out);
+  }
+
+  /* Icon grows a touch when the card is hovered */
+  .skill-card:hover .card-icon {
+    transform: scale(1.15);
+  }
+
+  .card-title {
+    color: var(--color-text);
+    font-size: var(--fs-lg);
+    margin-bottom: 1rem;
+  }
+
+  .card-description {
+    color: var(--color-text-soft);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  
+  .card-link {
+    display: inline-block;
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    position: relative;
+    text-decoration: none;
+  }
+  
+  .card-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width 0.3s ease;
+  }
+  
+  .card-link:hover::after {
+    width: 100%;
+  }

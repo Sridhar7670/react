@@ -1,20 +1,25 @@
-import Home from "./Home/home"
-import ContactForm from "./Contact/Contact"
-import { Header } from "./Navbar/Navbar"
-import Skills from "./skills/skill"
-import Projects from "./Projects/projects"
-import { BrowserRouter } from "react-router-dom"
-import About from "./about/about"
+import { Header } from "./Navbar/Navbar";
+import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
+import Home from "./Home/Home";
+import About from "./About/About";
+import Skills from "./Skills/Skills";
+import Projects from "./Projects/projects";
+import ContactForm from "./Contact/Contact";
+import Footer from "./Footer/Footer";
 
-export const App=()=>{
-    return(
-        <BrowserRouter>
-        <Header/>
-        <Home/>
-        <About/>
-        <Skills/>
-        <Projects/>
-        <ContactForm/>
-        </BrowserRouter>
-    )
-}
+export const App = () => {
+  return (
+    <>
+      <ScrollProgress />
+      <Header />
+      <main>
+        <Home />
+        <About />
+        <Skills />
+        <Projects />
+        <ContactForm />
+      </main>
+      <Footer />
+    </>
+  );
+};
