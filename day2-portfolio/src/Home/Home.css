@@ -1,7 +1,6 @@
 /* home.css */
 .home-section {
-    padding: 6rem 2rem 4rem;
-    scroll-margin-top: 5rem;
+    padding: 7rem 2rem 4rem;
     background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
     border-radius: 5px;
     /* Anchors the scroll cue at the bottom of the section */
@@ -98,10 +97,9 @@
      aspect-ratio keeps it the same shape everywhere. */
   .image-placeholder {
     width: 100%;
-    max-width: 340px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+    max-width: 360px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
     background-color: #e0e7ff;
     border-radius: 1rem;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
