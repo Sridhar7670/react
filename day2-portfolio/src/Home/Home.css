@@ -64,8 +64,32 @@
 
 .rotating-text {
   transition: all 0.5s ease-in-out;
-  font-size: 1.5rem;
+  font-size: 25px;
   margin: 1rem 0;
+}
+
+/* Per-line styling for the rotating intro/action text */
+.rotating-text.line-0 {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  color: #4f46e5;
+}
+
+.rotating-text.line-1 {
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: #1abc9c;
+}
+
+.rotating-text.line-2 {
+  font-family: 'Courier New', monospace;
+  color: #e11d48;
+}
+
+.rotating-text.line-3 {
+  font-family: Verdana, sans-serif;
+  letter-spacing: 1px;
+  color: #9333ea;
 }
 .p1,.p2{
   min-height: 2.2rem;

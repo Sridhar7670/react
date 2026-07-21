@@ -30,6 +30,7 @@
   }
   
   .card-link {
+    display: inline-block;
     background: none;
     border: none;
     color: #4f46e5;
@@ -37,6 +38,7 @@
     cursor: pointer;
     padding: 0.5rem 0;
     position: relative;
+    text-decoration: none;
   }
   
   .card-link::after {

@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
-  <rect width="640" height="360" fill="#1e1b4b"/>
-  <rect x="0" y="0" width="640" height="36" fill="#312e81"/>
-  <circle cx="20" cy="18" r="6" fill="#ef4444"/>
-  <circle cx="40" cy="18" r="6" fill="#f59e0b"/>
-  <circle cx="60" cy="18" r="6" fill="#22c55e"/>
-  <text x="320" y="175" text-anchor="middle" font-family="Courier New, monospace" font-size="30" fill="#a5b4fc">Alpine Code</text>
-  <text x="320" y="215" text-anchor="middle" font-family="Courier New, monospace" font-size="18" fill="#6366f1">production work — private repo</text>
-</svg>
