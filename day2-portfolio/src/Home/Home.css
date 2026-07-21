@@ -98,29 +98,20 @@
      aspect-ratio keeps it the same shape everywhere. */
   .image-placeholder {
     width: 100%;
-<<<<<<< HEAD
     max-width: 340px;
     height: auto;
     display: block;
     margin: 0 auto;
-=======
-    max-width: 360px;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
->>>>>>> b568405 (Rework home section and add a text front for grouped projects)
     background-color: #e0e7ff;
     border-radius: 1rem;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
     border: 8px solid white;
-<<<<<<< HEAD
-=======
     transition: transform 0.4s var(--ease-out), box-shadow 0.4s ease;
   }
 
   .image-placeholder:hover {
     transform: translateY(-6px);
     box-shadow: 0 20px 40px -5px rgba(79, 70, 229, 0.25);
->>>>>>> b568405 (Rework home section and add a text front for grouped projects)
   }
 
   /* --- Scroll cue --------------------------------------------------- */
@@ -158,7 +149,6 @@
     --animate-duration: 1s;
   }
 
-<<<<<<< HEAD
 /* Per-line styling for the rotating intro/action text */
 .rotating-text.line-0 {
   font-weight: 700;
@@ -188,8 +178,6 @@
 .home-text p {
   min-height: 60px; /* Prevent layout shift */
 }
-=======
->>>>>>> b568405 (Rework home section and add a text front for grouped projects)
   /* Responsive design */
   @media (max-width: 768px) {
     .home-section {
@@ -205,13 +193,9 @@
     }
 
     .image-placeholder {
-<<<<<<< HEAD
       width: 100%;
       max-width: 300px;
       height: auto;
-=======
-      max-width: 260px;
->>>>>>> b568405 (Rework home section and add a text front for grouped projects)
     }
 
     .home-role {
