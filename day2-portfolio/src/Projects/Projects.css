@@ -5,24 +5,8 @@
   scroll-margin-top: 5rem;
 }
 
-.section-title {
-  text-align: center;
-  font-size: var(--fs-3xl);
-  color: #1e293b;
-  margin-bottom: 3rem;
-  position: relative;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: #4f46e5;
-}
+/* .section-title is defined once in index.css — it used to be duplicated
+   here, in Skills.css and in About.css. */
 
 /* Tile Grid Layout */
 .tile-grid {
@@ -42,11 +26,55 @@
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  /* opacity is listed so the scroll-reveal fade works — this rule loads
+     after index.css and would otherwise replace the .reveal transition.
+     transform stays at 0.3s because it is shared with the hover lift
+     below, and a 0.6s lift would feel sluggish under the cursor. */
+  transition: opacity var(--duration) var(--ease-out),
+    transform 0.3s var(--ease-out),
+    box-shadow 0.3s ease;
 }
 
-.project-tile:hover {
-  transform: translateY(-5px);
+/* ---------------------------------------------------------------------
+   A tile flips when any one of three things happens, so every kind of
+   visitor can reach the back:
+
+     1. hovered      — mouse or trackpad only, see the @media block below
+     2. tapped       — .is-flipped, added by the click handler in Projects.js
+     3. focused      — :focus-within, for people navigating by keyboard
+
+   Hover is kept separate because `hover: hover` is only true on devices
+   with a real pointer. On a phone there is no hover, so without 2 and 3
+   the back of the card — the description and the Code / Live Demo links —
+   would be unreachable.
+   --------------------------------------------------------------------- */
+@media (hover: hover) {
+  .project-tile:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(79, 70, 229, 0.2);
+  }
+
+  .project-tile:hover .tile-front {
+    transform: rotateY(180deg);
+  }
+
+  .project-tile:hover .tile-back {
+    transform: rotateY(0deg);
+  }
+
+  .project-tile:hover .tile-image {
+    transform: scale(1.08);
+  }
+}
+
+.project-tile.is-flipped .tile-front,
+.project-tile:focus-within .tile-front {
+  transform: rotateY(180deg);
+}
+
+.project-tile.is-flipped .tile-back,
+.project-tile:focus-within .tile-back {
+  transform: rotateY(0deg);
 }
 
 .tile-front,
@@ -67,12 +95,21 @@
 }
 
 .tile-back {
-  background: #4f46e5;
+  background: var(--color-primary);
   color: white;
   padding: 1.5rem;
   transform: rotateY(180deg);
   z-index: 1;
-  top: -50px;
+  /* Centred rather than bottom-aligned. It used to inherit
+     `justify-content: flex-end` from the rule above and was then dragged
+     back up with `top: -50px`, which pushed the card's top edge off screen
+     whenever the description ran long. */
+  justify-content: center;
+}
+
+/* Hidden by default; only devices without hover show the tap hint. */
+.tap-hint {
+  display: none;
 }
 
 .project-tile:hover .tile-front,
@@ -102,6 +139,37 @@
   z-index: -1;
 }
 
+/* Front of a tile that has no screenshot. Sits at the same z-index as
+   .tile-image so the dark scrim on .tile-front still darkens the bottom
+   and keeps the tech tags readable. */
+.tile-note {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  /* Extra bottom padding leaves room for the tech tags underneath */
+  padding: 1.5rem 1.5rem 4.5rem;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #7c3aed 100%);
+}
+
+.tile-note p {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+
+.tile-note-icon {
+  font-size: var(--fs-2xl);
+  opacity: 0.9;
+  flex-shrink: 0;
+}
+
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
@@ -116,6 +184,12 @@
   border-radius: 20px;
   font-size: var(--fs-xs);
   font-weight: 500;
+}
+
+/* Slowly zoom the thumbnail while hovering the tile (see the hover block
+   further up, where the zoom itself is defined) */
+.tile-image {
+  transition: transform 0.6s var(--ease-out);
 }
 
 .project-title {
@@ -144,12 +218,42 @@
   padding: 0.6rem 1.2rem;
   border-radius: 5px;
   font-weight: 500;
-  transition: background 0.3s ease;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.25s var(--ease-out);
 }
 
 .project-link:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
   text-decoration: none;
+}
+
+/* ---------------------------------------------------------------------
+   Touch devices keep the flip; the tap handler drives it instead of hover.
+   --------------------------------------------------------------------- */
+@media (hover: none) {
+  /* Tells the visitor the card does something. Sits inside .tile-front, so
+     it is hidden automatically once the card turns over. */
+  .tap-hint {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    padding: 0.35rem 0.7rem;
+    border-radius: 20px;
+    font-size: var(--fs-xs);
+    font-weight: 500;
+  }
+
+  /* Comfortable tap targets — 44px is the usual minimum */
+  .project-link {
+    min-height: 44px;
+  }
 }
 
 /* Responsive Design */
@@ -157,8 +261,10 @@
   .tile-grid {
     grid-template-columns: 1fr;
   }
-  
+
+  /* A single-column card is narrower, so the description wraps onto more
+     lines and needs more height to fit without being cut off. */
   .project-tile {
-    height: 250px;
+    height: 340px;
   }
 }
