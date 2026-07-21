@@ -1,5 +1,6 @@
 .form {
   width: 100%;
+  scroll-margin-top: 5rem;
   background-color: #fff;
   border-radius: 5px;
   /* box-shadow: 4px 4px 4px gray;  */
@@ -75,6 +76,7 @@
   
   .input {
     width: 80%;
+    box-sizing: border-box;
     outline: none;
     border: 2px solid #fafafa;
     background: none;
@@ -86,6 +88,10 @@
     transition: 0.3s;
   }
   
+  .input:focus {
+    border-color: #149279;
+  }
+
   textarea.input {
     padding: 0.8rem 1.2rem;
     min-height: 150px;
@@ -143,14 +149,30 @@
   }
   table tr td{
     padding-right: 2.5rem;
+    word-break: break-word;
   }
 
   @media (max-width: 768px) {
-    
+
     .contact-form:before {
-      display: none; 
+      display: none;
     }
     .form {
-      grid-template-columns: 1fr; 
+      grid-template-columns: 1fr;
+    }
+    .contact-info {
+      padding: 2rem 1.5rem;
+    }
+    form {
+      padding: 1.8rem 1.5rem;
+    }
+    .input {
+      width: 100%;
+    }
+    table tr td {
+      padding-right: 1rem;
+    }
+    .circle.two {
+      display: none;
     }
   }

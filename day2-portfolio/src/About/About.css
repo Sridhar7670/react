@@ -1,6 +1,7 @@
 /* About.css */
 .about-section {
     padding: 5rem 2rem;
+    scroll-margin-top: 5rem;
     background: linear-gradient(to right, #f8fafc, #ffffff);
   }
   
@@ -102,8 +103,9 @@
     }
     
     .about-image-container {
-      width: 59vw;
-      height: 35vh;
+      width: 100%;
+      max-width: 320px;
+      height: auto;
       margin-bottom: 2rem;
     }
     

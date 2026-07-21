@@ -69,11 +69,13 @@
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
     opacity: 0;
+    visibility: hidden;
   }
-  
+
   .mobile-menu.open {
     top: 4rem;
     opacity: 1;
+    visibility: visible;
   }
   
   .mobile-nav-links {
