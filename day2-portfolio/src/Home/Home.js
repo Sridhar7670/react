@@ -5,7 +5,7 @@ import myImage from '../components/images/my_image.jpg';
 import './Home.css';
 import 'animate.css';
 
-const RESUME_URL = 'https://drive.google.com/file/d/1S0HdJVfIKkTSXX9DTKH7JjBxMqdbqVLQ/view?usp=sharing';
+const RESUME_URL = 'https://drive.google.com/file/d/1Vvn9EQYBj4YRsPSqmlmDxZi_2gw554zn/view?usp=sharing';
 
 // Short lines that cycle below the headline. The role and summary above them
 // stay put, so a visitor always sees what I do even if they land midway
